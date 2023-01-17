@@ -14,16 +14,19 @@ const Scroll = () => {
           url: slide1,
           caption: 'Easter Light Phrma',
           description: 'Easter Light Pharma is a leading supplier of high-quality pharmaceuticals and biomedical equipment.',
+          btn: <button className="bg-green-400 text-white rounded-full px-4 py-2">Get In Touch</button>,
         },
         {
           url: slide4,
           caption: 'Advancing medicine, improving lives',
           description: 'We are dedicated to advancing medicine and improving lives through our wide range of pharmaceuticals and biomedical equipment. We strive to provide the latest and most effective solutions to healthcare professionals.',
+          btn:'',
         },
         {
           url: slide3,
           caption: 'Leading the way in biomedical innovation',
           description: 'Easter Light Pharma is a leader in biomedical innovation, supplying cutting-edge pharmaceuticals and medical equipment to the healthcare industry. They are committed to driving progress and improving patient outcomes through their products.',
+          btn:'',
         },
       ];
   return (
@@ -40,6 +43,7 @@ const Scroll = () => {
             <div className='flex flex-col gap-8'>
             <span className='text-white text-center text-3xl'>{slideImage.caption}</span>
             <p className='text-center text-sm text-white'>{slideImage.description}</p>
+            <div className='p-24'>{slideImage.btn}</div>
             </div>
            </div>
            </div>
