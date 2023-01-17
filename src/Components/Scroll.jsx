@@ -21,7 +21,7 @@ const Scroll = () => {
           description: 'We are dedicated to advancing medicine and improving lives through our wide range of pharmaceuticals and biomedical equipment. We strive to provide the latest and most effective solutions to healthcare professionals.',
         },
         {
-          url: slide5,
+          url: slide3,
           caption: 'Leading the way in biomedical innovation',
           description: 'Easter Light Pharma is a leader in biomedical innovation, supplying cutting-edge pharmaceuticals and medical equipment to the healthcare industry. They are committed to driving progress and improving patient outcomes through their products.',
         },
@@ -31,11 +31,14 @@ const Scroll = () => {
     <Slide>
      {slideImages.map((slideImage, index)=> (
         <div className="h-screen  each-slide" key={index}>
-          <div className='h-screen w-full bg-cover bg-center  backdrop-blur-lg' style={{'backgroundImage': `url(${slideImage.url})`}}>
+          <div className='relative h-screen w-full bg-cover bg-center  backdrop-blur-lg' style={{'backgroundImage': `url(${slideImage.url})`}}>
+          <div className='absolute top-36 left-10 rounded-full bg-green-400 w-24 h-24 opacity-20 animate-blob'></div>
+          <div className='absolute top-36 left-32 rounded-full bg-green-400 w-24 h-24 opacity-20 animate-blob'></div>
+          <div className='absolute top-36 left-52 rounded-full bg-green-400 w-24 h-24  opacity-20 animate-blob'></div>
             <div className='absolute h-screen w-full opacity-90 backdrop-blur-sm'>
-          <div className='absolute mt-36  mx-4 h-auto w-80  bg-black opacity-40 backdrop-blur-sm  '>
-            <div className='flex flex-col gap-6'>
-            <span className=' text-white text-center text-3xl'>{slideImage.caption}</span>
+          <div className='absolute mt-40  mx-4 h-auto w-80'>
+            <div className='flex flex-col gap-8'>
+            <span className='text-white text-center text-3xl'>{slideImage.caption}</span>
             <p className='text-center text-sm text-white'>{slideImage.description}</p>
             </div>
            </div>
