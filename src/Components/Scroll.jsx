@@ -27,7 +27,7 @@ const Scroll = () => {
         },
       ];
   return (
-    <div className="slide-container">
+    <section className="slide-container">
     <Slide>
      {slideImages.map((slideImage, index)=> (
         <div className="h-screen  each-slide" key={index}>
@@ -47,7 +47,7 @@ const Scroll = () => {
         </div>
       ))} 
     </Slide>
-  </div>
+  </section>
   )
 }
 export default Scroll;
