@@ -23,11 +23,11 @@ const Hero = () => {
         <h1 className=''>ESTERN LIGHT PHRMA</h1>
         <FontAwesomeIcon icon={faXmark} onClick={toggle} className='md:hidden text-xl' />
         </div>
-        <ul className='flex flex-col m-20 gap-4'>
-        <li className='text-blue-500'>Home</li>
-        <li className='text-blue-500'>About</li>
-        <li className='text-blue-500'>Services</li>
-        <li className='text-blue-500'>Contact</li>
+        <ul className='flex flex-col m-20 gap-4 text-white'>
+        <li className=''>Home</li>
+        <li className=''>About</li>
+        <li className=''>Services</li>
+        <li className=''>Contact</li>
         </ul>
         </nav>: ''}
       </>
