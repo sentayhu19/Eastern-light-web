@@ -4,7 +4,6 @@
 
 
 #slide {
-  position: absolute;
   left: -200px;
   -webkit-animation: slide 0.5s forwards;
   -webkit-animation-delay: 2s;
