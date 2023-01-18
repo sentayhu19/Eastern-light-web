@@ -19,7 +19,7 @@ const Hero = () => {
         <Scroll/>
         {/* make this nav slide from the top to exit and back to come back smoth */}
         {isOpen ? 
-        <nav className='fixed blob-nav overflow-hidden   top-0 h-screen w-[50%] bg-green-500 z-50'>
+        <nav className='fixed blob-nav overflow-hidden   top-0 h-screen w-[50%] bg-green-500 z-50' id="slide">
         <div className='flex justify-between m-6 text-white'>
         <h1 className=''>ESTERN LIGHT PHRMA</h1>
         
