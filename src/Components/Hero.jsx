@@ -9,10 +9,10 @@ const Hero = () => {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <>
-        <header className='m-6'> 
+        <header className='sm:m-6 md:mx-16'> 
         <nav className='flex w-full justify-between'>
           <div className='flex gap-2 items-center border-b'  >
-        <div className='text-[11px] text-[#006394]'>
+        <div className='sm:text-[11px] md:text-[20px] text-[#006394]'>
           <span>EASTERN  <FontAwesomeIcon className='text-[#76A900] top-2 pt-1 text-2xl' icon={faMortarPestle}/></span>
           <span className=' text-[#76A900]'> LIGHT</span> 
         </div>
@@ -20,11 +20,11 @@ const Hero = () => {
         <button className='sm:hidden'>CONTACT US</button>
         <FontAwesomeIcon icon={faBars} onClick={toggle} className='md:hidden text-xl' id={isOpen ? 'button-hidden': ''} />
         <FontAwesomeIcon icon={faXmark} onClick={toggle} className='md:hidden text-xl' id={isOpen ? '': 'button-hidden'} />
-        <ul className='flex sm:hidden md:block  text-[#76A900]'>
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
-        <li>Contact</li>
+        <ul className='flex sm:hidden md:flex gap-14  text-[#76A900]'>
+        <li><a>Home</a></li>
+        <li><a>About</a></li>
+        <li><a>Services</a></li>
+        <li><a>Contact</a></li>
         </ul>
         </nav>
         </header>
