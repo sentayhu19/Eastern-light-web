@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faMortarPestle } from '@fortawesome/free-solid-svg-icons';
 import Scroll from './Scroll';
 const Hero = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -10,7 +11,13 @@ const Hero = () => {
     <>
         <header className='m-6'> 
         <nav className='flex justify-between'>
-        <h1 className=''>ESTERN LIGHT PHRMA</h1>
+          <div className='flex flex-col  gap-2 items-center border-b'  >
+        
+        <div className='text-[11px] text-[#006394]'>
+          <span>EASTERN  <FontAwesomeIcon className='text-[#76A900] top-2 pt-1 text-2xl' icon={faMortarPestle}/></span>
+          <span className=' text-[#76A900]'> LIGHT</span> </div>
+          
+          </div>
         <button className='sm:hidden'>CONTACT US</button>
         <FontAwesomeIcon icon={faBars} onClick={toggle} className='md:hidden text-xl' id={isOpen ? 'button-hidden': ''} />
         <FontAwesomeIcon icon={faXmark} onClick={toggle} className='md:hidden text-xl' id={isOpen ? '': 'button-hidden'} />
@@ -21,7 +28,9 @@ const Hero = () => {
         {isOpen ? 
         <nav className='fixed blob-nav overflow-hidden   top-0 h-screen w-[50%] bg-[#76A900] z-50 rounded-r-xl' id="slide" data-aos="flip-left">
         <div className='flex justify-between m-6 text-white'>
-        <h1 className=''>ESTERN LIGHT PHRMA</h1>
+        <div className='text-[11px] text-white'>
+          <span>EASTERN  <FontAwesomeIcon className='top-2 pt-1 text-2xl' icon={faMortarPestle}/></span>
+          <span> LIGHT</span> </div>
         
         </div>
         <ul className='flex flex-col m-20 gap-4 text-white' data-aos="fade-up">
