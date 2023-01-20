@@ -7,6 +7,7 @@ import Services from './Components/Services';
 import Hero from './Components/Hero';
 import Who from './Components/Who';
 import About from './Components/About';
+import Contactus from './Components/Contactus';
 function App() {
   const [loading, setloading] =  useState(false);
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
       <Services/>
       <Who/>
       <About/>
+      <Contactus/>
       </>
       )}
     

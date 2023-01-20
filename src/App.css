@@ -19,4 +19,77 @@
   100% { left: 0; }
 }
 
-/* Text fade animations */
+/* Form anim */
+
+form{
+  width:90vw;
+  max-width:768px;
+  border:1px solid #ddd;
+  padding:3vw;
+  display:flex;
+  flex-direction:column;
+  border-radius:5px;
+}
+
+label{
+  margin-bottom:15px;
+  position:relative;
+  border-bottom:1px solid #ddd;
+}
+input{
+  width:100%;
+  padding:10px 0px;
+  margin-top:20px;
+  border:none;
+  outline:none;
+}
+input::placeholder{
+  opacity:0;
+}
+span{
+  position:absolute;
+  top:0;
+  left:0;
+  transform:translateY(30px);
+  font-size:0.825em;
+  transition-duration:300ms;
+}
+
+label:focus-within > span,
+input:not(:placeholder-shown) + span{
+  color:#76A900;
+  transform:translateY(0px);
+}
+
+
+/* Textarea */
+textarea:focus~.floating-label,
+textarea:not(:placeholder-shown)~.floating-label,
+input:not(:focus):valid~.floating-label {
+  top: -30px;
+  bottom: 10px;
+  left: 2px;
+  opacity: 1;
+  color:#76A900;
+}
+
+.scheme-des textarea {
+  width: 100%;
+  resize: none;
+  padding: 10px 20px 0 20px;
+  border:1px solid #ddd;
+}
+
+.floating-label {
+  position: absolute;
+  pointer-events: none;
+  left: 3px;
+  top: 10px;
+  transition: 0.7s ease all;
+}
+
+.form-float {
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
