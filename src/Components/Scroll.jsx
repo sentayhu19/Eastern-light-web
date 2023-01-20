@@ -35,13 +35,17 @@ const Scroll = () => {
      {slideImages.map((slideImage, index)=> (
         <div className="h-screen  each-slide" key={index}>
           <div className='relative h-screen w-full bg-cover bg-center  backdrop-blur-lg' style={{'backgroundImage': `url(${slideImage.url})`}}>
-          <div className='absolute top-36 left-10 rounded-full bg-green-400 w-24 h-24 opacity-20 animate-blob'></div>
-          <div className='absolute top-36 left-32 rounded-full bg-green-400 w-24 h-24 opacity-20 animate-blob'></div>
-          <div className='absolute top-36 left-52 rounded-full bg-green-400 w-24 h-24  opacity-20 animate-blob'></div>
+            <div className='relative w-80 m-auto'>
+          <div className='absolute top-36 left-[4%] rounded-full bg-green-400 w-24 h-24 opacity-20 animate-blob'></div>
+          <div className='absolute top-36 left-[30%] rounded-full bg-green-400 w-24 h-24 opacity-20 animate-blob'></div>
+          <div className='absolute top-36 left-[55%] rounded-full bg-green-400 w-24 h-24  opacity-20 animate-blob'></div>
+          </div>
             <div className='absolute h-screen w-full opacity-90 backdrop-blur-sm'>
-          <div className='absolute mt-40  mx-4 h-auto w-80'>
+          <div className='absolute pt-40   h-auto w-full text-center px-8'>
             <div className='flex flex-col gap-8'>
-            <span className='text-white text-center text-3xl'>{slideImage.caption}</span>
+              <h1>
+            <span className='text-white  text-3xl'>{slideImage.caption}</span>
+            </h1>
             <p className='text-center text-sm text-white'>{slideImage.description}</p>
             <div className='p-24'>{slideImage.btn}</div>
             </div>
