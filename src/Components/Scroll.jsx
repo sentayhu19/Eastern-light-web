@@ -41,12 +41,12 @@ const Scroll = () => {
           <div className='absolute top-36 left-[55%] rounded-full bg-green-400 w-24 h-24  opacity-20 animate-blob'></div>
           </div>
             <div className='absolute h-screen w-full opacity-90 backdrop-blur-sm'>
-          <div className='absolute pt-40   h-auto w-full text-center px-8'>
+          <div className='absolute pt-40 text-gray-700    h-auto w-full text-center px-8'>
             <div className='flex flex-col gap-8'>
               <h1>
-            <span className='text-white  text-3xl'>{slideImage.caption}</span>
+            <span className=' text-4xl font-bold'>{slideImage.caption}</span>
             </h1>
-            <p className='text-center text-sm text-white'>{slideImage.description}</p>
+            <p className='text-center text-md text-gray-600'>{slideImage.description}</p>
             <div className='p-24'>{slideImage.btn}</div>
             </div>
            </div>
