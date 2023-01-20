@@ -24,9 +24,9 @@ const Hero = () => {
         <h1 className=''>ESTERN LIGHT PHRMA</h1>
         
         </div>
-        <ul className='flex flex-col m-20 gap-4 text-white'>
+        <ul className='flex flex-col m-20 gap-4 text-white' data-aos="fade-up">
         <li className=''>Home</li>
-        <li className=''>About</li>
+        <li className='' >About</li>
         <li className=''>Services</li>
         <li className=''>Contact</li>
         </ul>
