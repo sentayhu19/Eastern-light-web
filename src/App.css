@@ -93,3 +93,19 @@ input:not(:focus):valid~.floating-label {
   margin-bottom: 30px;
   margin-top: 30px;
 }
+
+.font-logo {
+  font-family: 'Explora', cursive;
+}
+.estyle::first-letter {
+  font-family: 'Explora', cursive;
+  font-size: 1.5em;
+  
+  
+}
+.Stethoscope{
+  transform: rotate(86deg);
+  position: absolute;
+ top: 23px;
+ left: -7px;
+}

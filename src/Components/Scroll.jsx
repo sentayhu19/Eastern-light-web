@@ -13,7 +13,7 @@ const Scroll = () => {
         {
           url: slide1,
           urldesk: deskslider1,
-          caption: 'Easter Light Phrma',
+          caption: 'Easter Light Pharma',
           description: 'Easter Light Pharma is a leading supplier of high-quality pharmaceuticals and biomedical equipment.',
           btn: <button className="bg-green-400 text-white rounded-full px-4 py-2">Get In Touch</button>,
         },
@@ -55,9 +55,7 @@ const Scroll = () => {
            </div>
            </div>
           </div>
-
           {/* Desktop */}
-
           <div className='sm:hidden md:block  relative h-screen w-full bg-cover bg-center  backdrop-blur-lg' style={{'backgroundImage': `url(${slideImage.urldesk})`}}>
             <div className='absolute h-screen w-full opacity-90 backdrop-blur-sm'>
           <div className='absolute right-[23%] top-44 w-[80%]  pt-40 text-gray-700 h-auto text-center px-8'>
@@ -72,7 +70,6 @@ const Scroll = () => {
            </div>
           </div>
           </div>
-       
       ))} 
     </Slide>
   </section>

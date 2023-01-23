@@ -8,6 +8,7 @@ import Hero from './Components/Hero';
 import Who from './Components/Who';
 import About from './Components/About';
 import Contactus from './Components/Contactus';
+import Footer from './Components/Footer';
 function App() {
   const [loading, setloading] =  useState(false);
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
       <Who/>
       <About/>
       <Contactus/>
+      <Footer/>
       </>
       )}
     
