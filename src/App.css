@@ -1,0 +1,138 @@
+#button-hidden{
+  display: none;
+}
+
+
+#slide {
+  left: -200px;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.2s;
+}
+
+@-webkit-keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes slide {
+  100% { left: 0; }
+}
+
+/* Form anim */
+
+form{
+  width:90vw;
+  max-width:768px;
+  border:1px solid #ddd;
+  padding:3vw;
+  display:flex;
+  flex-direction:column;
+  border-radius:5px;
+}
+
+label{
+  margin-bottom:15px;
+  position:relative;
+  border-bottom:1px solid #ddd;
+}
+input{
+  width:100%;
+  padding:10px 0px;
+  margin-top:20px;
+  border:none;
+  outline:none;
+}
+input::placeholder{
+  opacity:0;
+}
+span{
+  position:absolute;
+  top:0;
+  left:0;
+  transform:translateY(30px);
+  font-size:0.825em;
+  transition-duration:300ms;
+}
+
+label:focus-within > span,
+input:not(:placeholder-shown) + span{
+  color:#76A900;
+  transform:translateY(0px);
+}
+
+
+/* Textarea */
+textarea:focus~.floating-label,
+textarea:not(:placeholder-shown)~.floating-label,
+input:not(:focus):valid~.floating-label {
+  top: -30px;
+  bottom: 10px;
+  left: 2px;
+  opacity: 1;
+  color:#76A900;
+}
+
+.scheme-des textarea {
+  width: 100%;
+  resize: none;
+  padding: 10px 20px 0 20px;
+  border:1px solid #ddd;
+}
+
+.floating-label {
+  position: absolute;
+  pointer-events: none;
+  left: 3px;
+  top: 10px;
+  transition: 0.7s ease all;
+}
+
+.form-float {
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.font-logo {
+  font-family: 'Explora', cursive;
+}
+.estyle::first-letter {
+  font-family: 'Explora', cursive;
+  font-size: 1.5em;
+  
+  
+}
+.Stethoscope{
+  transform: rotate(86deg);
+  position: absolute;
+ top: 23px;
+ left: -7px;
+}
+
+.contact-bg {
+      /* ff 3.6+ */
+      background:-moz-linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%); 
+
+      /* safari 5.1+,chrome 10+ */
+      background:-webkit-linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%);
+  
+      /* opera 11.10+ */
+      background:-o-linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%);
+  
+      /* ie 6-9 */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76A900', endColorstr='#00BCD4', GradientType=0 );
+  
+      /* ie 10+ */
+      background:-ms-linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%);
+  
+      /* global 94%+ browsers support */
+      background:linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%);
+}
+button:disabled
+{
+  background-color: #c6ccb6;
+  color: #fff;
+  border: 1px solid #76A900;
+  cursor: not-allowed;
+}
