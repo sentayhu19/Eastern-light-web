@@ -16,7 +16,7 @@ function App() {
     setTimeout(() => {
       setloading(false);
     }, 4000);
-    Aos.init({ duration: 1000, delay: 150 });
+    Aos.init({ duration: 1400, delay: 150 });
   }, []);
   return (
     <div className="App">

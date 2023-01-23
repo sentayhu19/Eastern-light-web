@@ -109,3 +109,30 @@ input:not(:focus):valid~.floating-label {
  top: 23px;
  left: -7px;
 }
+
+.contact-bg {
+      /* ff 3.6+ */
+      background:-moz-linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%); 
+
+      /* safari 5.1+,chrome 10+ */
+      background:-webkit-linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%);
+  
+      /* opera 11.10+ */
+      background:-o-linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%);
+  
+      /* ie 6-9 */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76A900', endColorstr='#00BCD4', GradientType=0 );
+  
+      /* ie 10+ */
+      background:-ms-linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%);
+  
+      /* global 94%+ browsers support */
+      background:linear-gradient(90deg, rgba(0, 188, 212, 1) 50%, rgba(118, 169, 0, 1) 100%);
+}
+button:disabled
+{
+  background-color: #c6ccb6;
+  color: #fff;
+  border: 1px solid #76A900;
+  cursor: not-allowed;
+}
