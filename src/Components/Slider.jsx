@@ -7,6 +7,8 @@ import slide3 from '../assets/slide3.jpg';
 import slide4 from '../assets/slide4.jpg';
 import slide5 from '../assets/slide5.jpg';
 import deskslider1 from "../assets/desk-slider1.jpg";
+import deskslider2 from "../assets/centrifuge.jpg";
+import deskslider3 from "../assets/ECG.jpg";
 
 const Scroll = () => {
     const slideImages = [
@@ -19,14 +21,14 @@ const Scroll = () => {
         },
         {
           url: slide4,
-          urldesk: deskslider1,
+          urldesk: deskslider2,
           caption: 'Advancing medicine, improving lives',
           description: 'We are dedicated to advancing medicine and improving lives through our wide range of pharmaceuticals and biomedical equipment. We strive to provide the latest and most effective solutions to healthcare professionals.',
           btn:'',
         },
         {
           url: slide3,
-          urldesk: deskslider1,
+          urldesk: deskslider3,
           caption: 'Leading the way in biomedical innovation',
           description: 'Easter Light Pharma is a leader in biomedical innovation, supplying cutting-edge pharmaceuticals and medical equipment to the healthcare industry. We are committed to driving progress and improving patient outcomes through their products.',
           btn:'',
