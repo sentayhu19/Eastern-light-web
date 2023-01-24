@@ -28,12 +28,12 @@ const Scroll = () => {
           url: slide3,
           urldesk: deskslider1,
           caption: 'Leading the way in biomedical innovation',
-          description: 'Easter Light Pharma is a leader in biomedical innovation, supplying cutting-edge pharmaceuticals and medical equipment to the healthcare industry. They are committed to driving progress and improving patient outcomes through their products.',
+          description: 'Easter Light Pharma is a leader in biomedical innovation, supplying cutting-edge pharmaceuticals and medical equipment to the healthcare industry. We are committed to driving progress and improving patient outcomes through their products.',
           btn:'',
         },
       ];
   return (
-    <section className="slide-container">
+    <section className="slide-container mt-20">
     <Slide>
      {slideImages.map((slideImage, index)=> (
         <div className="h-screen  each-slide" key={index}>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -8,11 +8,28 @@ import Scroll from './Slider';
 const Hero = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const [scroll, setScroll] = React.useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 0) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
-        <header className='sm:m-6 md:mx-16'> 
-        <nav className='flex w-full items-center justify-between'>
-          <div className='flex gap-2 items-center border-b'  >
+        <header className='sm:m-0'> 
+        <div className='fixed top-0 z-10 w-full bg-white'>
+        <div className={scroll ? ' w-full border-b-2 border-gray-200 shadow-md ' : ''}  >
+        <nav className='flex  w-full items-center md:mx-10 justify-between md:px-20 sm:px-8 sm:mt-6  z-10  h-auto  '>
+          
         <div className='flex items-center relative font-bold  sm:text-[11px] md:text-[20px] text-[#006394]'>
           <p className='font-logo estyle relative '>
             Eastern  
@@ -21,9 +38,9 @@ const Hero = () => {
             <FontAwesomeIcon className='absolute text-[8px] top-4 left-2 text-white' icon={faStethoscope}/>
             <FontAwesomeIcon className='text-[#76A900] top-2 pt-1 text-2xl' icon={faMortarPestle}/>
             </div>
-          <p className=' text-[#76A900] font-logo'> light</p> 
+          <p className='text-[#76A900] font-logo'> light</p> 
         </div>
-          </div>
+         
         <button className='sm:hidden'>CONTACT US</button>
         <FontAwesomeIcon icon={faBars} onClick={toggle} className='md:hidden text-xl' id={isOpen ? 'button-hidden': ''} />
         <FontAwesomeIcon icon={faXmark} onClick={toggle} className='md:hidden text-xl' id={isOpen ? '': 'button-hidden'} />
@@ -34,17 +51,23 @@ const Hero = () => {
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>About</a></li>
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Contact us</a></li>
         </ul>
+        
         </nav>
+        </div>
+        </div>
         </header>
         <Scroll/>
         {/*  nav slide */}
         {isOpen ? 
-        <nav className='fixed blob-nav overflow-hidden md:hidden   top-0 h-screen w-[50%] bg-[#76A900] z-50 rounded-r-xl' id="slide" data-aos="flip-left">
+        <nav className='fixed blob-nav overflow-hidden md:hidden top-0 h-screen w-[50%] bg-[#76A900] z-50 rounded-r-xl' id="slide" data-aos="flip-left">
         <div className='flex justify-between m-6 text-white'>
         <div className='flex items-center text-[11px] text-white'>
-          <p>EASTERN  </p>
-            <FontAwesomeIcon className='top-2 pt-1 text-2xl' icon={faMortarPestle}/>
-          <p> LIGHT</p> </div>
+          <p className='font-logo estyle'>Eastern  </p>
+          <div className='relative'>
+            <FontAwesomeIcon className='absolute text-[8px] top-4 left-2 text-[#76A900]' icon={faStethoscope}/>
+            <FontAwesomeIcon className='text-white top-2 pt-1 text-2xl' icon={faMortarPestle}/>
+            </div>
+          <p className='font-logo estyle'> light</p> </div>
         
         </div>
         <ul className='flex flex-col m-20 gap-4 text-white ' data-aos="fade-up">
