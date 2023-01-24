@@ -32,11 +32,11 @@ const handleChange = (e) => {
             <input type="text" id="phone" name='phone' onChange={handleChange} value={phone} required placeholder="Phone"/>
             <span>Phone</span>
         </label>
-        <div class="form-float scheme-des">
+        <div class="form-float scheme-des" data-aos="fade-up">
   <textarea name="sendmessage" class="inputText" onChange={handleChange}  id="" value={sendmessage} cols="30" rows="10" placeholder=" "></textarea>
   <label class="floating-label">Message</label>
 </div>
-        <button disabled={name === "" || phone === "" || sendmessage === "" ? ' ' : ''} type="submit" className='bg-[#76A900] text-white rounded-lg'>Submit</button>
+        <button disabled={name === "" || phone === "" || sendmessage === "" ? ' ' : ''} type="submit" className='bg-[#76A900] text-white rounded-lg' data-aos="fade-up">Submit</button>
     </form>
     </div>
     </section>

@@ -95,10 +95,10 @@ input:not(:focus):valid~.floating-label {
 }
 
 .font-logo {
-  font-family: 'Explora', cursive;
+  font-family: 'Libre Bodoni', serif;
 }
 .estyle::first-letter {
-  font-family: 'Explora', cursive;
+  font-family: 'Libre Bodoni', serif;
   font-size: 1.5em;
   
   
@@ -136,3 +136,26 @@ button:disabled
   border: 1px solid #76A900;
   cursor: not-allowed;
 }
+
+.desktop-bg {
+
+  /* ff 3.6+ */
+  background:-moz-linear-gradient(90deg, rgba(118, 169, 0, 1) 28%, rgba(0, 99, 148, 1) 100%); 
+
+  /* safari 5.1+,chrome 10+ */
+  background:-webkit-linear-gradient(90deg, rgba(118, 169, 0, 1) 28%, rgba(0, 99, 148, 1) 100%);
+
+  /* opera 11.10+ */
+  background:-o-linear-gradient(90deg, rgba(118, 169, 0, 1) 28%, rgba(0, 99, 148, 1) 100%);
+
+  /* ie 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006394', endColorstr='#76A900', GradientType=0 );
+
+  /* ie 10+ */
+  background:-ms-linear-gradient(90deg, rgba(118, 169, 0, 1) 28%, rgba(0, 99, 148, 1) 100%);
+
+  /* global 94%+ browsers support */
+  background:linear-gradient(90deg, rgba(118, 169, 0, 1) 28%, rgba(0, 99, 148, 1) 100%);
+
+}
+ 

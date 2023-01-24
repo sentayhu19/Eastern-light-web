@@ -57,14 +57,16 @@ const Scroll = () => {
           </div>
           {/* Desktop */}
           <div className='sm:hidden md:block  relative h-screen w-full bg-cover bg-center  backdrop-blur-lg' style={{'backgroundImage': `url(${slideImage.urldesk})`}}>
-            <div className='absolute h-screen w-full opacity-90 backdrop-blur-sm'>
-          <div className='absolute right-[23%] top-44 w-[80%]  pt-40 text-gray-700 h-auto text-center px-8'>
-            <div className='flex flex-col gap-8'>
+            <div className='absolute h-screen w-full opacity-90 backdrop-blur-sm desktop-bg'>
+          <div className='absolute left-[10%] top-52 w-[80%]  pt-40 text-white h-auto px-8'>
+            <div className='flex flex-col gap-0'>
               <h1>
-            <span className=' text-4xl font-bold'>{slideImage.caption}</span>
+            <span className=' text-4xl font-bold' data-aos="fade-up">{slideImage.caption}</span>
             </h1>
-            <p className='text-center text-md text-gray-600 w-[90%]'>{slideImage.description}</p>
-            <div className='p-24'>{slideImage.btn}</div>
+            <div className='flex flex-col gap-8'>
+            <p className='text-md w-[60%]' data-aos="fade-up">{slideImage.description}</p>
+            <div className='pl-6' data-aos="fade-up">{slideImage.btn}</div>
+            </div>
             </div>
            </div>
            </div>
