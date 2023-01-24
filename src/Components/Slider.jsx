@@ -49,7 +49,7 @@ const Scroll = () => {
           <div className='absolute pt-40 text-gray-700    h-auto w-full text-center px-8'>
             <div className='flex flex-col gap-8'>
               <h1>
-            <span className=' text-4xl font-bold'>{slideImage.caption}</span>
+            <span className=' sm:text-4xl  font-bold'>{slideImage.caption}</span>
             </h1>
             <p className='text-center text-md text-gray-600'>{slideImage.description}</p>
             <div className='p-24'>{slideImage.btn}</div>
@@ -63,10 +63,10 @@ const Scroll = () => {
           <div className='absolute left-[10%] top-52 w-[80%]  pt-40 text-white h-auto px-8'>
             <div className='flex flex-col gap-0'>
               <h1>
-            <span className=' text-4xl font-bold' data-aos="fade-up">{slideImage.caption}</span>
+            <span className=' text-4xl font-bold md:text-6xl' data-aos="fade-up">{slideImage.caption}</span>
             </h1>
             <div className='flex flex-col gap-8'>
-            <p className='text-md w-[60%]' data-aos="fade-up">{slideImage.description}</p>
+            <p className='text-md w-[60%] md:text-xl' data-aos="fade-up">{slideImage.description}</p>
             <div className='pl-6' data-aos="fade-up">{slideImage.btn}</div>
             </div>
             </div>
