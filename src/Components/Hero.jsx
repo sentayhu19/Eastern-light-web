@@ -5,6 +5,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faMortarPestle } from '@fortawesome/free-solid-svg-icons';
 import { faStethoscope } from '@fortawesome/free-solid-svg-icons';
 import Scroll from './Slider';
+import { NavLink } from 'react-router-dom';
 const Hero = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -50,8 +51,12 @@ const Hero = () => {
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Services</a></li>
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>About</a></li>
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Contact us</a></li>
+        <li>
+          <button className='bg-[#76A900] rounded-md text-white p-2'>
+          <NavLink to="/login">Log in</NavLink>
+          </button>
+          </li>
         </ul>
-        
         </nav>
         </div>
         </div>
@@ -75,6 +80,7 @@ const Hero = () => {
         <li className='' >About</li>
         <li className=''>Services</li>
         <li className=''>Contact</li>
+        <li><NavLink to="/login">Log in</NavLink></li>
         </ul>
         </nav>: ''}
       </>

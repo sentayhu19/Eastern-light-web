@@ -3,13 +3,10 @@ import './App.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { HashLoader } from 'react-spinners';
-import Services from './Components/Services';
-import Hero from './Components/Hero';
-import Who from './Components/Who';
-import About from './Components/About';
-import Contactus from './Components/Contactus';
-import Footer from './Components/Footer';
-import Productshow from './Components/Products/Productshow';
+import Home from './Components/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './Components/Login/Login';
+
 function App() {
   const [loading, setloading] =  useState(false);
   useEffect(() => {
@@ -29,15 +26,12 @@ function App() {
     /></div>
       :
       (
-      <>  
-      <Hero/>
-      <Productshow/>
-      <Services/>
-      <Who/>
-      <About/>
-      <Contactus/>
-      <Footer/>
-      </>
+      <Router>
+      <Routes>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/" element={<Home/>}/>
+      </Routes>
+      </Router>
       )}
     
     </div>
