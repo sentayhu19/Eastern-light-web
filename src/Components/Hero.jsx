@@ -29,7 +29,7 @@ const Hero = () => {
         <header className='sm:m-0'> 
         <div className='fixed top-0 z-10 w-full bg-white'>
         <div className={scroll ? ' w-full border-b-2 border-gray-200 shadow-md ' : ''}  >
-        <nav className='flex  w-full items-center md:mx-10 justify-between md:px-20 sm:px-8 sm:mt-6  z-10  h-auto  '>
+        <nav className='flex w-full items-center md:mx-10 justify-between md:px-20 sm:px-8 sm:mt-6  z-10  h-auto  '>
           
         <div className='flex items-center relative font-bold  sm:text-[11px] md:text-[20px] text-[#006394]'>
           <p className='font-logo estyle relative '>
@@ -45,7 +45,7 @@ const Hero = () => {
         <button className='sm:hidden'>CONTACT US</button>
         <FontAwesomeIcon icon={faBars} onClick={toggle} className='md:hidden text-xl' id={isOpen ? 'button-hidden': ''} />
         <FontAwesomeIcon icon={faXmark} onClick={toggle} className='md:hidden text-xl' id={isOpen ? '': 'button-hidden'} />
-        <ul className='flex sm:hidden md:flex gap-14 '>
+        <ul className='flex items-center sm:hidden md:flex gap-14 '>
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Home</a></li>
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Products</a></li>
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Services</a></li>
