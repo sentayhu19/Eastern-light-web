@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import { HashLoader } from 'react-spinners';
 import Home from './Components/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './Components/Login/Login';
+import Login from './Components/Auth/Login';
 
 function App() {
   const [loading, setloading] =  useState(false);
@@ -16,6 +16,12 @@ function App() {
     }, 4000);
     Aos.init({ duration: 1400, delay: 150 });
   }, []);
+
+  const RestrictedRoute = ()=> {
+const isAuth = false;
+return <>{!isAuth? '' : ''}</>
+  }
+  
   return (
     <div className="App">
       {loading ? 

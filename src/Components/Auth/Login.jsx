@@ -4,13 +4,14 @@ import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
 import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
 
 const Login = (props) => {
   const navigate = useNavigate();
 
   const [login, setlogin] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const handleChange = (e) => {
@@ -44,8 +45,11 @@ const Login = (props) => {
             </div>
             <p className="text-[#76A900] font-logo"> light</p>
           </div>
-          <div class="flex flex-col justify-center gap-6">
+          <div class="flex flex-col text-center justify-center gap-6 mt-7">
+            <div className="">
+              <FontAwesomeIcon icon={faLock} className="text-black text-2xl" />
             <h1 class="font-bold">Admin login</h1>
+            </div>
             <form class="flex flex-col gap-6 pb-4 mb-4 w-[100%]">
               <label for="email" data-aos="fade-up">
                 <input
@@ -59,10 +63,10 @@ const Login = (props) => {
                 <span>Email</span>
               </label>
               <label for="password" data-aos="fade-up">
-                <input
+              <input
                   type="password"
-                  id="Password"
-                  name="Password"
+                  id="password"
+                  name="password"
                   onChange={handleChange}
                   value={password}
                   required
