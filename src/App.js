@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-
 import Login from './Components/Auth/Login';
 import Dashboard from './Components/Admin/Dashboard';
 import Nav from './Components/Nav';
+import AddProducts from './Components/Products/AddProducts';
 
 const App = () => {
   const [loading, setloading] =  useState(false);
@@ -21,15 +22,15 @@ const App = () => {
   }, []);
 
   const PrivateRoutes = () => {
-    const isAuth = useSelector((state) => state.auth)
+    const auth = useSelector((state) => state.auth)
   
-    return <>{isAuth ? <Outlet /> : <Navigate to='/login' />}</>
+    return <>{auth.isAuth ? <Outlet /> : <Navigate to='/login' />}</>
   }
   
   const RestrictedRoutes = () => {
-    const isAuth = useSelector((state) => state.auth)
+    const auth = useSelector((state) => state.auth)
 
-    return <>{!isAuth ? <Outlet /> : <Navigate to='/dashboard' />}</>
+    return <>{!auth.isAuth ? <Outlet /> : <Navigate to='/dashboard' />}</>
   }
   
   return (
@@ -47,6 +48,7 @@ const App = () => {
       <Routes>
         <Route element={<PrivateRoutes/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/addproducts" element={<AddProducts/>}/>
           </Route>
         <Route element={<RestrictedRoutes/>}>
         <Route path="/login" element={<Login/>}/>

@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { unauthenticateUser } from '../redux/eastern-light/reducer/reducer';
+import { onLogout } from './api/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -6,11 +9,14 @@ import { faMortarPestle } from '@fortawesome/free-solid-svg-icons';
 import { faStethoscope } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 
+
 const Nav = () => {
+    const dispatch = useDispatch();
+    const auth = useSelector((state) => state.auth)
     const [isOpen, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const [scroll, setScroll] = React.useState(false);
-  
+  console.log("AUTH REDUX VALUE: ",auth.isAuth)
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 0) {
@@ -24,6 +30,19 @@ const Nav = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleClick = async () => {   //handle logout
+    try{
+
+    await onLogout()
+   dispatch(unauthenticateUser()) 
+   localStorage.removeItem('isAuth')
+   console.log("Loged out")
+    }
+    catch(err){
+        console.log("Error occured while trying to logout : ",err.resonse)
+    }
+  }
   return (
     <>
       <header className='sm:m-0'> 
@@ -52,9 +71,15 @@ const Nav = () => {
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>About</a></li>
         <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Contact us</a></li>
         <li>
-          <button className='bg-[#76A900] rounded-md text-white p-2'>
-          <NavLink to="/login">Log in</NavLink>
+         {auth.isAuth ?  
+        <button type='buttom' onClick={handleClick} className='bg-red-400 rounded-md text-white p-2'>
+        Log out
+        </button>
+          :
+          <button className='bg-[#76A900] text-white p-2'>
+          <NavLink to="/login">Log In</NavLink>
           </button>
+           }
           </li>
         </ul>
         </nav>

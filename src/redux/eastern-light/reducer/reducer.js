@@ -1,7 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const userAuthFromLocalStorage = () => {
+    const isAuth = localStorage.getItem('isAuth')
+    
+    if (isAuth && JSON.parse(isAuth) === true) {
+      return true
+    }
+    return false
+  }
+
 const initialState = {
-  isAuth: false,
+  isAuth: userAuthFromLocalStorage(),
+  isloading: false,
 }
 
 export const authSlice = createSlice({
@@ -10,9 +20,11 @@ export const authSlice = createSlice({
   reducers: {
     authenticateUser: (state) => {
         state.isAuth = true;
+        state.isloading = false;
     },
     unauthenticateUser: (state) => {
         state.isAuth = false;
+        state.isloading = false;
     } 
   },
 })

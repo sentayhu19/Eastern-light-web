@@ -30,6 +30,7 @@ const Login = (props) => {
     try{
 await onLogin(login)
 dispatch(authenticateUser())
+localStorage.setItem('isAuth',true)
     }
     catch(err){
       console.log(err.response.data.errors[0].msg)
