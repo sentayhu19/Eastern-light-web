@@ -23,7 +23,7 @@ const Login = (props) => {
   const { email, password } = login;
   return (
     <>
-      <div class="flex items-center justify-center min-h-screen bg-[#F7F8FA]">
+      <div class="flex absolute w-full z-10 items-center justify-center min-h-screen bg-[#F7F8FA]">
         <div class="px-12 py-6 mt-4  bg-white shadow-lg md:w-[35%] sm:w-[90%] rounded-lg text-center">
           <FontAwesomeIcon
             icon={faArrowLeftLong}
