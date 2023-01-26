@@ -16,10 +16,11 @@ const handleChange = (e) => {
 };
     const {name, email, phone, sendmessage} = message;
   return (
-    <section className='pt-7'>
-    <div className='contact-bg h-auto'>
+    <section className='pt-7 bg-no-repeat '>
+    <div className='contact-bg  h-auto ' >
+      <div className='opacity-90'>
     <h2 className='text-center font-bold text-2xl p-7 text-white'   >CONTACT US</h2>
-    <form className='w-60% m-auto bg-white ' data-aos="fade-up">
+    <form className='w-60% m-auto bg-white' data-aos="fade-up">
         <label for="name" data-aos="fade-up">
             <input type="text" id="name" name='name' onChange={handleChange} value={name} required placeholder="Name"/>
             <span>Name</span>
@@ -38,6 +39,7 @@ const handleChange = (e) => {
 </div>
         <button disabled={name === "" || phone === "" || sendmessage === "" ? ' ' : ''} type="submit" className='bg-[#76A900] text-white rounded-lg' data-aos="fade-up">Submit</button>
     </form>
+    </div>
     </div>
     </section>
   )

@@ -4,8 +4,9 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { HashLoader } from 'react-spinners';
 import Home from './Components/Home';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import Login from './Components/Auth/Login';
+import Dashboard from './Components/Admin/Dashboard';
 
 function App() {
   const [loading, setloading] =  useState(false);
@@ -16,10 +17,13 @@ function App() {
     }, 4000);
     Aos.init({ duration: 1400, delay: 150 });
   }, []);
-
+const PrivateRoutes = () => {
+  const isAuth = false;
+  return <>{isAuth ? <Outlet/> : <Navigate to='/login' />}</>
+}
   const RestrictedRoute = ()=> {
 const isAuth = false;
-return <>{!isAuth? '' : ''}</>
+return <>{!isAuth? <Outlet/> : <Navigate to='/dashboard' />}</>
   }
   
   return (
@@ -34,8 +38,14 @@ return <>{!isAuth? '' : ''}</>
       (
       <Router>
       <Routes>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/" element={<Home/>}/>
+        <Route element={<PrivateRoutes/>}>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+          </Route>
+        <Route element={<RestrictedRoute/>}>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/" element={<Home/>}/>
+          </Route>
+     
       </Routes>
       </Router>
       )}
