@@ -7,6 +7,7 @@ import Home from './Components/Home';
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import Login from './Components/Auth/Login';
 import Dashboard from './Components/Admin/Dashboard';
+import Nav from './Components/Nav';
 
 function App() {
   const [loading, setloading] =  useState(false);
@@ -37,6 +38,7 @@ return <>{!isAuth? <Outlet/> : <Navigate to='/dashboard' />}</>
       :
       (
       <Router>
+        <Nav/>
       <Routes>
         <Route element={<PrivateRoutes/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>
