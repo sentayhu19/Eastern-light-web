@@ -76,7 +76,7 @@ const Nav = () => {
         Log out
         </button>
           :
-          <button className='bg-[#76A900] text-white p-2'>
+          <button className='bg-[#76A900] text-white p-2 rounded-lg'>
           <NavLink to="/login">Log In</NavLink>
           </button>
            }

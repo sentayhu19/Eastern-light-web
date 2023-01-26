@@ -49,6 +49,7 @@ const App = () => {
         <Route element={<PrivateRoutes/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/addproducts" element={<AddProducts/>}/>
+          <Route path="/" element={<Home/>}/>
           </Route>
         <Route element={<RestrictedRoutes/>}>
         <Route path="/login" element={<Login/>}/>

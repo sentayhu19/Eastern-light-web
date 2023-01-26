@@ -38,12 +38,13 @@ const Dashboard = () => {
 
   return (
     <div className='mt-36 w-full'>
-        <h2 className='text-center text-2xl font-bold'>
+        <h2 className='text-center md:text-2xl font-bold'>
           Welcome to Admin Dashboard
         </h2>
         <div className='mt-14 w-[10%] m-auto'>
-        <NavLink to="addproducts">
+        <NavLink to="/addproducts">
        <button className='bg-[#76A900] text-white rounded-lg' >Add new product</button>
+
        </NavLink>
        </div>
     </div>
