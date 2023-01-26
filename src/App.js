@@ -1,4 +1,5 @@
 import {useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -9,7 +10,7 @@ import Login from './Components/Auth/Login';
 import Dashboard from './Components/Admin/Dashboard';
 import Nav from './Components/Nav';
 
-function App() {
+const App = () => {
   const [loading, setloading] =  useState(false);
   useEffect(() => {
     setloading(true);
@@ -18,13 +19,17 @@ function App() {
     }, 4000);
     Aos.init({ duration: 1400, delay: 150 });
   }, []);
-const PrivateRoutes = () => {
-  const isAuth = false;
-  return <>{isAuth ? <Outlet/> : <Navigate to='/login' />}</>
-}
-  const RestrictedRoute = ()=> {
-const isAuth = false;
-return <>{!isAuth? <Outlet/> : <Navigate to='/dashboard' />}</>
+
+  const PrivateRoutes = () => {
+    const isAuth = useSelector((state) => state.auth)
+  
+    return <>{isAuth ? <Outlet /> : <Navigate to='/login' />}</>
+  }
+  
+  const RestrictedRoutes = () => {
+    const isAuth = useSelector((state) => state.auth)
+
+    return <>{!isAuth ? <Outlet /> : <Navigate to='/dashboard' />}</>
   }
   
   return (
@@ -43,11 +48,10 @@ return <>{!isAuth? <Outlet/> : <Navigate to='/dashboard' />}</>
         <Route element={<PrivateRoutes/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>
           </Route>
-        <Route element={<RestrictedRoute/>}>
+        <Route element={<RestrictedRoutes/>}>
         <Route path="/login" element={<Login/>}/>
         <Route path="/" element={<Home/>}/>
           </Route>
-     
       </Routes>
       </Router>
       )}

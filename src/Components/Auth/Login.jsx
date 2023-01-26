@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { authenticateUser } from "../../redux/eastern-light/reducer/reducer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
 import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { onLogin } from "../api/auth";
 
 const Login = (props) => {
   const navigate = useNavigate();
@@ -13,6 +16,7 @@ const Login = (props) => {
     email: '',
     password: '',
   });
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     setlogin({
@@ -20,6 +24,19 @@ const Login = (props) => {
       [e.target.name]: e.target.value,
     });
   };
+  const dispatch = useDispatch();
+  const handleOnsubmit = async (e) => {
+    e.preventDefault();
+    try{
+await onLogin(login)
+dispatch(authenticateUser())
+    }
+    catch(err){
+      console.log(err.response.data.errors[0].msg)
+      setError(err.response.data.errors[0].msg)
+    }
+  }
+
   const { email, password } = login;
   return (
     <>
@@ -50,7 +67,7 @@ const Login = (props) => {
               <FontAwesomeIcon icon={faLock} className="text-black text-2xl" />
             <h1 class="font-bold">Admin login</h1>
             </div>
-            <form class="flex flex-col gap-6 pb-4 mb-4 w-[100%]">
+            <form onSubmit={handleOnsubmit} class="flex flex-col gap-6 pb-4 mb-4 w-[100%]">
               <label for="email" data-aos="fade-up">
                 <input
                   type="email"
@@ -81,6 +98,7 @@ const Login = (props) => {
                 >
                   LOGIN
                 </button>
+                <p className="text-red-500 text-center" >{error}</p>
                 <p class="text-right text-[#919191]">
                   Forgot password? Contact head adminsters
                 </p>
