@@ -19,7 +19,7 @@ import {
 
 const AddProducts = () => {
   const [error, setError] = useState("");
-  const [Products, setroducts] = useState({
+  const [Products, setProducts] = useState({
     name: "",
     description: "",
     brand: "",
@@ -47,7 +47,7 @@ const { isloading } = useSelector((state) => state.auth);
   const [isOpen , setIsOpen] = useState(false)
   const handleChange = (e) => {
     console.log("target val: ",e)
-    setroducts({
+    setProducts({
       ...Products,
       [e.target.name]: e.target.value,
     });
@@ -67,6 +67,15 @@ const { isloading } = useSelector((state) => state.auth);
       setError(err.message);
     }
   };
+  const handleSelectChange = (selectedOption) => {
+    if (selectedOption) {
+        const value = selectedOption;
+        const category = 'category';
+        setProducts((currentProducts) => ({...currentProducts,
+            [category] : value.id,
+        }));
+      }
+};
 
   const { name, description, brand, image, price, category, priority } =
     Products;
@@ -153,7 +162,7 @@ const { isloading } = useSelector((state) => state.auth);
           getOptionValue={option => option.id}
           name="category"
           value={category}
-          onChange={handleChange}
+          onChange={handleSelectChange}
         />
       <div class="form-float scheme-des" data-aos="fade-up">
         <textarea
