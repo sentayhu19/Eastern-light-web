@@ -16,7 +16,7 @@ const handleChange = (e) => {
 };
     const {name, email, phone, sendmessage} = message;
   return (
-    <section className='pt-7 bg-no-repeat '>
+    <section className='pt-7 bg-no-repeat' name="contactus">
     <div className='contact-bg  h-auto ' >
       <div className='opacity-90'>
     <h2 className='text-center font-bold text-2xl p-7 text-white'   >CONTACT US</h2>

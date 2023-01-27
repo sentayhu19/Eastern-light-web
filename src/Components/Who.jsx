@@ -1,7 +1,7 @@
 import React from "react";
 const Who = () => {
     return (
-        <section className="text-center m-2">
+        <section className="text-center m-2" name="who">
             <div className="flex flex-col mb-7 md:mb-20">
             <h2 className='text-2xl font-bold pt-7 'data-aos="fade-up">WHO WE ARE</h2>
             <p className="sm:p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolore culpa inventore qui quas numquam, 

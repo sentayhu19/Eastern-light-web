@@ -5,7 +5,7 @@ import { fetchProtectedInfo } from '../api/auth'
 import { onLogout } from '../api/auth'
 import { unauthenticateUser } from '../../redux/eastern-light/reducer/reducer'
 import { NavLink } from 'react-router-dom'
-
+import Adminnav from '../Navigations/Adminnav'
 
 const Dashboard = () => {
   const dispatch = useDispatch()
@@ -38,6 +38,7 @@ const Dashboard = () => {
 
   return (
     <div className='mt-36 w-full'>
+      <Adminnav />
         <h2 className='text-center md:text-2xl font-bold'>
           Welcome to Admin Dashboard
         </h2>

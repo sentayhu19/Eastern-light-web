@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { unauthenticateUser } from '../redux/eastern-light/reducer/reducer';
-import { onLogout } from './api/auth';
+import { unauthenticateUser } from '../../redux/eastern-light/reducer/reducer';
+import { onLogout } from '../api/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -65,11 +65,11 @@ const Nav = () => {
         <FontAwesomeIcon icon={faBars} onClick={toggle} className='md:hidden text-xl' id={isOpen ? 'button-hidden': ''} />
         <FontAwesomeIcon icon={faXmark} onClick={toggle} className='md:hidden text-xl' id={isOpen ? '': 'button-hidden'} />
         <ul className='flex items-center sm:hidden md:flex gap-14 '>
-        <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Home</a></li>
-        <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Products</a></li>
-        <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Services</a></li>
-        <li><a className='hover:hover:text-[#76A900] cursor-pointer'>About</a></li>
-        <li><a className='hover:hover:text-[#76A900] cursor-pointer'>Contact us</a></li>
+        <li><NavLink to="/" className='hover:hover:text-[#76A900] cursor-pointer'>Home</NavLink></li>
+        <li><NavLink className='hover:hover:text-[#76A900] cursor-pointer'>Products</NavLink></li>
+        <li><NavLink className='hover:hover:text-[#76A900] cursor-pointer'>Services</NavLink></li>
+        <li><NavLink className='hover:hover:text-[#76A900] cursor-pointer'>About</NavLink></li>
+        <li><NavLink className='hover:hover:text-[#76A900] cursor-pointer'>Contact us</NavLink></li>
         <li>
          {auth.isAuth ?  
         <button type='buttom' onClick={handleClick} className='bg-red-400 rounded-md text-white p-2'>

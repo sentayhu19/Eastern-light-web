@@ -8,8 +8,10 @@ import Home from './Components/Home';
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import Login from './Components/Auth/Login';
 import Dashboard from './Components/Admin/Dashboard';
-import Nav from './Components/Nav';
+import Nav from './Components/Navigations/Nav';
 import AddProducts from './Components/Products/AddProducts';
+import AddCategory from './Components/Products/AddCategory';
+import Productshow from './Components/Products/Productshow';
 
 const App = () => {
   const [loading, setloading] =  useState(false);
@@ -50,6 +52,8 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/addproducts" element={<AddProducts/>}/>
           <Route path="/" element={<Home/>}/>
+          <Route path="/addcategory" element={<AddCategory/>}/>
+          <Route path="/products" element={<Productshow/>}/>
           </Route>
         <Route element={<RestrictedRoutes/>}>
         <Route path="/login" element={<Login/>}/>

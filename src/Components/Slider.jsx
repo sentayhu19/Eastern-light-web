@@ -35,7 +35,7 @@ const Scroll = () => {
         },
       ];
   return (
-    <section className="slide-container mt-20">
+    <section className="slide-container mt-20" name="hero">
     <Slide>
      {slideImages.map((slideImage, index)=> (
         <div className="h-screen  each-slide" key={index}>

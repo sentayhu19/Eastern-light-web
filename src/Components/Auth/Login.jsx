@@ -8,6 +8,7 @@ import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { onLogin } from "../api/auth";
+import { faGauge } from "@fortawesome/free-solid-svg-icons";
 
 const Login = (props) => {
   const navigate = useNavigate();
