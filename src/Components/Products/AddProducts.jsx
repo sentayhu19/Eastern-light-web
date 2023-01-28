@@ -7,9 +7,9 @@ import Select from 'react-select';
 import Adminnav from "../Navigations/Adminnav";
 import { fetchcatagory } from "../../redux/eastern-light/reducer/reducer";
 import SaveNot from "../Alert/Savenot";
-import Error from "../Alert/Error";
-
-
+import ErrorAlert from "../Alert/ErrorAlert";
+import { setError } from "../../redux/eastern-light/reducer/reducer";
+import { setLoading } from "../../redux/eastern-light/reducer/reducer";
 import {
   getcategories,
   getproducts,
@@ -17,10 +17,8 @@ import {
   addnewproduct,
 } from "../api/auth";
 
-
-
 const AddProducts = () => {
-  const [error, setError] = useState("");
+ const { Error } = useSelector((state)=> state.auth);
   const [Products, setProducts] = useState({
     name: "",
     description: "",
@@ -44,11 +42,8 @@ useEffect(() => {
   }, []);
 const { isloading } = useSelector((state) => state.auth);
   const { categories } = useSelector((state) => state.catagory);
-
-
   const [isOpen , setIsOpen] = useState(false)
   const handleChange = (e) => {
-    console.log("target val: ",e)
     setProducts({
       ...Products,
       [e.target.name]: e.target.value,
@@ -66,7 +61,10 @@ const { isloading } = useSelector((state) => state.auth);
       }, 2000);
 
     } catch (err) {
-      setError(err.message);
+      dispatch(setError(err.message))
+      setTimeout(() => {
+        dispatch(setError(""))   
+      }, 4300);
     }
   };
   const handleSelectChange = (selectedOption) => {
@@ -81,7 +79,6 @@ const { isloading } = useSelector((state) => state.auth);
 
   const { name, description, brand, image, price, category, priority } =
     Products;
-  //Only authorized usser i.e admin can add products
   return (
     <>   
     {isloading ?  
@@ -186,7 +183,7 @@ const { isloading } = useSelector((state) => state.auth);
         Submit
       </button>
       
-      {error ? <Error message={error}/>: '' }
+      {Error === "" ? '' : <ErrorAlert message={Error}/> }
     </form>
     {isOpen ? 
     <SaveNot/>

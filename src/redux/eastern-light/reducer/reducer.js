@@ -13,7 +13,7 @@ const userAuthFromLocalStorage = () => {
 const initialState = {
   isAuth: userAuthFromLocalStorage(),
   isloading: false,
-  
+  Error: "",
   products: [],
 }
 
@@ -28,6 +28,13 @@ export const authSlice = createSlice({
     unauthenticateUser: (state) => {
         state.isAuth = false;
         state.isloading = false;
+    },
+    setError: (state, action) => {
+      console.log("******** ERROR AT REDUCER",state.Error);
+      state.Error = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.isloading = !state.isloading;
     } 
   },
 })
@@ -43,13 +50,6 @@ export const authSlice = createSlice({
     reducers: {
      fetchcatagory: (state, action) => {
       console.log("fetch catagory ACTION PAYLOAD at reducer", action.payload);
-      // const data = await getcategories();
-      //   state.isloading = true; 
-      //   state.categories = data.data.category;
-      //   state.isloading = false;
-      //   console.log("fetch catagory", data.data.category);
-      //   return data.data.category;
-      // }, 
       return {...state, categories: action.payload};
     },
   }
@@ -68,7 +68,7 @@ export const authSlice = createSlice({
   })
 
 // Action creators are generated for each case reducer function
-export const { authenticateUser, unauthenticateUser } = authSlice.actions
+export const { authenticateUser, unauthenticateUser,  setLoading,  setError } = authSlice.actions
 export const { fetchcatagory } = CatSlice.actions
 export const { fetchproduct } = ProductSlice.actions
 
