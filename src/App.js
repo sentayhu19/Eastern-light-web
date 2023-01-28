@@ -12,6 +12,7 @@ import Nav from './Components/Navigations/Nav';
 import AddProducts from './Components/Products/AddProducts';
 import AddCategory from './Components/Products/AddCategory';
 import Productshow from './Components/Products/Productshow';
+import Footer from './Components/Footer';
 
 const App = () => {
   const [loading, setloading] =  useState(false);
@@ -59,6 +60,7 @@ const App = () => {
           </Route>
           <Route path="/" element={<Home/>}/>
       </Routes>
+      <Footer/>
       </Router>
       )}
     
