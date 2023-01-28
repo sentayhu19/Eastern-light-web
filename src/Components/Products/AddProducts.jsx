@@ -6,7 +6,7 @@ import Select from 'react-select';
 
 import Adminnav from "../Navigations/Adminnav";
 import { fetchcatagory } from "../../redux/eastern-light/reducer/reducer";
-import SaveNot from "../Alert/Savenot";
+import SaveNot from "../Alert/SaveAlert";
 import ErrorAlert from "../Alert/ErrorAlert";
 import { setError } from "../../redux/eastern-light/reducer/reducer";
 import { setLoading } from "../../redux/eastern-light/reducer/reducer";

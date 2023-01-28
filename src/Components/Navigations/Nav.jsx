@@ -48,7 +48,7 @@ const Nav = () => {
       <header className='sm:m-0'> 
         <div className='fixed top-0 z-10 w-full bg-white'>
         <div className={scroll ? ' w-full border-b-2 border-gray-200 shadow-md ' : ''}  >
-        <nav className='flex w-full items-center md:mx-10 justify-between md:px-12 sm:px-8 sm:mt-6  z-10  h-auto  '>
+        <nav className='flex w-full items-center md:mx-10 justify-between md:px-14 sm:px-8 sm:mt-6  z-10  h-auto  '>
           
         <div className='flex items-center relative font-bold  sm:text-[11px] md:text-[20px] text-[#006394]'>
           <p className='font-logo estyle relative '>
