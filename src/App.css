@@ -160,3 +160,29 @@ button:disabled
 
 }
  
+/* ERROR altert */
+@keyframes slide-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right-back {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animation-slide-right {
+  animation: slide-right 0.3s ease-out;
+}
+
+.animation-slide-right-back {
+  animation: slide-right-back 0.3s ease-out;
+}

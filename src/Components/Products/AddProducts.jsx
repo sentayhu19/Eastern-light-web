@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { HashLoader } from 'react-spinners';
 import Select from 'react-select';
-import check from "../../assets/check.gif";
+
 import Adminnav from "../Navigations/Adminnav";
 import { fetchcatagory } from "../../redux/eastern-light/reducer/reducer";
+import SaveNot from "../Alert/Savenot";
+import Error from "../Alert/Error";
 
 
 import {
@@ -87,7 +89,7 @@ const { isloading } = useSelector((state) => state.auth);
       color="#76A900"
       size={70}
     />: 
-    <div className="mt-36 relative">
+    <div className="mt-36">
     <Adminnav/>
     <h1 className="text-center font-bold md:text-2xl pb-5">
       Add New Products
@@ -183,13 +185,11 @@ const { isloading } = useSelector((state) => state.auth);
       >
         Submit
       </button>
-      <p className="text-red-500 ">{error}</p>
+      
+      {error ? <Error message={error}/>: '' }
     </form>
     {isOpen ? 
-    <div className="absolute flex flex-col items-center justify-center bg-[#000] top-36 z-10 w-full h-52">
-    <img className="w-44" src={check}/>
-      <h1 className="text-white">SAVED</h1>
-  </div>
+    <SaveNot/>
     : "" }
   </div>
 
