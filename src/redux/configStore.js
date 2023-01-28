@@ -10,7 +10,7 @@ const initState = {};
 const rootredcuer = combineReducers({
   auth: authreducer,
   catagory: catagoryreducer,
-  products: productreducer,
+  product: productreducer,
 });
 const store = createStore(rootredcuer, initState, applyMiddleware(thunk));
 export default store;

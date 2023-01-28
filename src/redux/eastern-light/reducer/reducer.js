@@ -56,12 +56,13 @@ export const authSlice = createSlice({
   });
 
   export const ProductSlice = createSlice({
-    name: 'catagory',
-    initialState,
+    name: 'products',
+    initialState: {
+      products: [],
+    },
     reducers: {
-      fetchproduct: (state) => {
-          state.categories =  "";
-          state.isloading = false;
+      fetchproduct: (state, action) => {
+        return {...state, products: action.payload};
       }, 
     },
   })
@@ -69,9 +70,11 @@ export const authSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { authenticateUser, unauthenticateUser } = authSlice.actions
 export const { fetchcatagory } = CatSlice.actions
+export const { fetchproduct } = ProductSlice.actions
 
 const authreducer = authSlice.reducer
 const catagoryreducer = CatSlice.reducer
 const productreducer = ProductSlice.reducer
 
-export { authreducer, catagoryreducer, productreducer }
+
+export { authreducer, catagoryreducer, productreducer,  }
