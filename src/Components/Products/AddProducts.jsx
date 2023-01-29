@@ -52,9 +52,17 @@ const { isloading } = useSelector((state) => state.auth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(Products.priority > 10 || Products.priority <= 0)
+    if(Products.priority > 8 || Products.priority <= 0)
     {
-      dispatch(setError("Products Priority can only be between 1 and 10 "))
+      dispatch(setError("Products Priority can only be between 1 and 8 "))
+      setTimeout(() => {
+        dispatch(setError(""))   
+      }, 4300);
+      return 0;
+    }
+    if(Products.category == "")
+    {
+      dispatch(setError("Please select the product category"))
       setTimeout(() => {
         dispatch(setError(""))   
       }, 4300);
@@ -170,7 +178,6 @@ const { isloading } = useSelector((state) => state.auth);
           name="category"
           value={category}
           onChange={handleSelectChange}
-          required
           placeholder="Category"
         />
       <div class="form-float scheme-des" data-aos="fade-up">

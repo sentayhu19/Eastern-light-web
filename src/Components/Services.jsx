@@ -5,7 +5,7 @@ import { faMicroscope } from '@fortawesome/free-solid-svg-icons';
 
 const Services = () => {
   return (
-   <section className="text-center m-2" name="services">
+   <section className="text-center m-2" name="services"   id="services">
 <div className="flex flex-col mb-7 md:mb-20">
 <h2 className='text-2xl font-bold pt-7 'data-aos="fade-up">OUR SERVICES</h2>
 <p className="sm:p-4">Distribute phrma and biomedical equipments</p>

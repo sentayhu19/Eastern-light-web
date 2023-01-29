@@ -17,7 +17,6 @@ const Nav = () => {
     const [isOpen, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const [scroll, setScroll] = React.useState(false);
-  console.log("AUTH REDUX VALUE: ",auth.isAuth)
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 0) {
@@ -50,7 +49,7 @@ const Nav = () => {
         <div className='fixed top-0 z-10 w-full bg-white'>
         <div className={scroll ? ' w-full border-b-2 border-gray-200 shadow-md ' : ''}  >
         <nav className='flex w-full items-center md:mx-10 justify-between md:px-14 sm:px-8 sm:mt-6  z-10  h-auto  '>
-          
+          <NavLink to="/">
         <div className='flex items-center relative font-bold  sm:text-[11px] md:text-[20px] text-[#006394]'>
           <p className='font-logo estyle relative '>
             Eastern  
@@ -61,15 +60,16 @@ const Nav = () => {
             </div>
           <p className='text-[#76A900] font-logo'> light</p> 
         </div>
+        </NavLink>
         <button className='sm:hidden'>CONTACT US</button>
         <FontAwesomeIcon icon={faBars} onClick={toggle} className='md:hidden text-xl' id={isOpen ? 'button-hidden': ''} />
         <FontAwesomeIcon icon={faXmark} onClick={toggle} className='md:hidden text-xl' id={isOpen ? '': 'button-hidden'} />
         <ul className='flex items-center sm:hidden md:flex gap-14 '>
-        <li><Link to="home" className='hover:hover:text-[#76A900] cursor-pointer'>Home</Link></li>
-        <li><Link to="products" className='hover:hover:text-[#76A900] cursor-pointer'>Products</Link></li>
-        <li><Link to="services" className='hover:hover:text-[#76A900] cursor-pointer'>Services</Link></li>
-        <li><Link to="about" className='hover:hover:text-[#76A900] cursor-pointer'>About</Link></li>
-        <li><Link to="contact" className='hover:hover:text-[#76A900] cursor-pointer'>Contact us</Link></li>
+        <li><Link to="home" smooth={true} className='hover:hover:text-[#76A900] cursor-pointer'>Home</Link></li>
+        <li><Link to="products" smooth={true} className='hover:hover:text-[#76A900] cursor-pointer'>Products</Link></li>
+        <li><Link to="services" smooth={true} className='hover:hover:text-[#76A900] cursor-pointer'>Services</Link></li>
+        <li><Link to="about" smooth={true} className='hover:hover:text-[#76A900] cursor-pointer'>About</Link></li>
+        <li><Link to="contact" smooth={true} className='hover:hover:text-[#76A900] cursor-pointer'>Contact us</Link></li>
         <li>
          {auth.isAuth ?  
         <button type='buttom' onClick={handleClick} className='bg-red-400 rounded-md text-white p-2'>
@@ -104,9 +104,9 @@ const Nav = () => {
           <Link to="home"  onClick={toggle}>Home</Link>
           
           </li>
-        <li className=''><Link onClick={toggle} to="about">About</Link></li>
-        <li className=''><Link onClick={toggle} to="services">Services</Link></li>
-        <li className=''><Link onClick={toggle} to="contact">Contact</Link></li>
+        <li className=''><Link smooth={true} onClick={toggle} to="about">About</Link></li>
+        <li className=''><Link smooth={true}  onClick={toggle} to="services">Services</Link></li>
+        <li className=''><Link smooth={true} onClick={toggle} to="contact">Contact</Link></li>
         <li>
         {auth.isAuth ?  
         <button type='buttom' onClick={handleClick} className='bg-red-400 rounded-md text-white p-2'>

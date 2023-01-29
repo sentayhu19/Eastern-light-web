@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { authenticateUser } from "../../redux/eastern-light/reducer/reducer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
@@ -50,6 +51,7 @@ localStorage.setItem('isAuth',true)
             title="Go back"
             onClick={() => navigate(-1)}
           />
+          <Link to="/">
           <div className="flex items-center relative font-bold w-full text-center sm:text-[11px] md:text-[20px] text-[#006394]">
             <p className="font-logo estyle relative ">Eastern</p>
             <div className="relative">
@@ -64,6 +66,7 @@ localStorage.setItem('isAuth',true)
             </div>
             <p className="text-[#76A900] font-logo"> light</p>
           </div>
+          </Link>
           <div class="flex flex-col text-center justify-center gap-6 mt-7">
             <div className="">
               <FontAwesomeIcon icon={faLock} className="text-black text-2xl" />
