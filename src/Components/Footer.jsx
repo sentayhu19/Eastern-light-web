@@ -53,7 +53,7 @@ const Footer = () => {
             </div>
         </div>
         <div className='pt-10'>
-            <h3>Copyright © 2023 Eastern Pharma PLC All rights reserved.</h3>
+            <h3 className='text-center'>Copyright © 2023 Eastern Pharma PLC All rights reserved.</h3>
         </div>
     </footer>
   )
