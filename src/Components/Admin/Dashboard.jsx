@@ -37,7 +37,7 @@ const Dashboard = () => {
   }, [])
 
   return (
-    <div className='mt-36 w-full'>
+    <div className='mt-36 w-full h-screen'>
       <Adminnav />
         <h2 className='text-center md:text-2xl font-bold'>
           Welcome to Admin Dashboard

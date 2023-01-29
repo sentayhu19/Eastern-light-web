@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { HashLoader } from "react-spinners";
-import { getproducts } from '../../api/auth';
+import { getproductshow} from '../../api/auth';
 import { fetchproduct } from '../../../redux/eastern-light/reducer/reducer';
 import ProductShow from './ProductShow';
 
@@ -12,12 +12,15 @@ const Productshow = () => {
 const dispatch = useDispatch();
   useEffect(() => {
     const pulldata = async () => {
-      getproducts().then(response => {
+      getproductshow().then(response => {
         dispatch(fetchproduct(response.data.products));
       });
     }
     pulldata();
   }, []);
+
+  
+
 const { products } = useSelector((state) => state.product);
   return (
     <section className="text-center w-full min-h-[200px] bg-[#F0F1F3]">

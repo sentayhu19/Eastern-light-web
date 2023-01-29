@@ -41,3 +41,7 @@ export async function getcategories ()
     return await axios.get('http://localhost:8000/api/getcategories')
 }
 
+export async function getproductshow()
+{
+    return await axios.get('http://localhost:8000/api/productshow')
+}
