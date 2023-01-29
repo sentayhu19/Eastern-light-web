@@ -25,7 +25,7 @@ const AddProducts = () => {
     brand: "",
     image: "",
     price: "",
-    category: "",
+    category_id: "",
     priority: "",
   });
 
@@ -86,14 +86,14 @@ const { isloading } = useSelector((state) => state.auth);
   const handleSelectChange = (selectedOption) => {
     if (selectedOption) {
         const value = selectedOption;
-        const category = 'category';
+        const category = 'category_id';
         setProducts((currentProducts) => ({...currentProducts,
             [category] : value.id,
         }));
       }
 };
 
-  const { name, description, brand, image, price, category, priority } =
+  const { name, description, brand, image, price, category_id, priority } =
     Products;
   return (
     <>   
@@ -176,7 +176,7 @@ const { isloading } = useSelector((state) => state.auth);
           getOptionLabel={option => option.name}
           getOptionValue={option => option.id}
           name="category"
-          value={category}
+          value={category_id}
           onChange={handleSelectChange}
           placeholder="Category"
         />

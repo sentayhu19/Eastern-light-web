@@ -46,7 +46,7 @@ const App = () => {
     <div className="App">
       {loading ? (
         <div className="flex items-center h-screen justify-center">
-          {/* <HashLoader color="#76A900" size={70} /> */}
+          <HashLoader color="#76A900" size={70} />
         </div>
       ) : (
         <Router>
