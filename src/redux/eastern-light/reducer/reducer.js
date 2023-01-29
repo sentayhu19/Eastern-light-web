@@ -30,11 +30,11 @@ export const authSlice = createSlice({
         state.isloading = false;
     },
     setError: (state, action) => {
-      console.log("******** ERROR AT REDUCER",state.Error);
       state.Error = action.payload;
     },
     setLoading: (state, action) => {
-      state.isloading = !state.isloading;
+      console.log("SET LOADING AT REDUCER TO", state.isloading);
+      state.isloading = action.payload;
     } 
   },
 })

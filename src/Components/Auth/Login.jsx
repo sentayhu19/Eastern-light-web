@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { authenticateUser } from "../../redux/eastern-light/reducer/reducer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { HashLoader } from "react-spinners";
 import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
 import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { onLogin } from "../api/auth";
 import { faGauge } from "@fortawesome/free-solid-svg-icons";
+import { setLoading } from "../../redux/eastern-light/reducer/reducer";
 
 const Login = (props) => {
   const navigate = useNavigate();
-
+ const { isloading } = useSelector ((state => state.auth));
   const [login, setlogin] = useState({
     email: '',
     password: '',
@@ -28,6 +30,7 @@ const Login = (props) => {
   };
   const dispatch = useDispatch();
   const handleOnsubmit = async (e) => {
+    dispatch( setLoading(true));
     e.preventDefault();
     try{
 await onLogin(login)
@@ -38,9 +41,11 @@ localStorage.setItem('isAuth',true)
       console.log(err.response.data.errors[0].msg)
       setError(err.response.data.errors[0].msg)
     }
+    dispatch(setLoading(false));
   }
 
   const { email, password } = login;
+  console.log("Is loading.... at Login", isloading)
   return (
     <>
       <div class="flex absolute w-full z-10 items-center justify-center min-h-screen bg-[#F7F8FA]">
@@ -98,10 +103,13 @@ localStorage.setItem('isAuth',true)
               <div class="flex flex-col gap-2">
                 <button
                   type="submit"
-                  disabled={email === "" || password === "" ? " " : ""}
-                  class="bg-[#76A900] text-white rounded-md cursor-pointer"
+                  disabled={email === "" || password === "" ? " " : "" || isloading}
+                  class="bg-[#76A900] text-white rounded-md cursor-pointer text-center "
                 >
-                  LOGIN
+                 {isloading ?    
+                 <div className="flex items-center justify-center">
+           <HashLoader color="#76A900" size={20} /> 
+        </div> :"LOGIN"} 
                 </button>
                 <p className="text-red-500 text-center" >{error}</p>
                 <p class="text-right text-[#919191]">
