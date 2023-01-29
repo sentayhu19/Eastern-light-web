@@ -101,12 +101,12 @@ const Nav = () => {
         </div>
         <ul className='flex flex-col m-20 gap-4 text-white ' data-aos="fade-up">
         <li className=''>
-          <Link to="home">Home</Link>
+          <Link to="home"  onClick={toggle}>Home</Link>
           
           </li>
-        <li className='' ><Link to="about">About</Link></li>
-        <li className=''><Link to="services">Services</Link></li>
-        <li className=''><Link to="contact">Contact</Link></li>
+        <li className=''><Link onClick={toggle} to="about">About</Link></li>
+        <li className=''><Link onClick={toggle} to="services">Services</Link></li>
+        <li className=''><Link onClick={toggle} to="contact">Contact</Link></li>
         <li>
         {auth.isAuth ?  
         <button type='buttom' onClick={handleClick} className='bg-red-400 rounded-md text-white p-2'>

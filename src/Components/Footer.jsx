@@ -33,7 +33,7 @@ const Footer = () => {
                     <FontAwesomeIcon icon={faEnvelope}/>
                     <h4> esternlightphrma@gmail.com </h4></div>
                     <div  className='flex flex-col  gap-4 mt-4'>
-                        <h4 className='font-bold border-b'>Connect with us:</h4>
+                        <h4 className='font-bold border-b'>Connect with us</h4>
                         <div className='flex md:gap-5 sm:gap-10'>
                         <a className='flex items-center justify-center hover:border md:w-10 h-10 text-2xl rounded-full text-[#0077b5]  hover:text-white hover:bg-[#0077b5]' href='https://www.linkedin.com/company/eastern-pharma-plc' target='_blank' rel="noreferrer">
                         <FontAwesomeIcon icon={faLinkedinIn}/>
