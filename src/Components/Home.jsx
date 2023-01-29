@@ -4,14 +4,13 @@ import Services from "./Services";
 import Who from "./Who";
 import About from "./About";
 import Contactus from "./Contactus";
-
-import Productshow from "./Products/Products";
+import Productshow from "./Products/Show/ProductsShow";
 
 const Home = () => {
   return (
     <>
       <Hero />
-      {/* <Productshow/> */}
+      <Productshow/>
       <Services />
       <Who />
       <About />
