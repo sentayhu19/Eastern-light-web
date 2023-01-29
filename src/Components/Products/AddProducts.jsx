@@ -151,7 +151,7 @@ const { isloading } = useSelector((state) => state.auth);
         />
         <span>Image</span>
       </label>
-      <label for="priority" data-aos="fade-up">
+      <label for="priority (1-10)" data-aos="fade-up">
         <input
           type="number"
           id="priority"
@@ -161,7 +161,7 @@ const { isloading } = useSelector((state) => state.auth);
           required
           placeholder="image"
         />
-        <span>Priority</span>
+        <span>Priority (1-10)</span>
       </label>
       <Select
           options={categories}
@@ -170,6 +170,8 @@ const { isloading } = useSelector((state) => state.auth);
           name="category"
           value={category}
           onChange={handleSelectChange}
+          required
+          placeholder="Category"
         />
       <div class="form-float scheme-des" data-aos="fade-up">
         <textarea
