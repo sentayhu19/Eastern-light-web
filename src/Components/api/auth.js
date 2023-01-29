@@ -1,31 +1,32 @@
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
+const endPoint = "http://localhost:8000/api";
 
 export async function onLogin (loginData)
 {
-    return await axios.post('http://localhost:8000/api/login', loginData)
+    return await axios.post(endPoint, loginData)
 }
 
 export async function onLogout ()
 {
-    return await axios.get('http://localhost:8000/api/logout')
+    return await axios.get(`${(endPoint)}/logout`)
 }
 
 export async function fetchProtectedInfo(){
-    return await axios.get('http://localhost:8000/api/protected')
+    return await axios.get(`${(endPoint)}/protected`)
 }
 
 // product
 
 export async function addnewproduct (productData)
 {
-    return await axios.post('http://localhost:8000/api/addproduct', productData)
+    return await axios.post(`${(endPoint)}/addproduct`, productData)
 }
 
 export async function getproducts ()
 {
-    return await axios.get('http://localhost:8000/api/getproducts')
+    return await axios.get(`${(endPoint)}/getproducts`)
 }
 
 
@@ -33,15 +34,19 @@ export async function getproducts ()
 
 export async function addnewcategory (categoryData)
 {
-    return await axios.post('http://localhost:8000/api/addcategory', categoryData)
+    return await axios.post(`${(endPoint)}/addcategory`, categoryData)
 }
 
 export async function getcategories ()
 {
-    return await axios.get('http://localhost:8000/api/getcategories')
+    return await axios.get(`${(endPoint)}/getcategories`)
 }
 
 export async function getproductshow()
 {
-    return await axios.get('http://localhost:8000/api/productshow')
+    return await axios.get(`${(endPoint)}/productshow`)
+}
+export async function getsearchbycat(catagory_id)
+{
+    return await axios.post(`${(endPoint)}/searchbycat`,catagory_id)
 }

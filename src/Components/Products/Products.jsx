@@ -8,10 +8,11 @@ import { fetchproduct } from '../../redux/eastern-light/reducer/reducer';
 import { getcategories } from '../api/auth';
 import { fetchcatagory } from '../../redux/eastern-light/reducer/reducer';
 import Product from './Product';
+import { getsearchbycat } from '../api/auth';
 
 
 const Productshow = () => {
-  const [categorySearch, setcategorySearch] = useState("");
+  const [categorySearch, setcategorySearch] = useState({category_id: ""});
   const [productSearch, setproductSearch ] = useState("");
 const dispatch = useDispatch();
   useEffect(() => {
@@ -28,12 +29,17 @@ const dispatch = useDispatch();
       
     }
     pullcatagorydata()
+    
   }, []);
 const handleSelectChange =  (selectedOption) => {
   if (selectedOption) {
     const value = selectedOption;
-    const category = 'category';
-    setcategorySearch(value.id);
+    const category = 'category_id';
+    setcategorySearch({[category]: value.id});
+
+    getsearchbycat(categorySearch).then(response => {
+      dispatch( fetchproduct(response.data.products));
+    });
   }
 }
 const handleChange = () =>{
