@@ -35,13 +35,13 @@ const Footer = () => {
                     <div  className='flex flex-col  gap-4 mt-4'>
                         <h4 className='font-bold border-b'>Connect with us:</h4>
                         <div className='flex md:gap-5 sm:gap-10'>
-                        <a className=' hover:border md:w-10 h-10 text-2xl rounded-full text-[#0077b5]  hover:text-white hover:bg-[#0077b5]' href='https://www.linkedin.com/company/eastern-pharma-plc' target='_blank' rel="noreferrer">
+                        <a className='flex items-center justify-center hover:border md:w-10 h-10 text-2xl rounded-full text-[#0077b5]  hover:text-white hover:bg-[#0077b5]' href='https://www.linkedin.com/company/eastern-pharma-plc' target='_blank' rel="noreferrer">
                         <FontAwesomeIcon icon={faLinkedinIn}/>
                         </a>
-                        <a className=' hover:border w-10 h-10 rounded-full text-2xl  text-[#3b5999]  hover:text-white hover:bg-[#3b5999]' href='https://www.facebook.com/Eastern-Pharma-PLC-100000000000000' target='_blank' rel="noreferrer">
+                        <a className='flex items-center justify-center hover:border w-10 h-10 rounded-full text-2xl  text-[#3b5999]  hover:text-white hover:bg-[#3b5999]' href='https://www.facebook.com/Eastern-Pharma-PLC-100000000000000' target='_blank' rel="noreferrer">
                         <FontAwesomeIcon icon={faFacebookF} />
                         </a>
-                        <a className=' hover:border w-10 h-10 rounded-full text-2xl  text-[#55acee]  hover:text-white hover:bg-[#55acee]' href='https://twitter.com/EasternPharma' target='_blank' rel="noreferrer">
+                        <a className='flex items-center justify-center hover:border w-10 h-10 rounded-full text-2xl  text-[#55acee]  hover:text-white hover:bg-[#55acee]' href='https://twitter.com/EasternPharma' target='_blank' rel="noreferrer">
                         <FontAwesomeIcon icon={faTwitter}/>
                         </a>
                         </div>
