@@ -7,6 +7,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faMortarPestle } from '@fortawesome/free-solid-svg-icons';
 import { faStethoscope } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
 
 
@@ -60,16 +61,15 @@ const Nav = () => {
             </div>
           <p className='text-[#76A900] font-logo'> light</p> 
         </div>
-         
         <button className='sm:hidden'>CONTACT US</button>
         <FontAwesomeIcon icon={faBars} onClick={toggle} className='md:hidden text-xl' id={isOpen ? 'button-hidden': ''} />
         <FontAwesomeIcon icon={faXmark} onClick={toggle} className='md:hidden text-xl' id={isOpen ? '': 'button-hidden'} />
         <ul className='flex items-center sm:hidden md:flex gap-14 '>
-        <li><NavLink to="/" className='hover:hover:text-[#76A900] cursor-pointer'>Home</NavLink></li>
-        <li><NavLink className='hover:hover:text-[#76A900] cursor-pointer'>Products</NavLink></li>
-        <li><NavLink className='hover:hover:text-[#76A900] cursor-pointer'>Services</NavLink></li>
-        <li><NavLink className='hover:hover:text-[#76A900] cursor-pointer'>About</NavLink></li>
-        <li><NavLink className='hover:hover:text-[#76A900] cursor-pointer'>Contact us</NavLink></li>
+        <li><Link to="home" className='hover:hover:text-[#76A900] cursor-pointer'>Home</Link></li>
+        <li><Link to="products" className='hover:hover:text-[#76A900] cursor-pointer'>Products</Link></li>
+        <li><Link to="services" className='hover:hover:text-[#76A900] cursor-pointer'>Services</Link></li>
+        <li><Link to="about" className='hover:hover:text-[#76A900] cursor-pointer'>About</Link></li>
+        <li><Link to="contact" className='hover:hover:text-[#76A900] cursor-pointer'>Contact us</Link></li>
         <li>
          {auth.isAuth ?  
         <button type='buttom' onClick={handleClick} className='bg-red-400 rounded-md text-white p-2'>
@@ -100,11 +100,25 @@ const Nav = () => {
         
         </div>
         <ul className='flex flex-col m-20 gap-4 text-white ' data-aos="fade-up">
-        <li className=''>Home</li>
-        <li className='' >About</li>
-        <li className=''>Services</li>
-        <li className=''>Contact</li>
-        <li><NavLink to="/login">Log in</NavLink></li>
+        <li className=''>
+          <Link to="home">Home</Link>
+          
+          </li>
+        <li className='' ><Link to="about">About</Link></li>
+        <li className=''><Link to="services">Services</Link></li>
+        <li className=''><Link to="contact">Contact</Link></li>
+        <li>
+        {auth.isAuth ?  
+        <button type='buttom' onClick={handleClick} className='bg-red-400 rounded-md text-white p-2'>
+        Log out
+        </button>
+          :
+          <button className='bg-[#76A900] text-white p-2 rounded-lg' onClick={toggle}>
+          <NavLink to="/login">Log In</NavLink>
+          </button>
+           }
+        
+        </li>
         </ul>
         </nav>: ''
         }
