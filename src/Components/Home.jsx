@@ -4,7 +4,7 @@ import Services from "./Services";
 import Who from "./Who";
 import About from "./About";
 import Contactus from "./Contactus";
-import Footer from "./Footer";
+
 import Productshow from "./Products/Products";
 
 const Home = () => {
@@ -16,7 +16,6 @@ const Home = () => {
       <Who />
       <About />
       <Contactus />
-      <Footer />
     </>
   );
 };
