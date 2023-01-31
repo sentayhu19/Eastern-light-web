@@ -5,6 +5,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { deleteproduct } from '../api/auth'
+import Select from 'react-select';
 
 const AdminProduct = ({product}) => {
     const [emulatorName, setEmulatorName] = useState('')
@@ -16,8 +17,11 @@ const AdminProduct = ({product}) => {
     const [deletedproduct, setdeletedproduct] = useState({id: ""});
 
     const [deleteToggle, setdeleteToggle] =  useState(false);
+    const [editToggle, seteditToggle] =  useState(false);
+    const [editproduct, seteditproduct] = useState({id: "", name: "", description: "", price: "", category: "", image: ""});
 
     const { protectedData } = useSelector((state) => state.auth);
+    const { categories } = useSelector((state) => state.catagory);
 useEffect(() => {
     setTimeout(()=>{
         setEmulatorName(product.name)
@@ -31,11 +35,14 @@ useEffect(() => {
 }, [product])
 
 const handledeletetoggle= () => { 
-  console.log("DELETE WITH PROD ID: ",product.id)
   setdeletedproduct({["id"]: product.id})
   setdeleteToggle(!deleteToggle)
 };
 
+const handleeditToggle = () => {
+  seteditproduct({["id"]: product.id, ["name"]: product.name, ["description"]: product.description, ["price"]: product.price, ["category"]: product.category, ["image"]: product.image})
+  seteditToggle(!editToggle)
+}
 
 const handledelete = async () => {
  await deleteproduct(deletedproduct)
@@ -46,8 +53,13 @@ const handledelete = async () => {
     console.log(error)
   })
 }
+const handleedit = async () => {
+  
+}
+
+
   return (
-    <div className=' relative flex items-center md:justify-center flex-col md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p3 hover:border-2 border-[#76A900] rounded-lg' data-aos="fade-up" key={product._id}>
+    <div className='relative flex items-center md:justify-center flex-col md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p3 hover:border-2 border-[#76A900] rounded-lg' data-aos="fade-up" key={product._id}>
       <div className='flex items-center flex-col md:gap-4 sm:gap-1'>
       {emulatorImage && (  
     <img src={emulatorImage} alt={emulatorImage} className='md:w-[200px] md:h-[200px] sm:w-[250px] sm:h-[100px]  object-cover'/>)
@@ -75,18 +87,44 @@ const handledelete = async () => {
       </div>
       
       <div className='flex flex-col gap-2'>
-      <button className='bg-[#76A900] text-white rounded-lg p-1'>Edit</button>
+      <button className='bg-[#76A900] text-white rounded-lg p-1' onClick={handleeditToggle} >Edit</button>
       <button onClick={handledeletetoggle} className='bg-red-500 text-white rounded-lg p-1' >Delete</button>
       </div>
       {deleteToggle ? 
       <div className='absolute z-20 flex flex-col gap-10 top-7 w-full h-[450px] bg-white'>
         
-        <div className='flex flex-col pt-7 rounded-lg gap-7'>
+        <div className='flex flex-col pt-7 rounded-lg gap-7 bg-[#F0F1F3]'>
           <p className='border-b pb-5'>Are you sure you want to delete {product.name} ?</p>
           <button className='bg-red-500 text-white rounded-lg p-1 hover:bg-white hover:text-red-500' onClick={handledelete} id={product.id}>Delete</button>
           <button className='bg-[#76A900] text-white rounded-lg p-1 hover:bg-white hover:text-[#76A900]' onClick={handledeletetoggle}>Cancel</button>
         </div>
       </div> : ""}
+      {editToggle ?
+      <div className='fixed z-50  flex flex-col gap-10 top-1  w-[750px] h-auto bg-[#b4b4b7]'>
+        <div className='flex flex-col pt-7 rounded-lg gap-7'>
+          <p className='border-b pb-5'>Edit {product.name} ?</p>
+          <form className='flex flex-col gap-5'>
+            <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Name' value={editproduct.name} onChange={(e) => seteditproduct({...editproduct, name: e.target.value})}/>
+            <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Description' value={editproduct.description} onChange={(e) => seteditproduct({...editproduct, description: e.target.value})}/>
+            <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Price' value={editproduct.price} onChange={(e) => seteditproduct({...editproduct, price: e.target.value})}/>
+            <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Category' value={editproduct.category} onChange={(e) => seteditproduct({...editproduct, category: e.target.value})}/>
+            <Select
+                options={categories}
+                 getOptionLabel={option => option.name}
+                 getOptionValue={option => option.id}
+                 name="category"
+                 value={editproduct.category}
+                 onChange={(e) => seteditproduct({...editproduct, category: e.target.value})}
+                 placeholder="Category"
+            />
+            <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Image' value={editproduct.image} onChange={(e) => seteditproduct({...editproduct, image: e.target.value})}/>
+            <button className='bg-[#76A900] text-white rounded-lg p-1 hover:bg-white hover:text-[#76A900]' onClick={handleeditToggle}>Cancel</button>
+            <button className='bg-red-500 text-white rounded-lg p-1 hover:bg-white hover:text-red-500' onClick={handleedit}>Edit</button>
+            </form>
+      </div>
+      </div>
+      
+      : "" }
       </div>
   )
 }
