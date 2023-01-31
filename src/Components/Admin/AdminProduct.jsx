@@ -107,10 +107,14 @@ const handleedit = async () => {
       <div className='fixed z-50 flex flex-col gap-10 md:top-10 md:left-[20%] sm:w-[80%] md:w-[750px] sm:top-9  h-auto'>
         <div className='fixed flex flex-col p-4 sm:left-3 sm:w-[95%] rounded-lg gap-7 items-center justify-center bg-white'>
           <h2 className='border-b pb-5 text-xl'>Edit {product.name} ?</h2>
-          <form className='relative flex flex-col gap-5 overflow-y-auto h-auto overflow-x-hidden md:w-[600px] m-auto'>
+          <form className='relative flex flex-col gap-3 overflow-y-auto h-auto overflow-x-hidden md:w-[600px] m-auto'>
+            <label className='border-none text-left'>Name</label>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Name' value={editproduct.name} onChange={(e) => seteditproduct({...editproduct, name: e.target.value})}/>
+            <label className='border-none text-left'>Description</label>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Description' value={editproduct.description} onChange={(e) => seteditproduct({...editproduct, description: e.target.value})}/>
+            <label className='border-none text-left'>Price</label>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Price' value={editproduct.price} onChange={(e) => seteditproduct({...editproduct, price: e.target.value})}/>
+            <label className='border-none text-left'>Category</label>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Category' value={editproduct.category} onChange={(e) => seteditproduct({...editproduct, category: e.target.value})}/>
             <Select
                 options={categories}
