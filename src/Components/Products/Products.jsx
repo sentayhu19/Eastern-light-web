@@ -55,8 +55,8 @@ const handleSelectChange2 =  (selectedOption) => {
   }
 }
   return (
-    <section className="flex md:flex-row sm:flex-col text-center mt-20 bg-[#F0F1F3]" name="products"  id='products'>
-      <div className='flex flex-col gap-5 md:w-[35%] sm:w-[95%] md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg'>
+    <section className="flex md:flex-row sm:flex-col text-center mt-20 bg-[#F0F1F3]"  name="products"  id='products'>
+      <div className='flex flex-col gap-5 md:w-[35%] sm:w-[95%] bg-white md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg'>
         <label>Search by category</label>
         <Select
           options={categories}
@@ -86,7 +86,7 @@ const handleSelectChange2 =  (selectedOption) => {
       </button>
        
       </div>
-    <div className="flex flex-col mb-7 md:mb-20 shadow-lg md:mt-6 border-3 pb-7 rounded-lg">
+    <div className="flex flex-col mb-7 md:mb-20 shadow-lg md:mt-6 border-3 bg-white pb-7 rounded-lg">
     <h2 className='text-2xl font-bold pt-7 'data-aos="fade-up">PRODUCTS</h2>
     <div className='grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] '>
      

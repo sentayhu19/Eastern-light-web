@@ -22,7 +22,7 @@ useEffect(() => {
    
 }, [product])
   return (
-    <div className=' relative flex items-center md:justify-center flex-col md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p3 hover:border-2 border-[#76A900] rounded-lg' data-aos="fade-up" key={product._id}>
+    <div className=' relative flex items-center md:justify-center bg-white flex-col md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p3 hover:border-2 border-[#76A900] rounded-lg' data-aos="fade-up" key={product._id}>
 
       <div className='flex items-center flex-col md:gap-4 sm:gap-1'>
 

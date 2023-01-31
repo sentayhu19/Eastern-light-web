@@ -23,7 +23,7 @@ const dispatch = useDispatch();
 
 const { products } = useSelector((state) => state.product);
   return (
-    <section className="text-center w-full min-h-[200px] bg-[#F0F1F3]">
+    <section className="text-center w-full min-h-[200px] h-auto bg-[#F0F1F3]">
     <div className="flex flex-col mb-7 md:mb-20">
     <h2 className='text-2xl font-bold pt-7 'data-aos="fade-up">PRODUCTS</h2>
     <div className='grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] '>

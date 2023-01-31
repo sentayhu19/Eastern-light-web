@@ -53,5 +53,5 @@ export async function getsearchbycat(catagory_id)
 
 export async function deleteproduct(id)
 {
-    return await axios.delete(`${(endPoint)}/deleteproduct`,id)   
+    return await axios.post(`${(endPoint)}/deleteproduct`,id)   
 }

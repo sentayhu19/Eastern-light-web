@@ -74,6 +74,7 @@ const { isloading } = useSelector((state) => state.auth);
       setIsOpen(true)
       setTimeout(() => {
         setIsOpen(false);
+       
       }, 2000);
 
     } catch (err) {
@@ -133,7 +134,7 @@ const { isloading } = useSelector((state) => state.auth);
           required
           placeholder="description"
         />
-        <span>Price</span>
+        <span>Price (Birr)</span>
       </label>
       <label for="brand" data-aos="fade-up">
         <input

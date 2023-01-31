@@ -13,6 +13,7 @@ const AdminProduct = ({product}) => {
     const [emulatorPrice, setEmulatorPrice] = useState('')
     const [emulatorCategory, setEmulatorCategory] = useState('')
     const [emulatordescDesk, setEmulatordescDesk] = useState('')
+    const [deletedproduct, setdeletedproduct] = useState({id: ""});
 
     const [deleteToggle, setdeleteToggle] =  useState(false);
 
@@ -30,11 +31,14 @@ useEffect(() => {
 }, [product])
 
 const handledeletetoggle= () => { 
+  console.log("DELETE WITH PROD ID: ",product.id)
+  setdeletedproduct({["id"]: product.id})
   setdeleteToggle(!deleteToggle)
 };
-const handledelete = () => {
-  console.log("DELETE WITH PROD ID: ",product.id)
-  deleteproduct(product.id)
+
+
+const handledelete = async () => {
+ await deleteproduct(deletedproduct)
   .then((response) => {
     console.log(response)
   })
@@ -69,11 +73,11 @@ const handledelete = () => {
       emulatordescDesk || (
         <Skeleton className='sm:text-[13px] sm:hidden md:flex' count={1} width={250} baseColor='black' height="20px" />)}</p>
       </div>
-      {protectedData === "" ? "": 
+      
       <div className='flex flex-col gap-2'>
       <button className='bg-[#76A900] text-white rounded-lg p-1'>Edit</button>
-      <button onClick={handledeletetoggle} className='bg-red-500 text-white rounded-lg p-1'>Dlete</button>
-      </div>}
+      <button onClick={handledeletetoggle} className='bg-red-500 text-white rounded-lg p-1' >Delete</button>
+      </div>
       {deleteToggle ? 
       <div className='absolute z-20 flex flex-col gap-10 top-7 w-full h-[450px] bg-white'>
         
