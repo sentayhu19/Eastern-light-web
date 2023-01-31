@@ -41,8 +41,7 @@ const handleSelectChange =  (selectedOption) => {
     const value = selectedOption;
     const category = 'category_id';
     setcategorySearch({[category]: value.id});
-    console.log("PRODUCTS AT CATEGORY SEARCH BEFORE FILTER: ", products)
-    setsearchResult(products.filter( product => product.category_id.includes(value.id )))
+    setsearchResult(products.filter( product => product.category_id===value.id ))
     console.log("Search by CATEGORY : ", searchResult);
       dispatch( fetchproduct(searchResult));
   }

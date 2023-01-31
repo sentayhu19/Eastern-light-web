@@ -88,7 +88,7 @@ const Nav = () => {
         
 {/*  nav slide */}
 {isOpen ? 
-        <nav className='fixed blob-nav overflow-hidden md:hidden top-0 h-screen w-[50%] bg-[#76A900] z-50 rounded-r-xl' id="slide" data-aos="flip-left">
+        <nav className='fixed blob-nav overflow-hidden md:hidden top-0 h-screen w-[50%] max-w-[300px] min-w-[150px] bg-[#76A900] z-50 rounded-r-xl' id="slide" data-aos="flip-left">
         <div className='flex justify-between m-6 text-white'>
         <div className='flex items-center text-[11px] text-white'>
           <p className='font-logo estyle'>Eastern  </p>
