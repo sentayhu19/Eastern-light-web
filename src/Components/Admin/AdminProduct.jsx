@@ -100,7 +100,7 @@ const handleedit = async () => {
         </div>
       </div> : ""}
       {editToggle ?
-      <div className='fixed z-50  flex flex-col gap-10 top-1  w-[750px] sm:w-[350px]  h-auto bg-[#b4b4b7]'>
+      <div className='fixed z-50 overflow-y-auto  flex flex-col gap-10 top-1  w-[750px] sm:w-[350px]  h-auto bg-[#b4b4b7]'>
         <div className='flex flex-col pt-7 rounded-lg gap-7'>
           <h2 className='border-b pb-5 text-xl'>Edit {product.name} ?</h2>
           <form className='flex flex-col gap-5'>
