@@ -19,6 +19,7 @@ import AddProducts from "./Components/Products/AddProducts";
 import AddCategory from "./Components/Products/AddCategory";
 import Products from '../src/Components/Products/Products'
 import Footer from "./Components/Footer";
+import AdminProducts from "./Components/Admin/AdminProducts";
 
 const App = () => {
   const [loading, setloading] = useState(false);
@@ -56,6 +57,7 @@ const App = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/addproducts" element={<AddProducts />} />
               <Route path="/addcategory" element={<AddCategory />} />
+              <Route path="/adminproducts" element={<AdminProducts />} />
               
             </Route>
             <Route element={<RestrictedRoutes />}>

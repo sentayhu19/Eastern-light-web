@@ -13,7 +13,7 @@ const Adminnav = () => {
       <NavLink className='hover:bg-[#76A900] rounded-lg' to="/addcategory">
       <button className='text-white font-bold text-lg'>Add Category</button>
       </NavLink>
-      <NavLink className='hover:bg-[#76A900] rounded-lg' to="/products">
+      <NavLink className='hover:bg-[#76A900] rounded-lg' to="/adminproducts">
       <button className='text-white font-bold text-lg'>Products</button>
       </NavLink>
       </div>
