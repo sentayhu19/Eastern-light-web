@@ -36,8 +36,8 @@ const Nav = () => {
 
     await onLogout()
    dispatch(unauthenticateUser()) 
-   localStorage.removeItem('isAuth')
-   console.log("Loged out")
+   localStorage.removeItem('isDelta')
+   window.location.reload(true)
     }
     catch(err){
         console.log("Error occured while trying to logout : ",err.resonse)
