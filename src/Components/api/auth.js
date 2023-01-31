@@ -5,7 +5,7 @@ const endPoint = "http://localhost:8000/api";
 
 export async function onLogin (loginData)
 {
-    return await axios.post(endPoint, loginData)
+    return await axios.post(`${(endPoint)}/login`, loginData)
 }
 
 export async function onLogout ()
