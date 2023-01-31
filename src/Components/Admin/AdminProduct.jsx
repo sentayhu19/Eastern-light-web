@@ -59,6 +59,7 @@ const handleedit = async () => {
 
 
   return (
+    <>
     <div className='relative flex items-center md:justify-center flex-col md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p3 hover:border-2 border-[#76A900] rounded-lg' data-aos="fade-up" key={product._id}>
       <div className='flex items-center flex-col md:gap-4 sm:gap-1'>
       {emulatorImage && (  
@@ -99,11 +100,14 @@ const handleedit = async () => {
           <button className='bg-[#76A900] text-white rounded-lg p-1 hover:bg-white hover:text-[#76A900]' onClick={handledeletetoggle}>Cancel</button>
         </div>
       </div> : ""}
+      
+      </div>
       {editToggle ?
-      <div className='fixed z-50 overflow-y-auto  flex flex-col gap-10 top-1  w-[750px] sm:w-[350px]  h-auto bg-[#b4b4b7]'>
-        <div className='flex flex-col pt-7 rounded-lg gap-7'>
+      <div className='fixed top-0 left-0 z-40 w-full h-full overflow-x-hidden overflow-y-hidden bg-[#b4b4b7] opacity-90 '>
+      <div className='fixed z-50 flex flex-col gap-10 md:top-10 md:left-[20%] sm:left[90%]  md:w-[750px]  h-auto bg-[#fefefe]'>
+        <div className='fixed flex flex-col p-4 rounded-lg gap-7 items-center justify-center bg-slate-100'>
           <h2 className='border-b pb-5 text-xl'>Edit {product.name} ?</h2>
-          <form className='flex flex-col gap-5'>
+          <form className='relative flex flex-col gap-5 overflow-y-auto h-auto overflow-x-hidden md:w-[600px] m-auto'>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Name' value={editproduct.name} onChange={(e) => seteditproduct({...editproduct, name: e.target.value})}/>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Description' value={editproduct.description} onChange={(e) => seteditproduct({...editproduct, description: e.target.value})}/>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Price' value={editproduct.price} onChange={(e) => seteditproduct({...editproduct, price: e.target.value})}/>
@@ -123,9 +127,10 @@ const handleedit = async () => {
             </form>
       </div>
       </div>
+      </div>
       
       : "" }
-      </div>
+      </>
   )
 }
 
