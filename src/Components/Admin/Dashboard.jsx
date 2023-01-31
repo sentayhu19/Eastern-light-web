@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import AddProducts from '../Products/AddProducts'
 import { fetchProtectedInfo } from '../api/auth'
 import { onLogout } from '../api/auth'
 import { unauthenticateUser } from '../../redux/eastern-light/reducer/reducer'
 import { NavLink } from 'react-router-dom'
 import Adminnav from '../Navigations/Adminnav'
+import { setProtectedData } from '../../redux/eastern-light/reducer/reducer'
+
 
 const Dashboard = () => {
   const dispatch = useDispatch()
-  const [protectedData, setProtectedData] = useState(null);
-
   const logout = async () => {
     try {
       await onLogout()
@@ -24,9 +24,7 @@ const Dashboard = () => {
   const protectedInfo = async () => {
     try {
       const { data } = await fetchProtectedInfo()
-
-      setProtectedData(data.info)
-
+      dispatch(setProtectedData(data.info))
     } catch (error) {
       logout()
     }

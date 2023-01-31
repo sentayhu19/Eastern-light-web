@@ -11,7 +11,7 @@ import Product from './Product';
 import { getsearchbycat } from '../api/auth';
 
 
-const Productshow = () => {
+const Products = () => {
   const [categorySearch, setcategorySearch] = useState({category_id: ""});
   const [productSearch, setproductSearch ] = useState({key: ""});
   const [searchResult, setsearchResult] = useState([]);
@@ -40,10 +40,10 @@ const handleSelectChange =  (selectedOption) => {
     const value = selectedOption;
     const category = 'category_id';
     setcategorySearch({[category]: value.id});
-
-    getsearchbycat(categorySearch).then(response => {
-      dispatch( fetchproduct(response.data.products));
-    });
+    console.log("PRODUCTS AT CATEGORY SEARCH BEFORE FILTER: ", products)
+    setsearchResult(products.filter( product => product.category_id.includes(value.id )))
+    console.log("Search by CATEGORY : ", searchResult);
+      dispatch( fetchproduct(searchResult));
   }
 }
 const handleSelectChange2 =  (selectedOption) => {
@@ -52,7 +52,6 @@ const handleSelectChange2 =  (selectedOption) => {
     const key = 'key';
     setproductSearch({[key]: value.id});
     setsearchResult(products.filter( product => product.name.includes(value.name )))
-    console.log("Search: ", searchResult);
   }
 }
   return (
@@ -90,10 +89,13 @@ const handleSelectChange2 =  (selectedOption) => {
     <div className="flex flex-col mb-7 md:mb-20 shadow-lg md:mt-6 border-3 pb-7 rounded-lg">
     <h2 className='text-2xl font-bold pt-7 'data-aos="fade-up">PRODUCTS</h2>
     <div className='grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] '>
-    {searchResult ? searchResult.map((product) => (
+     
+    {searchResult.length > 0 ? searchResult.map((product) => (
       
       <Product product={product} />
-        )):products.map((product) => (
+        ))
+        :
+        products.map((product) => (
      <Product product={product} />
        ))
     }
@@ -103,4 +105,4 @@ const handleSelectChange2 =  (selectedOption) => {
   )
 }
 
-export default Productshow;
+export default Products;

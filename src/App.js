@@ -17,7 +17,7 @@ import Dashboard from "./Components/Admin/Dashboard";
 import Nav from "./Components/Navigations/Nav";
 import AddProducts from "./Components/Products/AddProducts";
 import AddCategory from "./Components/Products/AddCategory";
-import Productshow from "./Components/Products/Products";
+import Products from '../src/Components/Products/Products'
 import Footer from "./Components/Footer";
 
 const App = () => {
@@ -56,12 +56,13 @@ const App = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/addproducts" element={<AddProducts />} />
               <Route path="/addcategory" element={<AddCategory />} />
-              <Route path="/products" element={<Productshow />} />
+              
             </Route>
             <Route element={<RestrictedRoutes />}>
               <Route path="/login" element={<Login />} />
             </Route>
             <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
           </Routes>
           <Footer />
         </Router>

@@ -15,6 +15,7 @@ const initialState = {
   isloading: false,
   Error: "",
   products: [],
+  protectedData: "",
 }
 
 export const authSlice = createSlice({
@@ -35,7 +36,10 @@ export const authSlice = createSlice({
     setLoading: (state, action) => {
       console.log("SET LOADING AT REDUCER TO", state.isloading);
       state.isloading = action.payload;
-    } 
+    } ,
+    setProtectedData: (state, action) => {
+      state.protectedData = action.payload;
+    }
   },
 })
 
@@ -68,7 +72,7 @@ export const authSlice = createSlice({
   })
 
 // Action creators are generated for each case reducer function
-export const { authenticateUser, unauthenticateUser,  setLoading,  setError } = authSlice.actions
+export const { authenticateUser, unauthenticateUser,  setLoading,  setError, setProtectedData } = authSlice.actions
 export const { fetchcatagory } = CatSlice.actions
 export const { fetchproduct } = ProductSlice.actions
 

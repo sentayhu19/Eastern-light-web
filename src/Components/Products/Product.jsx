@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
+import { useSelector } from 'react-redux'
 import Skeleton from 'react-loading-skeleton'
+
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const Product = ({product}) => {
@@ -10,6 +12,7 @@ const Product = ({product}) => {
     const [emulatorCategory, setEmulatorCategory] = useState('')
     const [emulatordescDesk, setEmulatordescDesk] = useState('')
 
+    const { protectedData } = useSelector((state) => state.auth);
 useEffect(() => {
     setTimeout(()=>{
         setEmulatorName(product.name)
@@ -22,7 +25,7 @@ useEffect(() => {
    
 }, [product])
   return (
-    <div className=' relative flex items-center md:justify-center flex-col md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p3 hover:border-2 border-[#76A900] rounded-lg' data-aos="fade-up" key={product._id}>
+    <div className=' relative flex items-center md:justify-center flex-col md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p3 hover:border-2 border-[#76A900] rounded-lg' data-aos="fade-up" key={product._id}>
 
       <div className='flex items-center flex-col md:gap-4 sm:gap-1'>
 
@@ -50,6 +53,12 @@ useEffect(() => {
       emulatordescDesk || (
         <Skeleton className='sm:text-[13px] sm:hidden md:flex' count={1} width={250} baseColor='black' height="20px" />)}</p>
       </div>
+      {protectedData === "" ? "": 
+      <div className='flex flex-col gap-2'>
+      <button className='bg-[#76A900] text-white'>Edit</button>
+      <button className='bg-red-500 text-white rounded-lg'>Dlete</button>
+      </div>}
+      
       </div>
   )
 }
