@@ -102,7 +102,7 @@ const handleedit = async () => {
       {editToggle ?
       <div className='fixed z-50  flex flex-col gap-10 top-1  w-[750px] h-auto bg-[#b4b4b7]'>
         <div className='flex flex-col pt-7 rounded-lg gap-7'>
-          <p className='border-b pb-5'>Edit {product.name} ?</p>
+          <h2 className='border-b pb-5 text-xl'>Edit {product.name} ?</h2>
           <form className='flex flex-col gap-5'>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Name' value={editproduct.name} onChange={(e) => seteditproduct({...editproduct, name: e.target.value})}/>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Description' value={editproduct.description} onChange={(e) => seteditproduct({...editproduct, description: e.target.value})}/>
