@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { getcategories } from '../../../Components/api/auth'
 
 const userAuthFromLocalStorage = () => {
-    const isAuth = localStorage.getItem('isAuth')
+    const isAuth = localStorage.getItem('isDelta')
 
     if (isAuth && JSON.parse(isAuth) === true) {
       return true

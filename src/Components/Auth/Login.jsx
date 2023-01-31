@@ -35,7 +35,7 @@ const Login = (props) => {
     try{
 await onLogin(login)
 dispatch(authenticateUser())
-localStorage.setItem('isAuth',true)
+localStorage.setItem('isDelta',true)
     }
     catch(err){
       console.log(err.response.data.errors[0].msg)
@@ -45,7 +45,6 @@ localStorage.setItem('isAuth',true)
   }
 
   const { email, password } = login;
-  console.log("Is loading.... at Login", isloading)
   return (
     <>
       <div class="flex absolute w-full z-10 items-center justify-center min-h-screen bg-[#F7F8FA]">

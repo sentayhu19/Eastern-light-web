@@ -15,7 +15,7 @@ const Dashboard = () => {
     try {
       await onLogout()
       dispatch(unauthenticateUser())
-      localStorage.removeItem('isAuth')
+      localStorage.removeItem('isDelta')
     } catch (error) {
       console.log(error.response)
     }

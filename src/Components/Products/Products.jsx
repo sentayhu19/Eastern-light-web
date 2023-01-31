@@ -13,8 +13,11 @@ import { getsearchbycat } from '../api/auth';
 
 const Productshow = () => {
   const [categorySearch, setcategorySearch] = useState({category_id: ""});
-  const [productSearch, setproductSearch ] = useState("");
+  const [productSearch, setproductSearch ] = useState({key: ""});
+  const [searchResult, setsearchResult] = useState([]);
 const dispatch = useDispatch();
+const { categories } = useSelector((state) => state.catagory);
+const { products } = useSelector((state) => state.product);
   useEffect(() => {
     const pulldata = async () => {
       getproducts().then(response => {
@@ -32,6 +35,7 @@ const dispatch = useDispatch();
     
   }, []);
 const handleSelectChange =  (selectedOption) => {
+  
   if (selectedOption) {
     const value = selectedOption;
     const category = 'category_id';
@@ -42,52 +46,54 @@ const handleSelectChange =  (selectedOption) => {
     });
   }
 }
-const handleChange = () =>{
-
+const handleSelectChange2 =  (selectedOption) => {
+  if (selectedOption) {
+    const value = selectedOption;
+    const key = 'key';
+    setproductSearch({[key]: value.id});
+    setsearchResult(products.filter( product => product.name.includes(value.name )))
+    console.log("Search: ", searchResult);
+  }
 }
-
-  const { categories } = useSelector((state) => state.catagory);
-  
-const { products } = useSelector((state) => state.product);
-console.log("Caegory Seleced ID", categorySearch);
   return (
     <section className="flex md:flex-row sm:flex-col text-center mt-20 bg-[#F0F1F3]" name="products"  id='products'>
-      <div className='flex flex-col gap-5 md:w-[30%] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg'>
-    <Select
+      <div className='flex flex-col gap-5 md:w-[35%] sm:w-[95%] md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg'>
+        <label>Search by category</label>
+        <Select
           options={categories}
           getOptionLabel={option => option.name}
           getOptionValue={option => option.id}
           name="category"
           value={categorySearch}
           onChange={handleSelectChange}
-          placeholder="Category"
+          placeholder="Search by category"
         />
-        <form className='md:w-[274px] border-none p-0 sm:w-full'>
-        <label for="key" data-aos="fade-up">
-        <input
-          type="text"
-          id="key"
+         <label>Search by product name</label>
+        <Select
+          options={products}
+          getOptionLabel={option => option.name}
+          getOptionValue={option => option.id}
           name="key"
-          onChange={handleChange}
           value={productSearch}
-          required
+          onChange={handleSelectChange2}
           placeholder="Search by product name"
         />
-        <span>Search product </span>
-      </label>
+    
       <button
         type="submit"
         className="bg-[#76A900] text-white rounded-lg md:w-36 md:h-12"
       >
         Search
       </button>
-        </form>
+       
       </div>
     <div className="flex flex-col mb-7 md:mb-20 shadow-lg md:mt-6 border-3 pb-7 rounded-lg">
     <h2 className='text-2xl font-bold pt-7 'data-aos="fade-up">PRODUCTS</h2>
     <div className='grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] '>
-    { products.map((product) => (
+    {searchResult ? searchResult.map((product) => (
       
+      <Product product={product} />
+        )):products.map((product) => (
      <Product product={product} />
        ))
     }

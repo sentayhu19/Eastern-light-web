@@ -39,7 +39,7 @@ const Scroll = () => {
     <Slide>
      {slideImages.map((slideImage, index)=> (
         <div className="h-screen  each-slide" key={index}>
-          <div className='md:hidden relative h-screen w-full bg-cover bg-center  backdrop-blur-lg' style={{'backgroundImage': `url(${slideImage.url})`}}>
+          <div className='md:hidden relative h-screen w-full bg-cover bg-center  backdrop-blur-lg ' style={{'backgroundImage': `url(${slideImage.url})`}}>
             <div className='relative w-80 m-auto'>
           <div className='absolute top-36 left-[4%] rounded-full bg-green-400 w-24 h-24 opacity-20 animate-blob'></div>
           <div className='absolute top-36 left-[30%] rounded-full bg-green-400 w-24 h-24 opacity-20 animate-blob'></div>
@@ -47,9 +47,9 @@ const Scroll = () => {
           </div>
             <div className='absolute h-screen w-full opacity-90 backdrop-blur-sm'>
           <div className='absolute pt-40 text-gray-700    h-auto w-full text-center px-8'>
-            <div className='flex flex-col gap-8'>
+            <div className='flex flex-col gap-8 text-center'>
               <h1>
-            <span className=' sm:text-4xl  font-bold'>{slideImage.caption}</span>
+            <span className=' sm:text-4xl text-center  font-bold'>{slideImage.caption}</span>
             </h1>
             <p className='text-center text-md text-gray-600'>{slideImage.description}</p>
             <div className='p-24'>{slideImage.btn}</div>
@@ -59,11 +59,11 @@ const Scroll = () => {
           </div>
           {/* Desktop */}
           <div className='sm:hidden md:block  relative h-screen w-full bg-cover bg-center  backdrop-blur-lg' style={{'backgroundImage': `url(${slideImage.urldesk})`}}>
-            <div className='absolute h-screen w-full opacity-90 backdrop-blur-sm desktop-bg'>
+            <div className='absolute h-screen w-full opacity-90 backdrop-blur-sm desktop-bg '>
           <div className='absolute left-[10%] top-52 w-[80%]  pt-40 text-white h-auto px-8'>
-            <div className='flex flex-col gap-0'>
+            <div className='flex flex-col gap-0 text-center'>
               <h1>
-            <span className=' text-4xl font-bold md:text-6xl' data-aos="fade-up">{slideImage.caption}</span>
+            <span className=' text-4xl font-bold md:text-6xl ' data-aos="fade-up">{slideImage.caption}</span>
             </h1>
             <div className='flex flex-col gap-8'>
             <p className='text-md w-[60%] md:text-xl' data-aos="fade-up">{slideImage.description}</p>
