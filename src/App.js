@@ -24,6 +24,7 @@ import ProductDetails from "./Components/Products/ProductDetails";
 
 const App = () => {
   const [loading, setloading] = useState(false);
+  const { isAuth } = useSelector((state) => state.auth);
   useEffect(() => {
     setloading(true);
     setTimeout(() => {

@@ -192,7 +192,7 @@ const { isloading } = useSelector((state) => state.auth);
           rows="10"
           placeholder=" "
         ></textarea>
-        <label class="floating-label">Product description</label>
+        <label class="floating-label">Product description (255)</label>
       </div>
       <button
         type="submit"

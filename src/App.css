@@ -186,3 +186,14 @@ button:disabled
 .animation-slide-right-back {
   animation: slide-right-back 0.3s ease-out;
 }
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+
+
