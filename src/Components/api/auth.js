@@ -55,3 +55,7 @@ export async function deleteproduct(id)
 {
     return await axios.post(`${(endPoint)}/deleteproduct`,id)   
 }
+
+export async function editproductput(product){
+    return await axios.put(`${(endPoint)}/editproduct`,product)
+}

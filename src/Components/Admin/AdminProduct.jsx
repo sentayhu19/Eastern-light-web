@@ -6,6 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { deleteproduct } from '../api/auth'
 import Select from 'react-select';
+import { editproductput } from '../api/auth'
 
 const AdminProduct = ({product}) => {
     const [emulatorName, setEmulatorName] = useState('')
@@ -53,8 +54,16 @@ const handledelete = async () => {
     console.log(error)
   })
 }
-const handleedit = async () => {
-  
+const handleedit = async (e) => {
+  e.preventDefault()
+
+  try{
+    editproductput(editproduct)
+  console.log("EDIT SUCCESS: ",editproduct)
+  }
+  catch(error){
+    console.log(error)
+  }
 }
 
 
@@ -103,10 +112,10 @@ const handleedit = async () => {
       
       </div>
       {editToggle ?
-      <div className='fixed top-0 left-0 z-40 w-full h-full overflow-x-hidden overflow-y-hidden bg-[#7e7e81] opacity-90 '>
-        <div className='fixed flex flex-col p-4 sm:left-3 sm:w-[95%] rounded-lg gap-7 md:w-[70%] md:left-[30%] max-w-[650px]  items-center justify-center bg-white'>
+      <div className='fixed top-0 left-0 z-40 w-full h-full  bg-[#7e7e81] opacity-90 '>
+        <div className='fixed z-50 flex flex-col p-4 overflow-x-auto overflow-y-auto sm:left-3 sm:w-[95%] rounded-lg gap-7 md:w-[70%] md:left-[30%] max-w-[650px]  items-center justify-center bg-white'>
           <h2 className='border-b pb-5 text-xl'>Edit {product.name} ?</h2>
-          <form className='relative flex flex-col gap-3 overflow-y-auto h-auto overflow-x-hidden md:w-[600px] m-auto'>
+          <form className='flex flex-col gap-3  md:w-[600px] m-auto'>
             <label className='border-none text-left'>Name</label>
             <input type="text" className='border-2 border-[#76A900] rounded-lg p-2' placeholder='Name' value={editproduct.name} onChange={(e) => seteditproduct({...editproduct, name: e.target.value})}/>
             <label className='border-none text-left'>Description</label>
