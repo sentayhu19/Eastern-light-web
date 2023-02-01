@@ -20,6 +20,7 @@ import AddCategory from "./Components/Products/AddCategory";
 import Products from '../src/Components/Products/Products'
 import Footer from "./Components/Footer";
 import AdminProducts from "./Components/Admin/AdminProducts";
+import ProductDetails from "./Components/Products/ProductDetails";
 
 const App = () => {
   const [loading, setloading] = useState(false);
@@ -65,6 +66,7 @@ const App = () => {
             </Route>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route exact path="/products/:name/:id" element={<ProductDetails />} />
           </Routes>
           <Footer />
         </Router>

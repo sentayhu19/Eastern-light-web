@@ -59,3 +59,7 @@ export async function deleteproduct(id)
 export async function editproductput(product){
     return await axios.put(`${(endPoint)}/editproduct`,product)
 }
+
+export async function getproduct (id){
+    return await axios.get(`${(endPoint)}/getproduct/${id}`) 
+}

@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const Product = ({product}) => {
+ const navigate = useNavigate();
     const [emulatorName, setEmulatorName] = useState('')
     const [emulatorImage, setEmulatorImage] = useState('')
     const [emulatorDescription, setEmulatorDescription] = useState('')
@@ -21,13 +23,19 @@ useEffect(() => {
     },3* 1500)
    
 }, [product])
+
+const handleproduct = () => {
+  navigate(`/products/${product.name}/${product.id}`)
+}
+
+
   return (
-    <div className=' relative flex items-center md:justify-center flex-col md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p3 hover:border-2 border-[#76A900] rounded-lg' data-aos="fade-up" key={product._id}>
+    <div onClick={handleproduct} className=' relative flex items-center md:justify-center flex-col md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p3 hover:border-2 border-[#76A900] rounded-lg' data-aos="fade-up" key={product._id}>
 
       <div className='flex items-center flex-col md:gap-4 sm:gap-1'>
 
       {emulatorImage && (  
-    <img src={emulatorImage} alt={emulatorImage} className='md:w-[200px] md:h-[200px] sm:w-[250px] sm:h-[100px]  object-cover'/>)
+    <img src={emulatorImage} alt={emulatorImage} className='md:w-[200px] md:h-[200px] sm:w-[250px] sm:h-[100px] hover:scale-110  object-cover'/>)
     }
     {
         !emulatorImage && (
