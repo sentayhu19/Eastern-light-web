@@ -90,12 +90,12 @@ const Nav = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="/products"
                     className="hover:hover:text-[#76A900] cursor-pointer"
                   >
                     Products
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
                   <Link

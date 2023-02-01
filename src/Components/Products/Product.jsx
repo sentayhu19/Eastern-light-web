@@ -35,7 +35,7 @@ const handleproduct = () => {
       <div className='flex items-center flex-col md:gap-4 sm:gap-1'>
 
       {emulatorImage && (  
-    <img src={emulatorImage} alt={emulatorImage} className='md:w-[200px] md:h-[200px] sm:w-[250px] sm:h-[100px] hover:scale-110  object-cover'/>)
+    <img src={emulatorImage} alt={emulatorImage} className='md:w-[200px] md:h-[200px] sm:w-[250px] sm:h-[100px] hover:scale-110'/>)
     }
     {
         !emulatorImage && (
