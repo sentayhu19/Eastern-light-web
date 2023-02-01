@@ -32,7 +32,7 @@ const Productshow = () => {
             <ProductShow product={product} />
           ))}
         </div>
-        <button className='bg-[#76A900] text-white w-[50%] m-auto rounded-md md:w-[10%] my-5 cursor-pointer' onClick={navigate("/products")} >Show more products</button>
+        <button className='bg-[#76A900] text-white w-[50%] m-auto rounded-md md:w-[10%] h-10 my-5 cursor-pointer' onClick={() => {navigate("/products")}} >Show more products</button>
       </div>
       {products.length > 0 ? (
         " "

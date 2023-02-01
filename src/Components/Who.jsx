@@ -18,7 +18,7 @@ const Who = () => {
                      </div>    
                 </div>
             </div>
-            <button className='bg-[#76A900] text-white w-[50%] rounded-md md:w-[10%]'>Contact Us</button>
+            <button className='bg-[#76A900] text-white w-[50%] rounded-md md:w-[10%] h-10'>Contact Us</button>
         </section>
     )
 }
