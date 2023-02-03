@@ -22,12 +22,11 @@ const ProductDetails = () => {
     };
     pulldata();
   }, []);
-  console.log(product);
   return (
     <>
       <div className="md:mt-36 sm:mt-24 w-full border-b-2">
         {product.length > 0 ? (
-          <div className="flex md:flex-row w-full flex-col px-10 md:px-36 md:py-14 md:gap-20">
+          <div className="flex md:items-center md:justify-center md:flex-row w-full flex-col px-10 md:px-36 md:py-14 md:gap-20">
             <div>
               <img
                 className="md:max-w-[700px] md:min-w-[350px] sm:w-full  h-[500px] rounded-lg shadow-2xl hover:scale-105 "
@@ -35,7 +34,7 @@ const ProductDetails = () => {
                 alt={product.name}
               />
             </div>
-            <div className="flex flex-col gap-14 border rounded-lg md:p-6 sm:pt-5">
+            <div className="flex flex-col gap-14 border rounded-lg md:p-6 sm:pt-5 sm:px-6">
               <h1 className="md:text-3xl sm:text-2xl font-bold border-b pb-4">
                 {product[0].name}
               </h1>
@@ -94,10 +93,10 @@ const ProductDetails = () => {
             </div>
           </div>
         ) : (
-          "Loadi.."
+          ""
         )}
       </div>
-      <h2 className="text-center text-2xl font-bold pt-7 bg-[#F0F1F3] ">
+      <h2 className="text-center text-xl md:text-2xl w-full font-bold pt-7 bg-[#F0F1F3] ">
         RELATED
       </h2>
       <Productshow />
