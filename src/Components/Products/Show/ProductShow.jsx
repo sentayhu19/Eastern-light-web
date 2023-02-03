@@ -60,4 +60,4 @@ const handleproduct = () => {
   )
 }
 
-export default Product
+export default Product;
