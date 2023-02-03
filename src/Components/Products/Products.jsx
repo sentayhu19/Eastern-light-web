@@ -12,6 +12,7 @@ import { getsearchbycat } from '../api/auth';
 const Products = () => {
   const [productSearch, setproductSearch ] = useState({key: ""});
   const [searchResult, setsearchResult] = useState([]);
+  const [searchmessage, setsearchmessage] = useState("");
 const dispatch = useDispatch();
 const { categories } = useSelector((state) => state.catagory);
 const { products } = useSelector((state) => state.product);
@@ -31,7 +32,7 @@ const { products } = useSelector((state) => state.product);
     pullcatagorydata()
   }, []);
 const handleSelectChange =  (selectedOption) => {   //search based on category
-  
+  setsearchmessage("")
   if (selectedOption) {
     if(selectedOption.id === "0"){
       setproductSearch({key: ""});
@@ -39,21 +40,36 @@ const handleSelectChange =  (selectedOption) => {   //search based on category
     const value = selectedOption;
     const key = 'key';
     setproductSearch({[key]: value.id});
-    console.log("CATEGORY SEARCH..",value.id,"==> from ", products)
     setsearchResult(products.filter(product => product.category_id == value.id))
-    console.log("SERCH RESULT: ", searchResult)
+    if (searchResult.length == 0) {
+      setsearchmessage("No Product Found under " +value.name)
+  }
+  else{
+    let message = "Found "+searchResult.length+" results for "+ value.name+ " category";
+    setsearchmessage(message)
+  }
+ 
+  }
+ 
+}
+const handleSelectChange2 = async  (selectedOption) => {   //search based on product name
+  if (selectedOption) {
+    setsearchmessage("")
+    if(selectedOption.id === "0"){
+      setproductSearch({key: ""});
+    }
+    const value = selectedOption;
+    const key = 'key';
+    setproductSearch({[key]: value.id});
+    setsearchResult(await products.filter( product => product.name.includes(value.name )))
+    if (searchResult.length == 0) {
+      setsearchmessage("No Product Found for the search "+value.name)
+      
+  }else{
+  let message = "Found "+searchResult.length+" results for "+ value.name;
+  setsearchmessage(message)
   }
 }
-const handleSelectChange2 =  (selectedOption) => {   //search based on product name
-  if (selectedOption) {
-    if(selectedOption.id === "0"){
-      setproductSearch({key: ""});
-    }
-    const value = selectedOption;
-    const key = 'key';
-    setproductSearch({[key]: value.id});
-    setsearchResult(products.filter( product => product.name.includes(value.name )))
-  }
 }
 const categoryOpt = [
   { id: "", name: "All" },
@@ -97,8 +113,10 @@ const productOpt = [
       </div>
     <div className="flex flex-col mb-7 md:w-[76.6%] md:mb-20 shadow-lg md:mt-6 border-3 bg-white pb-7 rounded-lg">
     <h2 className='text-2xl font-bold pt-7 'data-aos="fade-up">PRODUCTS</h2>
-    <div className='grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] '>
+    <h2 className='text-white bg-[#006394] text-center'>{searchmessage}</h2>
      
+    <div className='grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] '>
+    
     {searchResult.length > 0 ? searchResult.map((product) => (
       
       <Product product={product} />
@@ -109,6 +127,7 @@ const productOpt = [
        ))
     }
     </div>
+
     </div>
     </section>
   )
