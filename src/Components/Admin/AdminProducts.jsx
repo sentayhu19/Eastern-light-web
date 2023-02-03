@@ -1,8 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import Select from 'react-select';
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 import { getproducts } from '../api/auth';
 import { fetchproduct } from '../../redux/eastern-light/reducer/reducer';
 import { getcategories } from '../api/auth';

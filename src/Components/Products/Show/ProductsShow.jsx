@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import { HashLoader } from "react-spinners";
 import { getproductshow } from "../../api/auth";
 import { fetchproduct } from "../../../redux/eastern-light/reducer/reducer";
-import ProductShow from "./ProductShow";
+import Product from "../Product";
 
 
 const Productshow = () => {
@@ -30,10 +28,10 @@ const Productshow = () => {
         </h2>
         <div className="grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] ">
           {products.slice(0, 8).map((product) => (
-            <ProductShow product={product} />
+            <Product product={product} />
           ))}
         </div>
-        <button className='bg-[#76A900] text-white w-[50%] m-auto rounded-md md:w-[10%] h-10 my-5 cursor-pointer' onClick={() => {navigate("/products")}} >Show more products</button>
+        <button className='bg-[#76A900] text-white w-[50%] m-auto rounded-md md:w-[10%] h-12 my-5 cursor-pointer' onClick={() => {navigate("/products")}} >Show more products</button>
       </div>
       {products.length > 0 ? (
         " "

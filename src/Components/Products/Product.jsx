@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import SkeletonCard from "../Skeleton/SkeletonCard";
 import { setLoading } from "../../redux/eastern-light/reducer/reducer";
 import { useDispatch } from "react-redux";
@@ -28,7 +26,7 @@ const Product = ({ product }) => {
         className="relative flex items-center md:justify-center flex-col 
   md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px]
    sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p-3 hover:border-2 border-[#76A900] rounded-lg"
-        key={product._id}
+        key={product._id} data-aos="fade-up"
       >
         {isloading ? (
           <SkeletonCard />
