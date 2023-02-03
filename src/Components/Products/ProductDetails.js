@@ -26,34 +26,34 @@ const ProductDetails = () => {
     <>
       <div className="md:mt-36 sm:mt-24 w-full border-b-2">
         {product.length > 0 ? (
-          <div className="flex md:items-center md:justify-center md:flex-row w-full flex-col px-10 md:px-36 md:py-14 md:gap-20">
+          <div className="flex md:items-center md:justify-center md:flex-row  flex-col px-10 md:px-36 md:py-14 md:gap-20">
             <div>
               <img
-                className="md:max-w-[700px] md:min-w-[350px] sm:w-full  h-[500px] rounded-lg shadow-2xl hover:scale-105 "
+                className="md:max-w-[700px] md:min-w-[350px] sm:w-[99%] sm:max-w-[550px] m-auto   md:h-[500px] sm:h-[300px] rounded-lg shadow-2xl hover:scale-105 "
                 src={product[0].image}
                 alt={product.name}
               />
             </div>
-            <div className="flex flex-col gap-14 border rounded-lg md:p-6 sm:pt-5 sm:px-6">
+            <div className="flex flex-col gap-14 border rounded-lg md:p-6 sm:pt-5 sm:mt-7 sm:px-6 ">
               <h1 className="md:text-3xl sm:text-2xl font-bold border-b pb-4">
                 {product[0].name}
               </h1>
-              <div className="md:w-[600px] sm:w-[250px] md:text-xl text-[#76A900] flex flex-col gap-3">
+              <div className="md:w-[600px] sm:w-[90%] md:text-xl text-[#76A900] flex flex-col gap-3">
                 <label className="border-none text-black">
                   About this item
                 </label>
                 {product[0].description}
               </div>
-              <p className="w-[600px] text-[#76A900] text-xl">
+              <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
                 <label className="border-none text-black">Brand</label>:{" "}
                 {product[0].brand}
               </p>
-              <p className="w-[600px] text-[#76A900] text-xl">
+              <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
                 <label className="border-none text-black">Price: </label>
                 {product[0].price} Birr
               </p>
               <div className="flex flex-col gap-3 border-t-2 pt-3 w-full sm:pb-4">
-                <p className="w-[600px] text-[#76A900] md:text-xl">
+                <p className="md:w-[600px] sm:w-[90%] text-[#76A900] md:text-xl">
                   <label className="border-none text-black">
                     For more info Call:{" "}
                   </label>
