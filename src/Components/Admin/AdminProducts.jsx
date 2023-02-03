@@ -52,6 +52,21 @@ const handleSelectChange2 =  (selectedOption) => {
     setsearchResult(products.filter( product => product.name.includes(value.name )))
   }
 }
+
+const categoryOpt = [
+  { id: "", name: "All" },
+  ...categories.map((category) => ({
+    id: category.id,
+    name: category.name,
+  })),
+]
+const productOpt = [
+  { id: "", name: "All" },
+  ...products.map((product) => ({
+    id: product.id,
+    name: product.name,
+  })),
+]
   return (
     <>
     <Adminnav/>
@@ -59,7 +74,7 @@ const handleSelectChange2 =  (selectedOption) => {
       <div className='flex flex-col gap-5 md:w-[35%] bg-white sm:w-[95%] md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg'>
         <label>Search by category</label>
         <Select
-          options={categories}
+          options={categoryOpt}
           getOptionLabel={option => option.name}
           getOptionValue={option => option.id}
           name="category"
@@ -69,7 +84,7 @@ const handleSelectChange2 =  (selectedOption) => {
         />
          <label>Search by product name</label>
         <Select
-          options={products}
+          options={productOpt}
           getOptionLabel={option => option.name}
           getOptionValue={option => option.id}
           name="key"

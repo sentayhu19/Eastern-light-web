@@ -10,7 +10,6 @@ import { getsearchbycat } from '../api/auth';
 
 
 const Products = () => {
-  const [categorySearch, setcategorySearch] = useState({category_id: ""});
   const [productSearch, setproductSearch ] = useState({key: ""});
   const [searchResult, setsearchResult] = useState([]);
 const dispatch = useDispatch();
@@ -31,45 +30,63 @@ const { products } = useSelector((state) => state.product);
     }
     pullcatagorydata()
   }, []);
-const handleSelectChange =  (selectedOption) => {
+const handleSelectChange =  (selectedOption) => {   //search based on category
   
   if (selectedOption) {
+    if(selectedOption.id === "0"){
+      setproductSearch({key: ""});
+    }
     const value = selectedOption;
-    const category = 'category_id';
-    setcategorySearch({[category]: value.id});
-    console.log("PRODUCTS AT CATEGORY SEARCH BEFORE FILTER: ", products)
-    setsearchResult(products.filter( product => product.category_id.includes(value.id )))
-    console.log("Search by CATEGORY : ", searchResult);
-      dispatch( fetchproduct(searchResult));
+    const key = 'key';
+    setproductSearch({[key]: value.id});
+    console.log("CATEGORY SEARCH..",value.id,"==> from ", products)
+    setsearchResult(products.filter(product => product.category_id == value.id))
+    console.log("SERCH RESULT: ", searchResult)
   }
 }
-const handleSelectChange2 =  (selectedOption) => {
+const handleSelectChange2 =  (selectedOption) => {   //search based on product name
   if (selectedOption) {
+    if(selectedOption.id === "0"){
+      setproductSearch({key: ""});
+    }
     const value = selectedOption;
     const key = 'key';
     setproductSearch({[key]: value.id});
     setsearchResult(products.filter( product => product.name.includes(value.name )))
   }
 }
-
+const categoryOpt = [
+  { id: "", name: "All" },
+  ...categories.map((category) => ({
+    id: category.id,
+    name: category.name,
+  })),
+]
+const productOpt = [
+  { id: "", name: "All" },
+  ...products.map((product) => ({
+    id: product.id,
+    name: product.name,
+  })),
+]
   return (
     <section className="flex md:flex-row sm:flex-col text-center mt-20 bg-[#F0F1F3]"  name="products"  id='products'>
       <div className='flex flex-col gap-5 md:w-[20%] sm:w-[95%] bg-white md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg'>
         <label>Search by category</label>
         <Select
-          options={categories}
+          options={categoryOpt}
           //add one more static option for all
 
           getOptionLabel={option => option.name}
           getOptionValue={option => option.id}
           name="category"
-          value={categorySearch}
+          value={productSearch}
           onChange={handleSelectChange}
           placeholder="Search by category"
         />
          <label>Search by product name</label>
         <Select
-          options={products}
+          options={productOpt}
           getOptionLabel={option => option.name}
           getOptionValue={option => option.id}
           name="key"
