@@ -150,9 +150,9 @@ const AdminProduct = ({ product }) => {
       {editToggle ? (
         <>
        <div className="fixed top-0 left-0 z-40 w-full h-full bg-black opacity-90"></div>
-       <div className="fixed  z-50 flex flex-col p-4 overflow-x-hidden overflow-y-auto   rounded-lg gap-7 top-10  items-center justify-center bg-white">
+       <div className="fixed  z-50 flex flex-col overflow-y-auto rounded-lg gap-7 top-10 items-center justify-center bg-white h-screen sm:w-[90%] ml-[4%] md:w-[50%] ">
          <h2 className="border-b pb-5 text-xl">Edit {product.name} ?</h2>
-         <form className="flex flex-col gap-3 md:w-600px m-auto">
+         <form className="flex flex-col w-full gap-3 m-auto">
            <label className="border-none text-left">Name</label>
            <input
              type="text"
