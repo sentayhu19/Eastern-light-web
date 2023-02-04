@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSyringe } from '@fortawesome/free-solid-svg-icons';
 import { faMicroscope } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +34,9 @@ const Services = () => {
         </div>    
     </div>
 </div>
-<button className='bg-[#76A900] text-white w-[50%] h-10 rounded-md md:w-[10%]'>Contact Us</button>
+<button className='bg-[#76A900] text-white w-[50%] rounded-md md:w-[10%] h-10'>
+                <Link to="contact">Contact Us</Link>
+            </button>
 </section>
 
   )

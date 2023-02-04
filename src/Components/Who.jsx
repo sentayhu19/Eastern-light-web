@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarthAfrica } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
@@ -24,7 +25,9 @@ const Who = () => {
                      </div>    
                 </div>
             </div>
-            <button className='bg-[#76A900] text-white w-[50%] rounded-md md:w-[10%] h-10'>Contact Us</button>
+            <button className='bg-[#76A900] text-white w-[50%] rounded-md md:w-[10%] h-10'>
+                <Link to="contact">Contact Us</Link>
+            </button>
         </section>
     )
 }
