@@ -148,79 +148,71 @@ const AdminProduct = ({ product }) => {
         )}
       </div>
       {editToggle ? (
-        <div className="fixed top-0 left-0 z-40 w-full h-full overflow-y-auto  bg-[#7e7e81] opacity-90 ">
-          <div className="fixed z-50 flex flex-col p-4 overflow-x-auto overflow-y-auto sm:left-3 sm:w-[95%] rounded-lg gap-7 md:w-[70%] md:left-[30%] max-w-[650px]  items-center justify-center bg-white">
-            <h2 className="border-b pb-5 text-xl">Edit {product.name} ?</h2>
-            <form className="flex flex-col gap-3  md:w-[600px] m-auto overflow-y-auto">
-              <label className="border-none text-left">Name</label>
-              <input
-                type="text"
-                className="border-2 border-[#76A900] rounded-lg p-2"
-                placeholder="Name"
-                value={editproduct.name}
-                onChange={(e) =>
-                  seteditproduct({ ...editproduct, name: e.target.value })
-                }
-              />
-              <label className="border-none text-left">Description</label>
-              <input
-                type="text"
-                className="border-2 border-[#76A900] rounded-lg p-2"
-                placeholder="Description"
-                value={editproduct.description}
-                onChange={(e) =>
-                  seteditproduct({
-                    ...editproduct,
-                    description: e.target.value,
-                  })
-                }
-              />
-              <label className="border-none text-left">Price</label>
-              <input
-                type="text"
-                className="border-2 border-[#76A900] rounded-lg p-2"
-                placeholder="Price"
-                value={editproduct.price}
-                onChange={(e) =>
-                  seteditproduct({ ...editproduct, price: e.target.value })
-                }
-              />
-              <label className="border-none text-left">Category</label>
-              <input
-                type="text"
-                className="border-2 border-[#76A900] rounded-lg p-2"
-                placeholder="Category"
-                value={editproduct.category}
-                onChange={(e) =>
-                  seteditproduct({ ...editproduct, category: e.target.value })
-                }
-              />
-              <Select
-                options={categories}
-                getOptionLabel={(option) => option.name}
-                getOptionValue={(option) => option.id}
-                name="category"
-                value={editproduct.category}
-                onChange={(e) =>
-                  seteditproduct({ ...editproduct, category: e.target.value })
-                }
-                placeholder="Category"
-              />
-              <input
-                type="text"
-                className="border-2 border-[#76A900] rounded-lg p-2"
-                placeholder="Image"
-                value={editproduct.image}
-                onChange={(e) =>
-                  seteditproduct({ ...editproduct, image: e.target.value })
-                }
-              />
-              <button
-                className="bg-[#76A900] text-white rounded-lg p-1 hover:bg-white hover:text-[#76A900]"
-                onClick={handleeditToggle}
-              >
-                Cancel
-              </button>
+        <>
+       <div className="fixed top-0 left-0 z-40 w-full h-full bg-black opacity-90"></div>
+       <div className="fixed  z-50 flex flex-col p-4 overflow-x-hidden overflow-y-auto  sm:w-95% rounded-lg gap-7 top-10  items-center justify-center bg-white">
+         <h2 className="border-b pb-5 text-xl">Edit {product.name} ?</h2>
+         <form className="flex flex-col gap-3 md:w-600px m-auto">
+           <label className="border-none text-left">Name</label>
+           <input
+             type="text"
+             className="border-2 border-green-600 rounded-lg p-2"
+             placeholder="Name"
+             value={editproduct.name}
+             onChange={(e) =>
+               seteditproduct({ ...editproduct, name: e.target.value })
+             }
+           />
+           <label className="border-none text-left">Description</label>
+           <input
+             type="text"
+             className="border-2 border-green-600 rounded-lg p-2"
+             placeholder="Description"
+             value={editproduct.description}
+             onChange={(e) =>
+               seteditproduct({
+                 ...editproduct,
+                 description: e.target.value,
+               })
+             }
+           />
+           <label className="border-none text-left">Price</label>
+           <input
+             type="text"
+             className="border-2 border-green-600 rounded-lg p-2"
+             placeholder="Price"
+             value={editproduct.price}
+             onChange={(e) =>
+               seteditproduct({ ...editproduct, price: e.target.value })
+             }
+           />
+           <label className="border-none text-left">Category</label>
+           <Select
+             options={categories}
+             getOptionLabel={(option) => option.name}
+             getOptionValue={(option) => option.id}
+             name="category"
+             value={editproduct.category}
+             onChange={(e) =>
+               seteditproduct({ ...editproduct, category: e.target.value })
+             }
+             placeholder="Category"
+           />
+           <input
+             type="text"
+             className="border-2 border-green-600 rounded-lg p-2"
+             placeholder="Image"
+             value={editproduct.image}
+             onChange={(e) =>
+               seteditproduct({ ...editproduct, image: e.target.value })
+             }
+           />
+           <button
+             className="bg-green-600 text-white rounded-lg p-1 hover:bg-white hover:text-green-600"
+             onClick={handleeditToggle}
+           >
+             Cancel
+           </button>
               <button
                 className="bg-red-500 text-white rounded-lg p-1 hover:bg-white hover:text-red-500"
                 onClick={handleedit}
@@ -229,7 +221,7 @@ const AdminProduct = ({ product }) => {
               </button>
             </form>
           </div>
-        </div>
+        </>
       ) : (
         ""
       )}
