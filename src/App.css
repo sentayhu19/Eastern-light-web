@@ -197,3 +197,14 @@ button:active {
 
 
 
+/* our partners scroll  */
+.filter-gray-scale {
+  filter: grayscale(100%);
+}
+.filter-hover-gray-scale:hover {
+  filter: grayscale(0%);
+}
+
+
+
+

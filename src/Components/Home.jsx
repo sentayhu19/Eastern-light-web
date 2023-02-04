@@ -8,6 +8,7 @@ import Contactus from "./Contactus";
 import Productshow from "./Products/Show/ProductsShow";
 import { Element } from 'react-scroll';
 import { useNavigate } from "react-router-dom";
+import Partners from "./OurPartnsers";
 
 
 const Home = () => {
@@ -22,10 +23,12 @@ const Home = () => {
       </Element>
       <Who />
       <About />
+      <Partners />
       <Contactus />
       {isAuth ? <div className="fixed z-50 top-72 l-0">
          <button className="bg-[#006394] text-white rounded-lg p-2" onClick={() => navigate("/dashboard")}>Dashboard</button>
       </div>:"" }
+     
     </>
   );
 };
