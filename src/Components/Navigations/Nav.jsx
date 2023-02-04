@@ -9,6 +9,7 @@ import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
 import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
+import ErrorAlert from "../Alert/ErrorAlert";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const Nav = () => {
       localStorage.removeItem("isDelta");
       window.location.reload(true);
     } catch (err) {
-      console.log("Error occured while trying to logout : ", err.resonse);
+      ErrorAlert("Error occured while trying to logout")
     }
   };
   return (

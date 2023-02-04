@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { deleteproduct } from "../api/auth";
 import Select from "react-select";
 import { editproductput } from "../api/auth";
@@ -113,16 +114,16 @@ const AdminProduct = ({ product }) => {
               </button>
               <button
                 onClick={handledeletetoggle}
-                className="bg-red-500 text-white rounded-lg p-1"
+                className="bg-red-500 text-white rounded-lg px-6"
               >
-                Delete
+                <FontAwesomeIcon icon={faTrash} />
               </button>
             </div>
           </div>
         )}
 
         {deleteToggle ? (
-          <div className="absolute z-20 flex flex-col gap-10 top-7 w-full h-[450px] bg-white">
+          <div className="absolute z-20 flex flex-col gap-10 top-6 w-full md:h-[450px] sm:h-[260px] bg-white">
             <div className="flex flex-col pt-7 rounded-lg gap-7 bg-[#F0F1F3]">
               <p className="border-b pb-5">
                 Are you sure you want to delete {product.name} ?

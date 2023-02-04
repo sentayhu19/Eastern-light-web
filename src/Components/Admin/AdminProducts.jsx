@@ -12,6 +12,7 @@ import Adminnav from '../Navigations/Adminnav';
 
 const AdminProducts = () => {
   const [categorySearch, setcategorySearch] = useState({category_id: ""});
+  const [searchmessage, setsearchmessage] = useState("");
   const [productSearch, setproductSearch ] = useState({key: ""});
   const [searchResult, setsearchResult] = useState([]);
 const dispatch = useDispatch();
@@ -33,15 +34,26 @@ const { products } = useSelector((state) => state.product);
     pullcatagorydata()
     
   }, []);
-const handleSelectChange =  (selectedOption) => {
+const handleSelectChange = async  (selectedOption) => {
   
   if (selectedOption) {
+    if(selectedOption.id === "0"){
+      setproductSearch({key: ""});
+    }
     const value = selectedOption;
-    const category = 'category_id';
-    setcategorySearch({[category]: value.id});
-    setsearchResult(products.filter( product => product.category_id===value.id ))
-    console.log("Search by CATEGORY : ", searchResult);
-      dispatch( fetchproduct(searchResult));
+    const key = 'key';
+    setproductSearch({[key]: value.id});
+
+    const productFiltered = await products.filter(product => product.category_id == value.id)
+    setsearchResult(productFiltered)
+    if (searchResult.length == 0) {
+      setsearchmessage("No Product Found under " +value.name)
+  }
+  else{
+    let message = "Found "+searchResult.length+" results for "+ value.name+ " category";
+    setsearchmessage(message)
+  }
+ 
   }
 }
 const handleSelectChange2 =  (selectedOption) => {
@@ -50,7 +62,15 @@ const handleSelectChange2 =  (selectedOption) => {
     const key = 'key';
     setproductSearch({[key]: value.id});
     setsearchResult(products.filter( product => product.name.includes(value.name )))
+    if (searchResult.length == 0) {
+      setsearchmessage("No Product Found for the search "+value.name)
+      
+  }else{
+  let message = "  Found "+searchResult.length+" results for "+ value.name;
+  setsearchmessage(message)
   }
+  }
+  
 }
 
 const categoryOpt = [
@@ -95,6 +115,7 @@ const productOpt = [
       </div>
     <div className="flex flex-col mb-7 md:mb-20 shadow-lg md:mt-6 border-3 pb-7 rounded-lg bg-white">
     <h2 className='text-2xl font-bold pt-7 'data-aos="fade-up">PRODUCTS</h2>
+    <h2 className='text-white bg-[#006394] text-center sm:mx-5 md:mx-0'>{searchmessage}</h2>
     <div className='grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] '>
      
     {searchResult.length > 0 ? searchResult.map((product) => (

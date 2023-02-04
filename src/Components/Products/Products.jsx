@@ -1,6 +1,8 @@
 import React, { useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import Select from 'react-select';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { getproducts } from '../api/auth';
 import { fetchproduct } from '../../redux/eastern-light/reducer/reducer';
 import { getcategories } from '../api/auth';
@@ -31,6 +33,7 @@ const { products } = useSelector((state) => state.product);
     }
     pullcatagorydata()
   }, []);
+  const glass = `<FontAwesomeIcon icon={faMagnifyingGlass} />`
 const handleSelectChange =  (selectedOption) => {   //search based on category
   setsearchmessage("")
   if (selectedOption) {
@@ -45,7 +48,7 @@ const handleSelectChange =  (selectedOption) => {   //search based on category
       setsearchmessage("No Product Found under " +value.name)
   }
   else{
-    let message = "Found "+searchResult.length+" results for "+ value.name+ " category";
+    let message = glass +"  Found "+searchResult.length+" results for "+ value.name+ " category";
     setsearchmessage(message)
   }
  
@@ -66,7 +69,7 @@ const handleSelectChange2 = async  (selectedOption) => {   //search based on pro
       setsearchmessage("No Product Found for the search "+value.name)
       
   }else{
-  let message = "Found "+searchResult.length+" results for "+ value.name;
+  let message = glass +"  Found "+searchResult.length+" results for "+ value.name;
   setsearchmessage(message)
   }
 }

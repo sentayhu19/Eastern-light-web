@@ -22,7 +22,7 @@ const Services = () => {
         <FontAwesomeIcon className='text-7xl' icon={faSyringe} />
         <FontAwesomeIcon className='text-7xl' icon={faMicroscope} />
         </div>
-        <p className='pt-5'>Distribute biomedical equipments </p>
+        <p className='pt-5'>Pharmaceutical Distribution </p>
         </div>      
         <div className='flex sm:flex-col items-center justify-center text-[#006394] sm:pt-16 md:pt-1' >
                 <div className='flex sm:flex-row'>
