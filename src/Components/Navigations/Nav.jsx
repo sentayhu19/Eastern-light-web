@@ -154,7 +154,7 @@ const Nav = () => {
           >
             <div className="flex justify-between m-6 text-white">
               <div className="flex items-center text-[11px] text-white">
-                <p className="font-logo estyle">Eastern </p>
+                <p className="font-logo estyle">Eastern &nbsp; &nbsp; &nbsp; </p>
                 <div className="relative">
                   <FontAwesomeIcon
                     className="absolute text-[8px] top-4 left-2 text-[#76A900]"
@@ -165,7 +165,7 @@ const Nav = () => {
                     icon={faMortarPestle}
                   />
                 </div>
-                <p className="font-logo estyle"> light</p>{" "}
+                <p className="font-logo estyle ">&nbsp; &nbsp; light</p>{" "}
               </div>
             </div>
             <ul
