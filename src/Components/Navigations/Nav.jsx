@@ -84,7 +84,7 @@ const Nav = () => {
                 <li>
                   <NavLink
                     to="/"
-                    className="hover:hover:text-[#76A900] cursor-pointer"
+                    className="hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px] "
                   >
                     Home
                   </NavLink>
@@ -92,7 +92,7 @@ const Nav = () => {
                 <li>
                   <NavLink
                     to="/products"
-                    className="hover:hover:text-[#76A900] cursor-pointer"
+                    className="hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                   >
                     Products
                   </NavLink>
@@ -101,7 +101,7 @@ const Nav = () => {
                   <Link
                     to="services"
                     smooth={true}
-                    className="hover:hover:text-[#76A900] cursor-pointer"
+                    className="hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                   >
                     Services
                   </Link>
@@ -110,7 +110,7 @@ const Nav = () => {
                   <Link
                     to="about"
                     smooth={true}
-                    className="hover:hover:text-[#76A900] cursor-pointer"
+                    className="hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                   >
                     About
                   </Link>
@@ -119,7 +119,7 @@ const Nav = () => {
                   <Link
                     to="contact"
                     smooth={true}
-                    className="hover:hover:text-[#76A900] cursor-pointer"
+                    className="hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                   >
                     Contact us
                   </Link>

@@ -160,7 +160,7 @@ const { isloading } = useSelector((state) => state.auth);
         />
         <span>Image</span>
       </label>
-      <label for="priority (1-10)" data-aos="fade-up">
+      <label for="priority (1-8)" data-aos="fade-up">
         <input
           type="number"
           id="priority"
@@ -170,7 +170,7 @@ const { isloading } = useSelector((state) => state.auth);
           required
           placeholder="image"
         />
-        <span>Priority (1-10)</span>
+        <span>Priority (1-8)</span>
       </label>
       <Select
           options={categories}

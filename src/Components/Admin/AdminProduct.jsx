@@ -59,13 +59,13 @@ const AdminProduct = ({ product }) => {
       .catch((error) => {
         console.log(error);
       });
+      window.location.reload();
   };
   const handleedit = async (e) => {
     e.preventDefault();
 
     try {
       editproductput(editproduct);
-      console.log("EDIT SUCCESS: ", editproduct);
     } catch (error) {
       console.log(error);
     }
