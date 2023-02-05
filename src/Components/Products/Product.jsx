@@ -17,7 +17,7 @@ const Product = ({ product }) => {
   }, []);
 
   const handleproduct = () => {
-    navigate(`/products/${product.name}/${product.id}`);
+    navigate(`/products/${product.category_id}/${product.name}/${product.id}`);
   };
   return (
     <>

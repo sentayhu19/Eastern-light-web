@@ -21,6 +21,7 @@ import Products from '../src/Components/Products/Products'
 import Footer from "./Components/Footer";
 import AdminProducts from "./Components/Admin/AdminProducts";
 import ProductDetails from "./Components/Products/ProductDetails";
+import NotFound from "./Components/NotFound";
 
 const App = () => {
   const [loading, setloading] = useState(false);
@@ -67,7 +68,8 @@ const App = () => {
             </Route>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
-            <Route exact path="/products/:name/:id" element={<ProductDetails />} />
+            <Route exact path="/products/:category/:name/:id" element={<ProductDetails />} />
+            <Route path="*" element={<NotFound/>} />
           </Routes>
           <Footer />
         </Router>

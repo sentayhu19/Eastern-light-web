@@ -8,17 +8,23 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import Map from "./Map/Map";
 
 const Footer = () => {
+  const location = {
+    address: 'Paster 2PVJ+RR2, አዲስ አበባ',
+    lat: 9.044522731394467,
+    lng: 38.73201648573837,
+  }
   return (
-    <footer className="w-[45%] m-auto pt-10 ">
+    <footer className="w-[45%] md:w-[70%] m-auto pt-10 md:max-w-[900px] ">
       <div className="flex sm:flex-col md:flex-row md:gap-[10%] sm:gap-10   ">
-        <div className="flex flex-col items-center  gap-4">
+        <div className="flex flex-col   gap-4">
           <div className="flex flex-col gap-4">
             <h4 className="font-bold border-b">Company</h4>
             <div className="flex gap-3 items-center">
               <FontAwesomeIcon icon={faLocationDot} />
-              <h4>Around paster area</h4>{" "}
+              <h4 className="w-full">Around paster area</h4>{" "}
             </div>
           </div>
         </div>
@@ -64,8 +70,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div>
-          <h2 className="font-bold border-b">Location on Google map</h2>
+        <div className="w-full">
+          <h2 className="font-bold border-b w-full">Location on Google map</h2>
+          <Map location={location} zoomLevel={17} /> {/* include it here */}
         </div>
       </div>
       <div className="pt-10">

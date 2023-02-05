@@ -14,6 +14,7 @@ import Partners from "./OurPartnsers";
 const Home = () => {
   const navigate = useNavigate();
   const { isAuth } = useSelector((state) => state.auth);
+  
   return (
     <>
       <Hero />
