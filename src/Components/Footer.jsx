@@ -12,23 +12,24 @@ import Map from "./Map/Map";
 
 const Footer = () => {
   const location = {
-    address: 'Paster 2PVJ+RR2, አዲስ አበባ',
+    address: 'Paster square 2PVJ+RR2, አዲስ አበባ',
     lat: 9.044522731394467,
     lng: 38.73201648573837,
   }
   return (
     <footer className="w-[45%] md:w-[70%] m-auto pt-10 md:max-w-[900px] ">
       <div className="flex sm:flex-col md:flex-row md:gap-[10%] sm:gap-10   ">
-        <div className="flex flex-col   gap-4">
+        <div className="flex flex-col w-full   gap-4">
           <div className="flex flex-col gap-4">
             <h4 className="font-bold border-b">Company</h4>
+            <h4>Eastern light pharma PLC</h4>
             <div className="flex gap-3 items-center">
               <FontAwesomeIcon icon={faLocationDot} />
               <h4 className="w-full">Around paster area</h4>{" "}
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col w-full gap-4">
           <h4 className="font-bold border-b">Contact</h4>
           <div>
             <div className="flex gap-3 items-center">
