@@ -8,6 +8,7 @@ import Select from "react-select";
 import { editproductput } from "../api/auth";
 import SkeletonCard from "../Skeleton/SkeletonCard";
 import { setLoading } from "../../redux/eastern-light/reducer/reducer";
+import ErrorAlert from "../Alert/ErrorAlert";
 
 const AdminProduct = ({ product }) => {
   const dispatch = useDispatch();
@@ -27,13 +28,6 @@ const AdminProduct = ({ product }) => {
 
   const { protectedData } = useSelector((state) => state.auth);
   const { categories } = useSelector((state) => state.catagory);
-
-  // useEffect(() => {
-  //   dispatch(setLoading(true));
-  //   setTimeout(() => {
-  //     dispatch(setLoading(false));
-  //   }, 3000);
-  // }, []);
 
   const handledeletetoggle = () => {
     setdeletedproduct({ ["id"]: product.id });
@@ -55,10 +49,9 @@ const AdminProduct = ({ product }) => {
   const handledelete = async () => {
     await deleteproduct(deletedproduct)
       .then((response) => {
-        console.log(response);
       })
       .catch((error) => {
-        console.log(error);
+       ErrorAlert(error.response.data.message)
       });
       window.location.reload();
   };
@@ -68,8 +61,9 @@ const AdminProduct = ({ product }) => {
     try {
       editproductput(editproduct);
     } catch (error) {
-      console.log(error);
+      ErrorAlert(error.response.data.message)
     }
+    window.location.reload();
   };
 
   return (
@@ -95,7 +89,7 @@ const AdminProduct = ({ product }) => {
                 {product.name}
               </h3>
               <p className="font-bold w-full sm:text-[13px] bg-[#76A900] text-white rounded-lg mt-3">
-                {product.price} Birr
+                {product.price} ETB
               </p>
             </div>
             <p className="sm:text-[13px] md:hidden">

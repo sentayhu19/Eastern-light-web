@@ -43,7 +43,7 @@ const Product = ({ product }) => {
                 {product.name}
               </h3>
               <p className="font-bold w-full sm:text-[13px] bg-[#76A900] text-white rounded-lg mt-3">
-                {product.price} Birr
+                {product.price} ETB
               </p>
             </div>
             <p className="sm:text-[13px] md:hidden">
