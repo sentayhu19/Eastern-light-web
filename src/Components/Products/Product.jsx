@@ -18,6 +18,7 @@ const Product = ({ product }) => {
 
   const handleproduct = () => {
     navigate(`/products/${product.category_id}/${product.name}/${product.id}`);
+    window.location.reload();
   };
   return (
     <>
