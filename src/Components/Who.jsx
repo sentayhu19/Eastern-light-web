@@ -3,14 +3,16 @@ import { Link } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarthAfrica } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
+import world from "../assets/world.png";
 const Who = () => {
   return (
-    <section className="text-center m-2" name="who">
-      <div className="flex flex-col mb-7 md:mb-20">
-        <h2 className="text-2xl font-bold pt-7 " data-aos="fade-up">
+    <section className="relative text-center m-2 bgfix " name="who" style={{ backgroundImage: `url(${world})` }} >
+        <div className=" bg-black absolute w-full h-[100%] opacity-30 "></div>
+      <div className="flex flex-col mb-7 md:mb-20 text-white ">
+        <h2 className="text-2xl font-bold pt-7  " data-aos="fade-up">
           WHO WE ARE
         </h2>
-        <p className=" sm:p-4 md:w-[50%] m-auto">
+        <p className="relative sm:p-4 md:w-[50%] m-auto">
           We are a leading pharmaceutical and bio-medical equipment wholesaler,
           providing top-quality products and exceptional service to healthcare
           professionals. With a vast network of suppliers and a commitment to
@@ -45,8 +47,8 @@ const Who = () => {
           </div>
         </div>
       </div>
-      <button className="bg-[#76A900] text-white w-[50%] rounded-md md:w-[10%] h-10">
-        <Link to="contact">Contact Us</Link>
+      <button className="bg-[#76A900] relative text-white w-[50%] rounded-md md:w-[10%] mb-1 h-10">
+        <Link to="contact ">Contact Us</Link>
       </button>
     </section>
   );
