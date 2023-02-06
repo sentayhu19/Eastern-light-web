@@ -12,10 +12,10 @@ import Map from "./Map/Map";
 
 const Footer = () => {
   const location = {
-    address: 'Paster square 2PVJ+RR2, አዲስ አበባ',
+    address: "Paster square 2PVJ+RR2, አዲስ አበባ",
     lat: 9.044522731394467,
     lng: 38.73201648573837,
-  }
+  };
   return (
     <footer className="relative w-[45%] z-20 md:w-[70%] m-auto pt-10 md:max-w-[900px] bg-white bottom-0 top-0">
       <div className="flex sm:flex-col md:flex-row md:gap-[10%] sm:gap-10   ">
@@ -34,11 +34,20 @@ const Footer = () => {
           <div>
             <div className="flex gap-3 items-center">
               <FontAwesomeIcon icon={faPhone} />
-              <h4> +251 00 000 0000</h4>
+              <a href="tel:+251 942157611" className="cursor-pointer">
+                {" "}
+                +251 942157611
+              </a>
             </div>
-            <div className="flex gap-3 items-center sm:w-[5%]">
+            <div className="flex gap-3 items-center sm:w-[5%] pt-3">
               <FontAwesomeIcon icon={faEnvelope} />
-              <h4 className="sm:text-[13px] md:text-[15px]"> esternlightphrma@gmail.com </h4>
+              <a
+                href="mailto: esternlightphrma@gmail.com"
+                className="sm:text-[13px] md:text-[15px] cursor-pointer"
+              >
+                {" "}
+                esternlightphrma@gmail.com{" "}
+              </a>
             </div>
             <div className="flex flex-col  gap-4 mt-4">
               <h4 className="font-bold border-b">Community</h4>

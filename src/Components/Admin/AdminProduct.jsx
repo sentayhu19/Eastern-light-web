@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { deleteproduct } from "../api/auth";
 import Select from "react-select";
 import { editproductput } from "../api/auth";
@@ -48,12 +48,11 @@ const AdminProduct = ({ product }) => {
 
   const handledelete = async () => {
     await deleteproduct(deletedproduct)
-      .then((response) => {
-      })
+      .then((response) => {})
       .catch((error) => {
-       ErrorAlert(error.response.data.message)
+        ErrorAlert(error.response.data.message);
       });
-      window.location.reload();
+    window.location.reload();
   };
   const handleedit = async (e) => {
     e.preventDefault();
@@ -61,7 +60,7 @@ const AdminProduct = ({ product }) => {
     try {
       editproductput(editproduct);
     } catch (error) {
-      ErrorAlert(error.response.data.message)
+      ErrorAlert(error.response.data.message);
     }
     window.location.reload();
   };
@@ -72,10 +71,10 @@ const AdminProduct = ({ product }) => {
         className="relative flex items-center md:justify-center flex-col 
         md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px]
          sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p-3 hover:border-2 border-[#76A900] rounded-lg"
-              key={product._id} data-aos="fade-up"
+        key={product._id}
+        data-aos="fade-up"
       >
-        {isloading ? 
-        (
+        {isloading ? (
           <SkeletonCard />
         ) : (
           <div className="flex items-center flex-col md:gap-4 sm:gap-1">
@@ -143,70 +142,70 @@ const AdminProduct = ({ product }) => {
       </div>
       {editToggle ? (
         <>
-       <div className="fixed top-0 left-0 z-40 w-full h-full bg-[#01090f] opacity-90"></div>
-       <div className="fixed  z-50 flex flex-col overflow-y-auto rounded-lg gap-7 top-10 items-center justify-center bg-white h-screen sm:w-[90%] ml-[4%] md:w-[40%] ">
-         <h2 className="border-b pb-5 text-xl">Edit {product.name} ?</h2>
-         <form className="flex flex-col w-full gap-3 m-auto">
-           <label className="border-none text-left">Name</label>
-           <input
-             type="text"
-             className="border-2 border-green-600 rounded-lg p-2"
-             placeholder="Name"
-             value={editproduct.name}
-             onChange={(e) =>
-               seteditproduct({ ...editproduct, name: e.target.value })
-             }
-           />
-           <label className="border-none text-left">Description</label>
-           <input
-             type="text"
-             className="border-2 border-green-600 rounded-lg p-2"
-             placeholder="Description"
-             value={editproduct.description}
-             onChange={(e) =>
-               seteditproduct({
-                 ...editproduct,
-                 description: e.target.value,
-               })
-             }
-           />
-           <label className="border-none text-left">Price</label>
-           <input
-             type="text"
-             className="border-2 border-green-600 rounded-lg p-2"
-             placeholder="Price"
-             value={editproduct.price}
-             onChange={(e) =>
-               seteditproduct({ ...editproduct, price: e.target.value })
-             }
-           />
-           <label className="border-none text-left">Category</label>
-           <Select
-             options={categories}
-             getOptionLabel={(option) => option.name}
-             getOptionValue={(option) => option.id}
-             name="category"
-             value={editproduct.category}
-             onChange={(e) =>
-               seteditproduct({ ...editproduct, category: e.target.value })
-             }
-             placeholder="Category"
-           />
-           <input
-             type="text"
-             className="border-2 border-green-600 rounded-lg p-2"
-             placeholder="Image"
-             value={editproduct.image}
-             onChange={(e) =>
-               seteditproduct({ ...editproduct, image: e.target.value })
-             }
-           />
-           <button
-             className="bg-green-600 text-white rounded-lg p-1 hover:bg-white hover:text-green-600"
-             onClick={handleeditToggle}
-           >
-             Cancel
-           </button>
+          <div className="fixed top-0 left-0 z-40 w-full h-full bg-[#01090f] opacity-90"></div>
+          <div className="fixed  z-50 flex flex-col overflow-y-auto rounded-lg gap-7 top-10 items-center justify-center bg-white h-screen sm:w-[90%] ml-[4%] md:w-[40%] ">
+            <h2 className="border-b pb-5 text-xl">Edit {product.name} ?</h2>
+            <form className="flex flex-col w-full gap-3 m-auto">
+              <label className="border-none text-left">Name</label>
+              <input
+                type="text"
+                className="border-2 border-green-600 rounded-lg p-2"
+                placeholder="Name"
+                value={editproduct.name}
+                onChange={(e) =>
+                  seteditproduct({ ...editproduct, name: e.target.value })
+                }
+              />
+              <label className="border-none text-left">Description</label>
+              <input
+                type="text"
+                className="border-2 border-green-600 rounded-lg p-2"
+                placeholder="Description"
+                value={editproduct.description}
+                onChange={(e) =>
+                  seteditproduct({
+                    ...editproduct,
+                    description: e.target.value,
+                  })
+                }
+              />
+              <label className="border-none text-left">Price</label>
+              <input
+                type="text"
+                className="border-2 border-green-600 rounded-lg p-2"
+                placeholder="Price"
+                value={editproduct.price}
+                onChange={(e) =>
+                  seteditproduct({ ...editproduct, price: e.target.value })
+                }
+              />
+              <label className="border-none text-left">Category</label>
+              <Select
+                options={categories}
+                getOptionLabel={(option) => option.name}
+                getOptionValue={(option) => option.id}
+                name="category"
+                value={editproduct.category}
+                onChange={(e) =>
+                  seteditproduct({ ...editproduct, category: e.target.value })
+                }
+                placeholder="Category"
+              />
+              <input
+                type="text"
+                className="border-2 border-green-600 rounded-lg p-2"
+                placeholder="Image"
+                value={editproduct.image}
+                onChange={(e) =>
+                  seteditproduct({ ...editproduct, image: e.target.value })
+                }
+              />
+              <button
+                className="bg-green-600 text-white rounded-lg p-1 hover:bg-white hover:text-green-600"
+                onClick={handleeditToggle}
+              >
+                Cancel
+              </button>
               <button
                 className="bg-red-500 text-white rounded-lg p-1 hover:bg-white hover:text-red-500"
                 onClick={handleedit}

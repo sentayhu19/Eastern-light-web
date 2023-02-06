@@ -1,11 +1,10 @@
-import React, {useEffect} from 'react'
-import Scroll from './Slider';
+import React, { useEffect } from "react";
+import Scroll from "./Slider";
 const Hero = () => {
-  
   return (
-    <> 
-        <Scroll/>
+    <>
+      <Scroll />
     </>
-  )
-}
+  );
+};
 export default Hero;

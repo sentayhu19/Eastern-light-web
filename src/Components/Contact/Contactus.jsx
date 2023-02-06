@@ -13,7 +13,7 @@ const Contactus = () => {
     phone: "",
     sendmessage: "",
   });
-  const [success, setSuccess] = useState('');
+  const [success, setSuccess] = useState("");
   const handleChange = (e) => {
     setMessage({
       ...message,
