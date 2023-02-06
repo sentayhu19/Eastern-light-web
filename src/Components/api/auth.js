@@ -63,3 +63,9 @@ export async function editproductput(product){
 export async function getproduct (id){
     return await axios.get(`${(endPoint)}/getproduct/${id}`) 
 }
+export async function addmessage (message){
+    return await axios.post(`${(endPoint)}/addmessage`,message) 
+}
+export async function getmessages (){
+    return await axios.get(`${(endPoint)}/getmessages`) 
+}

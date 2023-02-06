@@ -17,7 +17,7 @@ const Footer = () => {
     lng: 38.73201648573837,
   }
   return (
-    <footer className=" relative w-[45%] z-20 md:w-[70%] m-auto pt-10 md:max-w-[900px] bg-white ">
+    <footer className="relative w-[45%] z-20 md:w-[70%] m-auto pt-10 md:max-w-[900px] bg-white bottom-0 top-0">
       <div className="flex sm:flex-col md:flex-row md:gap-[10%] sm:gap-10   ">
         <div className="flex flex-col w-full   gap-4">
           <div className="flex flex-col gap-4">

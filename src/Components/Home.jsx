@@ -4,7 +4,7 @@ import Hero from "./Hero";
 import Services from "./Services";
 import Who from "./Who";
 import About from "./About";
-import Contactus from "./Contactus";
+import Contactus from "./Contact/Contactus";
 import Productshow from "./Products/Show/ProductsShow";
 import { Element } from 'react-scroll';
 import { useNavigate } from "react-router-dom";

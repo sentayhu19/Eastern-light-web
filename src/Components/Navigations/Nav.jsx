@@ -45,7 +45,7 @@ const Nav = () => {
   return (
     <>
       <header className="sm:m-0">
-        <div className="fixed top-0 z-10 w-full bg-white">
+        <div className="fixed top-0 z-20 w-full bg-white">
           <div
             className={
               scroll ? " w-full border-b-2 border-gray-200 shadow-md " : ""

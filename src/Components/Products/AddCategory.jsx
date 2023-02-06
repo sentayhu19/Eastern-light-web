@@ -52,7 +52,7 @@ const AddCategory = () => {
               required
               placeholder="Name"
             />
-            <span>Name</span>
+            <span className='span-slider'>Name</span>
           </label>
           <button
             type="submit"

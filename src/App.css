@@ -2,6 +2,14 @@
   display: none;
 }
 
+.span-slider{
+  position:absolute;
+  top:0;
+  left:0;
+  transform:translateY(30px);
+  font-size:0.825em;
+  transition-duration:300ms;
+}
 
 #slide {
   left: -200px;
@@ -46,14 +54,7 @@ input{
 input::placeholder{
   opacity:0;
 }
-span{
-  position:absolute;
-  top:0;
-  left:0;
-  transform:translateY(30px);
-  font-size:0.825em;
-  transition-duration:300ms;
-}
+
 
 label:focus-within > span,
 input:not(:placeholder-shown) + span{
