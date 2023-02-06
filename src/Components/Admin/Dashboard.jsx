@@ -84,7 +84,10 @@ console.log("Messages", messages)
   });
 }, 3000);
 
-// sort messages list by created_at date 
+const formatDate = (dateString) => {
+  const options = { year: "numeric", month: "long", day: "numeric" }
+  return new Date(dateString).toLocaleDateString(undefined, options)
+}
 
   return (
     <div className='mt-36 w-full h-screen'>
@@ -98,8 +101,8 @@ console.log("Messages", messages)
 
        </div>
        <div>
-        <div className=' flex sm:flex-col md:flex-row items-center   w-full md:mx-20'>
-          <div className='md:w-[40%] sm:w-[90%]'>
+        <div className=' flex sm:flex-col md:flex-row   w-full md:mx-20'>
+          <div className='md:w-[40%] md:mt-14 sm:w-[90%]'>
   <canvas  id="myChart">
   </canvas>
   </div>
@@ -107,14 +110,14 @@ console.log("Messages", messages)
   <h2 className='text-center md:text-2xl font-bold mt-10'>
         Messages
   </h2>
-  <div className='flex flex-col  md:w-[65%]  sm:w-[90%] m-auto  w-full md:px-20'>
+  <div className='flex relative z-50 flex-col  md:w-[65%] bg-white sm:w-[90%] m-auto  w-full md:px-20'>
     {messages.reverse().map((message) => (
       <div className='flex flex-col w-full border-2  border-gray-300 p-2 mt-2 rounded-lg shadow-lg'>
         <p className='font-bold'>From: {message.name}</p>
         <p className='font-bold text-slate-500'>{message.email}</p>
         <p className='font-bold text-slate-500'>{message.phone}</p>
         <p className='font-bold'>{message.message}</p>
-        <p className='font-bold text-slate-500 border-t pt-4'>{message.created_at}</p>
+        <p className='font-bold text-slate-500 border-t pt-4'>{formatDate(message.created_at)}</p>
       </div>
         ))}
 

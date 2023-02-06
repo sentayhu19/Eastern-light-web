@@ -51,7 +51,7 @@ const handleSubmit = async (e) => {
     <form onSubmit={handleSubmit} className='w-60% m-auto bg-white' data-aos="fade-up">
         <label for="name" data-aos="fade-up">
             <input type="text" id="name" name='name' onChange={handleChange} value={name} required placeholder="Name"/>
-            <span className='span-slider'>Name</span>
+            <span className='span-slider'>Name *</span>
         </label>
         <label for="email" data-aos="fade-up">
             <input type="email" id="email" name="email" onChange={handleChange} value={email} required placeholder="Email"/>
@@ -59,11 +59,11 @@ const handleSubmit = async (e) => {
         </label>
         <label for="phone" data-aos="fade-up">
             <input type="number" id="phone" name='phone' onChange={handleChange} value={phone} required placeholder="Phone"/>
-            <span className='span-slider'>Phone</span>
+            <span className='span-slider'>Phone *</span>
         </label>
         <div class="form-float scheme-des" data-aos="fade-up">
   <textarea name="sendmessage" class="inputText" onChange={handleChange} maxLength={255}  id="" value={sendmessage} cols="30" rows="10" placeholder=" "></textarea>
-  <label class="floating-label">Message (max 255)</label>
+  <label class="floating-label">Message (max 255) *</label>
 </div>
         <button disabled={name === "" || phone === "" || sendmessage === "" ? ' ' : ''} type="submit" className='bg-[#76A900] text-white rounded-lg' data-aos="fade-up">
           {isloading ? (
