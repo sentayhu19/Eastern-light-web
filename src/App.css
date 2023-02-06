@@ -196,6 +196,12 @@ button:active {
   transform: scale(0.99);
 }
 
+button:hover{
+  /* box shadow effect with bouse */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  
+}
+
 
 
 /* our partners scroll  */

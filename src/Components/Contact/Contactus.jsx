@@ -13,6 +13,7 @@ const Contactus = () => {
     phone: "",
     sendmessage: "",
   });
+  const [success, setSuccess] = useState('');
   const handleChange = (e) => {
     setMessage({
       ...message,
@@ -35,8 +36,10 @@ const Contactus = () => {
         });
       });
       setLoading(false);
+      setSuccess("Thank you for your message. It has been sent.");
     } catch (err) {
       ErrorAlert("Error: ", err);
+      setSuccess("Someting went wrong. Please try again.");
     }
   };
 
@@ -118,6 +121,7 @@ const Contactus = () => {
                 "Submit"
               )}
             </button>
+            <p className="text-center text-green-500 pt-7">{success}</p>
           </form>
         </div>
       </div>
