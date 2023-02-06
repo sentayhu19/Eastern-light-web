@@ -113,7 +113,7 @@ const formatDate = (dateString) => {
   <div className='flex relative z-50 flex-col  md:w-[65%] bg-white sm:w-[90%] m-auto  w-full md:px-20'>
     {messages.reverse().map((message) => (
       <div className='flex flex-col w-full border-2  border-gray-300 p-2 mt-2 rounded-lg shadow-lg'>
-        <p className='font-bold'>From: {message.name}</p>
+        <p className='font-bold bg-[#76A900] text-white border-b w-[40%]'>From: {message.name}</p>
         <p className='font-bold text-slate-500'>{message.email}</p>
         <p className='font-bold text-slate-500'>{message.phone}</p>
         <p className='font-bold'>{message.message}</p>
