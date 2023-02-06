@@ -31,7 +31,6 @@ const Products = () => {
     };
     pullcatagorydata();
   }, []);
-  const glass = `<FontAwesomeIcon icon={faMagnifyingGlass} />`;
   const handleSelectChange = (selectedOption) => {
     //search based on category
     setsearchmessage("");
@@ -58,7 +57,7 @@ const Products = () => {
       }
     }
   };
-  const handleSelectChange2 = async (selectedOption) => {
+  const handleSelectChange2 =  (selectedOption) => {
     //search based on product name
     if (selectedOption) {
       setsearchmessage("");
@@ -69,13 +68,12 @@ const Products = () => {
       const key = "key";
       setproductSearch({ [key]: value.id });
       setsearchResult(
-        await products.filter((product) => product.name.includes(value.name))
+         products.filter((product) => product.name.includes(value.name))
       );
       if (searchResult.length == 0) {
         setsearchmessage("No Product Found for the search " + value.name);
       } else {
         let message =
-          glass +
           "  Found " +
           searchResult.length +
           " results for " +
