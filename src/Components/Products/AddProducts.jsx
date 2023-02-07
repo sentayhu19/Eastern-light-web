@@ -27,8 +27,8 @@ const AddProducts = () => {
     price: "",
     category_id: "",
     priority: "",
-    box: 0,
-    unit: 0,
+    box: "",
+    unit: "",
   });
 
   const dispatch = useDispatch();
@@ -82,8 +82,8 @@ const AddProducts = () => {
         price: "",
         category_id: "",
         priority: "",
-        box: 1,
-        unit: 1,
+        box: "",
+        unit: "",
       });
     } catch (err) {
       dispatch(setError(err.message));
@@ -139,7 +139,7 @@ const AddProducts = () => {
                 required
                 placeholder="Name"
               />
-              <span className="span-slider">Name</span>
+              <span className="span-slider">Name *</span>
             </label>
             <label for="price" data-aos="fade-up">
               <input
@@ -151,7 +151,7 @@ const AddProducts = () => {
                 required
                 placeholder="description"
               />
-              <span className="span-slider">Price (Birr)</span>
+              <span className="span-slider">Price (Birr) *</span>
             </label>
             <label for="brand" data-aos="fade-up">
               <input
@@ -163,7 +163,7 @@ const AddProducts = () => {
                 required
                 placeholder="brand"
               />
-              <span className="span-slider">Brand</span>
+              <span className="span-slider">Brand *</span>
             </label>
             <label for="image" data-aos="fade-up">
               <input
@@ -175,7 +175,7 @@ const AddProducts = () => {
                 required
                 placeholder="image"
               />
-              <span className="span-slider">Image</span>
+              <span className="span-slider">Image *</span>
             </label>
             <label for="priority (1-8)" data-aos="fade-up">
               <input
@@ -184,7 +184,6 @@ const AddProducts = () => {
                 name="priority"
                 onChange={handleChange}
                 value={priority}
-                required
                 placeholder="priority"
               />
 
@@ -197,7 +196,6 @@ const AddProducts = () => {
                 name="box"
                 onChange={handleChange}
                 value={box}
-                required
                 placeholder="Box"
               />
 
@@ -211,7 +209,6 @@ const AddProducts = () => {
                 name="unit"
                 onChange={handleChange}
                 value={unit}
-                required
                 placeholder="Unit"
               />
               <span className="span-slider"> Unit</span>
