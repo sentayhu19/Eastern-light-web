@@ -9,6 +9,8 @@ import slide5 from "../assets/slide5.jpg";
 import deskslider1 from "../assets/desk-slider1.jpg";
 import deskslider2 from "../assets/centrifuge.jpg";
 import deskslider3 from "../assets/ECG.jpg";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
 
 const Scroll = () => {
   const slideImages = [
@@ -19,8 +21,8 @@ const Scroll = () => {
       description:
         "Eastern Light Pharma is a leading supplier of high-quality pharmaceuticals and biomedical equipment.",
       btn: (
-        <button className="bg-green-400 text-white rounded-full px-4 py-2">
-          Get In Touch
+        <button className="bg-green-400 text-white rounded-full hover:bg-inherit hover:text-white px-4 py-2 w-[30%] max-w-[300px]">
+          Get In Touch 
         </button>
       ),
     },
@@ -66,7 +68,9 @@ const Scroll = () => {
                     <p className="text-center text-md text-gray-600">
                       {slideImage.description}
                     </p>
-                    <div className="p-24">{slideImage.btn}</div>
+                    <div className="p-24">
+                      <Link to="contact">{slideImage.btn}</Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -94,6 +98,9 @@ const Scroll = () => {
                       >
                         {slideImage.description}
                       </p>
+                      <div className="p-12 ">
+                        <Link to="contact">{slideImage.btn}</Link>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -29,7 +29,7 @@ const ProductDetails = () => {
   }, []);
   return (
     <>
-      <div className="md:mt-26 sm:mt-24 w-full border-b-2 bg-[#F0F1F3]">
+      <div className="md:mt-20 sm:mt-24 w-full border-b-2 bg-[#F0F1F3]">
         {product.length > 0 ? (
           <div className="flex md:items-center md:justify-center md:flex-row  flex-col px-10 md:px-36 md:py-14 md:gap-20 border">
             <div >
@@ -114,7 +114,7 @@ const ProductDetails = () => {
         )}
       </div>
       <h2 className="text-center text-xl md:text-2xl w-full font-bold pt-7 bg-[#F0F1F3] ">
-        RELATED
+        MORE
       </h2>
       <Productshow />
     </>

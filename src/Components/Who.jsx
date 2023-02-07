@@ -6,7 +6,7 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 import world from "../assets/world.png";
 const Who = () => {
   return (
-    <section className="relative text-center m-2 bgfix " name="who" style={{ backgroundImage: `url(${world})` }} >
+    <section className="relative text-center mt-8 bgfix " name="who" style={{ backgroundImage: `url(${world})` }} >
         <div className=" bg-black absolute w-full h-[100%] opacity-30 "></div>
       <div className="flex flex-col mb-7 md:mb-20 text-white ">
         <h2 className="text-2xl font-bold pt-7  " data-aos="fade-up">
