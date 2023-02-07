@@ -96,6 +96,8 @@ const Products = () => {
       name: product.name,
     })),
   ];
+
+  const reversedProducts = [...products].reverse();
   return (
     <section
       className="flex md:flex-row sm:flex-col text-center mt-20 bg-[#F0F1F3]"
@@ -135,7 +137,7 @@ const Products = () => {
         <div className="grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] ">
           {searchResult.length > 0
             ? searchResult.map((product) => <Product product={product} />)
-            : products.map((product) => <Product product={product} />)}
+            : reversedProducts.map((product) => <Product product={product} />)}
         </div>
       </div>
     </section>

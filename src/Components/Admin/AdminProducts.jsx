@@ -89,6 +89,7 @@ const AdminProducts = () => {
       name: product.name,
     })),
   ];
+  const reversedProducts = [...products].reverse();
   return (
     <>
       <Adminnav />
@@ -132,7 +133,7 @@ const AdminProducts = () => {
                   <AdminProduct product={product} />
                 ))
               : products.length > 0
-              ? products.map((product) => <AdminProduct product={product} />)
+              ? reversedProducts.map((product) => <AdminProduct product={product} />)
               : ""}
           </div>
           {products.length === 0 ? (
