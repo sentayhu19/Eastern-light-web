@@ -27,6 +27,8 @@ const AddProducts = () => {
     price: "",
     category_id: "",
     priority: "",
+    box: 0,
+    unit: 0,
   });
 
   const dispatch = useDispatch();
@@ -80,6 +82,8 @@ const AddProducts = () => {
         price: "",
         category_id: "",
         priority: "",
+        box: 1,
+        unit: 1,
       });
     } catch (err) {
       dispatch(setError(err.message));
@@ -99,8 +103,17 @@ const AddProducts = () => {
     }
   };
 
-  const { name, description, brand, image, price, category_id, priority } =
-    Products;
+  const {
+    name,
+    description,
+    brand,
+    image,
+    price,
+    category_id,
+    priority,
+    unit,
+    box,
+  } = Products;
   return (
     <>
       {isloading ? (
@@ -172,9 +185,36 @@ const AddProducts = () => {
                 onChange={handleChange}
                 value={priority}
                 required
-                placeholder="image"
+                placeholder="priority"
               />
-              <span className="span-slider"> Priority (1-8)</span>
+
+              <span className="span-slider"> priority (1-8)</span>
+            </label>
+            <label for="Box" data-aos="fade-up">
+              <input
+                type="number"
+                id="box"
+                name="box"
+                onChange={handleChange}
+                value={box}
+                required
+                placeholder="Box"
+              />
+
+              <span className="span-slider"> Box</span>
+            </label>
+            
+            <label for="Unit" data-aos="fade-up">
+              <input
+                type="number"
+                id="unit"
+                name="unit"
+                onChange={handleChange}
+                value={unit}
+                required
+                placeholder="Unit"
+              />
+              <span className="span-slider"> Unit</span>
             </label>
             <Select
               options={categories}
@@ -185,6 +225,7 @@ const AddProducts = () => {
               onChange={handleSelectChange}
               placeholder="Category"
             />
+            <div></div>
             <div class="form-float scheme-des" data-aos="fade-up">
               <textarea
                 name="description"

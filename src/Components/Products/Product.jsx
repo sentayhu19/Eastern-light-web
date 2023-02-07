@@ -25,8 +25,8 @@ const Product = ({ product }) => {
       <div
         onClick={handleproduct}
         className="relative flex items-center md:justify-center flex-col 
-  md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px]
-   sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p-3 hover:border-2 border-[#76A900] rounded-lg"
+  md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px] bg-white
+   sm:h-[300px] shadow-lg mt-10 md:p-7 sm:p-3 hover:border-2 border-[#76A900] rounded-3xl cursor-pointer"
         key={product._id} data-aos="fade-up"
       >
         {isloading ? (
@@ -36,7 +36,7 @@ const Product = ({ product }) => {
             <img
               src={product.image}
               alt={product.name}
-              className="md:w-[200px] md:h-[200px] sm:w-[250px] sm:h-[100px] hover:scale-110"
+              className="md:w-[300px] md:h-[200px] sm:w-[250px] sm:h-[100px] hover:scale-110"
             />
             <div className="border-b">
               <h3 className="font-bold w-full sm:text-[15px]">

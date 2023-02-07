@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPills } from "@fortawesome/free-solid-svg-icons";
 import { faSyringe } from "@fortawesome/free-solid-svg-icons";
 import { faMicroscope } from "@fortawesome/free-solid-svg-icons";
+import { faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
+
 
 const Services = () => {
   return (
@@ -25,17 +28,15 @@ const Services = () => {
           </div>
           <div className="flex sm:flex-col items-center justify-center text-[#006394] sm:pt-16 md:pt-1">
             <div className="flex sm:flex-row">
-              <FontAwesomeIcon className="text-7xl" icon={faSyringe} />
-              <FontAwesomeIcon className="text-7xl" icon={faMicroscope} />
+              <FontAwesomeIcon className="text-7xl" icon={faPills} />
             </div>
             <p className="pt-5">Pharmaceutical Distribution </p>
           </div>
           <div className="flex sm:flex-col items-center justify-center text-[#006394] sm:pt-16 md:pt-1">
             <div className="flex sm:flex-row">
-              <FontAwesomeIcon className="text-7xl" icon={faSyringe} />
-              <FontAwesomeIcon className="text-7xl" icon={faMicroscope} />
+              <FontAwesomeIcon className="text-7xl" icon={faScrewdriverWrench} />
             </div>
-            <p className="pt-5">Distribute biomedical equipments </p>
+            <p className="pt-5">Installtion and Maintenance </p>
           </div>
         </div>
       </div>

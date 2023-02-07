@@ -24,6 +24,7 @@ const AdminProduct = ({ product }) => {
     price: "",
     category: "",
     image: "",
+    priority: "",
   });
 
   const { protectedData } = useSelector((state) => state.auth);
@@ -42,6 +43,7 @@ const AdminProduct = ({ product }) => {
       ["price"]: product.price,
       ["category"]: product.category,
       ["image"]: product.image,
+      ["priority"]: product.priority,
     });
     seteditToggle(!editToggle);
   };
@@ -149,7 +151,7 @@ const AdminProduct = ({ product }) => {
               <label className="border-none text-left">Name</label>
               <input
                 type="text"
-                className="border-2 border-green-600 rounded-lg p-2"
+                className="border border-green-600 text-green-500 rounded-lg p-2"
                 placeholder="Name"
                 value={editproduct.name}
                 onChange={(e) =>
@@ -159,7 +161,7 @@ const AdminProduct = ({ product }) => {
               <label className="border-none text-left">Description</label>
               <input
                 type="text"
-                className="border-2 border-green-600 rounded-lg p-2"
+                className="border-2 border-green-600 rounded-lg p-2 text-green-500"
                 placeholder="Description"
                 value={editproduct.description}
                 onChange={(e) =>
@@ -169,10 +171,10 @@ const AdminProduct = ({ product }) => {
                   })
                 }
               />
-              <label className="border-none text-left">Price</label>
+              <label className="border-none text-left ">Price</label>
               <input
                 type="text"
-                className="border-2 border-green-600 rounded-lg p-2"
+                className="border-2 border-green-600 rounded-lg p-2 text-green-500"
                 placeholder="Price"
                 value={editproduct.price}
                 onChange={(e) =>
@@ -193,11 +195,22 @@ const AdminProduct = ({ product }) => {
               />
               <input
                 type="text"
-                className="border-2 border-green-600 rounded-lg p-2"
+                className="border-2 border-green-600 rounded-lg p-2 text-green-500"
                 placeholder="Image"
                 value={editproduct.image}
                 onChange={(e) =>
                   seteditproduct({ ...editproduct, image: e.target.value })
+                }
+              />
+              {/* edit priority  */}
+              <label className="border-none text-left">Priority</label>
+              <input
+                type="text"
+                className="border-2 border-green-600 rounded-lg p-2"
+                placeholder="Priority"
+                value={editproduct.priority}
+                onChange={(e) =>
+                  seteditproduct({ ...editproduct, priority: e.target.value })
                 }
               />
               <button

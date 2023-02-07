@@ -24,17 +24,17 @@ const ProductDetails = () => {
   }, []);
   return (
     <>
-      <div className="md:mt-36 sm:mt-24 w-full border-b-2">
+      <div className="md:mt-26 sm:mt-24 w-full border-b-2 bg-[#F0F1F3]">
         {product.length > 0 ? (
           <div className="flex md:items-center md:justify-center md:flex-row  flex-col px-10 md:px-36 md:py-14 md:gap-20">
-            <div>
+            <div >
               <img
                 className="md:max-w-[700px] md:min-w-[350px] sm:w-[99%] sm:max-w-[550px] m-auto   md:h-[500px] sm:h-[300px] rounded-lg shadow-2xl hover:scale-105 "
                 src={product[0].image}
                 alt={product.name}
               />
             </div>
-            <div className="flex flex-col gap-14 border rounded-lg md:p-6 sm:pt-5 sm:mt-7 sm:px-6 ">
+            <div className="flex flex-col gap-14 border rounded-lg md:p-6 sm:pt-5 sm:mt-7 sm:px-6 bg-white shadow-lg ">
               <h1 className="md:text-3xl sm:text-2xl font-bold border-b pb-4">
                 {product[0].name}
               </h1>
@@ -51,6 +51,14 @@ const ProductDetails = () => {
               <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
                 <label className="border-none text-black">Price: </label>
                 {product[0].price} Birr
+              </p>
+              <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+                <label className="border-none text-black">Unit: </label>
+                {product[0].unit} 
+              </p>
+              <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+                <label className="border-none text-black">Box: </label>
+                {product[0].box} 
               </p>
               <div className="flex flex-col gap-3 border-t-2 pt-3 w-full sm:pb-4">
                 <p className="md:w-[600px] sm:w-[90%] text-[#76A900] md:text-xl">

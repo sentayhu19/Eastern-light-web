@@ -15,9 +15,9 @@ const Scroll = () => {
     {
       url: slide1,
       urldesk: deskslider1,
-      caption: "Easter Light Pharma",
+      caption: "Eastern Light Pharma",
       description:
-        "Easter Light Pharma is a leading supplier of high-quality pharmaceuticals and biomedical equipment.",
+        "Eastern Light Pharma is a leading supplier of high-quality pharmaceuticals and biomedical equipment.",
       btn: (
         <button className="bg-green-400 text-white rounded-full px-4 py-2">
           Get In Touch
