@@ -21,7 +21,7 @@ const Scroll = () => {
       description:
         "Eastern Light Pharma is a leading supplier of high-quality pharmaceuticals and biomedical equipment.",
       btn: (
-        <button className="bg-green-400 text-white rounded-full hover:bg-inherit hover:text-white px-4 py-2 w-[30%] max-w-[300px]">
+        <button className="bg-green-400 text-white rounded-full hover:bg-inherit hover:text-white px-4 py-2 md:w-[30%] md:max-w-[300px] ">
           Get In Touch 
         </button>
       ),
