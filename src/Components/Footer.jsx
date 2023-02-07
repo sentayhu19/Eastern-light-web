@@ -21,7 +21,7 @@ const Footer = () => {
       <div className="flex sm:flex-col md:flex-row md:gap-[10%] sm:gap-10   ">
         <div className="flex flex-col w-full   gap-4">
           <div className="flex flex-col gap-4">
-            <h4 className="font-bold border-b">Company</h4>
+            <h4 className="font-bold border-b text-[17px]">Company</h4>
             <h4>Eastern light pharma PLC</h4>
             <div className="flex gap-3 items-center">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col w-full gap-4">
-          <h4 className="font-bold border-b">Contact</h4>
+          <h4 className="font-bold border-b text-[17px]">Contact</h4>
           <div>
             <div className="flex gap-3 items-center">
               <FontAwesomeIcon icon={faPhone} />
@@ -50,7 +50,7 @@ const Footer = () => {
               </a>
             </div>
             <div className="flex flex-col  gap-4 mt-4">
-              <h4 className="font-bold border-b">Community</h4>
+              <h4 className="font-bold border-b text-[17px]">Community</h4>
               <div className="flex md:gap-5 sm:gap-10">
                 <a
                   className="flex items-center justify-center hover:border md:w-10 h-10 text-2xl rounded-full text-[#0077b5]  hover:text-white hover:bg-[#0077b5]"
@@ -81,7 +81,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-full max-w-[600px]">
-          <h2 className="font-bold border-b w-full">Location on Google map</h2>
+          <h2 className="font-bold border-b w-full text-[17px]">Location on Google map</h2>
           <Map location={location} zoomLevel={17} /> {/* include it here */}
         </div>
       </div>
