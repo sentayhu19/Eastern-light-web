@@ -44,8 +44,8 @@ const Nav = () => {
   };
   return (
     <>
-      <header className="sm:m-0">
-        <div className="fixed top-0 z-20 w-full bg-white">
+      <header className="sm:m-0 ">
+        <div className="fixed top-0 z-40 w-full bg-white ">
           <div
             className={
               scroll ? " w-full border-b-2 border-gray-200 shadow-md " : ""
@@ -154,7 +154,7 @@ const Nav = () => {
           >
             <div className="flex justify-between m-6 text-white">
               <div className="flex items-center text-[11px] text-white">
-                <p className="font-logo estyle">Eastern &nbsp; &nbsp; &nbsp; </p>
+                <p className="font-logo estyle">Eastern &nbsp; </p>
                 <div className="relative">
                   <FontAwesomeIcon
                     className="absolute text-[8px] top-4 left-2 text-[#76A900]"
@@ -165,11 +165,11 @@ const Nav = () => {
                     icon={faMortarPestle}
                   />
                 </div>
-                <p className="font-logo estyle ">&nbsp; &nbsp; light</p>{" "}
+                <p className="font-logo estyle ">&nbsp; light</p>{" "}
               </div>
             </div>
             <ul
-              className="flex flex-col m-20 gap-4 text-white "
+              className="flex flex-col m-20 gap-4 text-white items-center "
               data-aos="fade-up"
             >
               <li className="">
@@ -197,7 +197,7 @@ const Nav = () => {
                   <button
                     type="buttom"
                     onClick={handleClick}
-                    className="bg-red-400 rounded-md text-white p-2"
+                    className="bg-red-400 rounded-md text-white p-2 w-[80px] text-[12px]"
                   >
                     Log out
                   </button>

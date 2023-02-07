@@ -8,6 +8,11 @@ import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
+import { faBox } from "@fortawesome/free-solid-svg-icons";
+import { faRuler } from "@fortawesome/free-solid-svg-icons";
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons'
+import { faShield } from "@fortawesome/free-solid-svg-icons";
+
 
 const ProductDetails = () => {
     const location = useLocation();
@@ -26,7 +31,7 @@ const ProductDetails = () => {
     <>
       <div className="md:mt-26 sm:mt-24 w-full border-b-2 bg-[#F0F1F3]">
         {product.length > 0 ? (
-          <div className="flex md:items-center md:justify-center md:flex-row  flex-col px-10 md:px-36 md:py-14 md:gap-20">
+          <div className="flex md:items-center md:justify-center md:flex-row  flex-col px-10 md:px-36 md:py-14 md:gap-20 border">
             <div >
               <img
                 className="md:max-w-[700px] md:min-w-[350px] sm:w-[99%] sm:max-w-[550px] m-auto   md:h-[500px] sm:h-[300px] rounded-lg shadow-2xl hover:scale-105 "
@@ -45,18 +50,22 @@ const ProductDetails = () => {
                 {product[0].description}
               </div>
               <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+                <FontAwesomeIcon className="text-xl text-black" icon={faShield} />&nbsp;
                 <label className="border-none text-black">Brand</label>:{" "}
                 {product[0].brand}
               </p>
               <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+                <FontAwesomeIcon className="text-xl text-black" icon={faDollarSign}/>&nbsp;
                 <label className="border-none text-black">Price: </label>
                 {product[0].price} Birr
               </p>
               <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+                <FontAwesomeIcon className="text-xl text-black" icon={faRuler} />&nbsp;
                 <label className="border-none text-black">Unit: </label>
                 {product[0].unit} 
               </p>
               <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+                <FontAwesomeIcon className="text-xl text-black" icon={faBox} />&nbsp;
                 <label className="border-none text-black">Box: </label>
                 {product[0].box} 
               </p>

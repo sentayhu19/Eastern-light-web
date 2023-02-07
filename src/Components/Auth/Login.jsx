@@ -88,7 +88,7 @@ const Login = (props) => {
                   value={email}
                   required
                 />
-                <span>Email</span>
+                <span className="span-slider">Email</span>
               </label>
               <label for="password" data-aos="fade-up">
                 <input
@@ -99,7 +99,7 @@ const Login = (props) => {
                   value={password}
                   required
                 />
-                <span>Password</span>
+                <span className="span-slider">Password</span>
               </label>
               <div class="flex flex-col gap-2">
                 <button

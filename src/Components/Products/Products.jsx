@@ -126,7 +126,7 @@ const Products = () => {
           placeholder="Search by product name"
         />
       </div>
-      <div className="flex md:ml-[23%] flex-col mb-7 md:w-[76.6%] md:mb-20 shadow-lg md:mt-6 border-3 bg-white pb-7 rounded-lg">
+      <div className="flex md:ml-[23%] flex-col mb-7 md:w-[76.6%] md:mb-20  md:mt-6   pb-7 ">
         <h2 className="text-2xl font-bold pt-7 " data-aos="fade-up">
           PRODUCTS
         </h2>

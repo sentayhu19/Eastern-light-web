@@ -17,7 +17,7 @@ const Footer = () => {
     lng: 38.73201648573837,
   };
   return (
-    <footer className="relative w-[45%] z-20 md:w-[70%] m-auto pt-10 md:max-w-[900px] bg-white bottom-0 top-0">
+    <footer className="relative w-[80%] z-20 md:w-[60%] m-auto pt-10  bg-white bottom-0 top-0">
       <div className="flex sm:flex-col md:flex-row md:gap-[10%] sm:gap-10   ">
         <div className="flex flex-col w-full   gap-4">
           <div className="flex flex-col gap-4">
@@ -80,7 +80,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full max-w-[600px]">
           <h2 className="font-bold border-b w-full">Location on Google map</h2>
           <Map location={location} zoomLevel={17} /> {/* include it here */}
         </div>
