@@ -17,6 +17,7 @@ import { NavLink } from "react-router-dom";
 import Adminnav from "../Navigations/Adminnav";
 import { setProtectedData } from "../../redux/eastern-light/reducer/reducer";
 import { getmessages } from "../api/auth";
+import ErrorAlert from "../Alert/ErrorAlert";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const Dashboard = () => {
       dispatch(unauthenticateUser());
       localStorage.removeItem("isDelta");
     } catch (error) {
-      console.log(error.response);
+      ErrorAlert("Error", "Something went wrong");
     }
   };
   const protectedInfo = async () => {
@@ -69,7 +70,6 @@ const Dashboard = () => {
       });
       return count;
     });
-    console.log("Messages", messages);
     new Chart(ctx, {
       type: "bar",
       data: {

@@ -37,7 +37,6 @@ const Login = (props) => {
       dispatch(authenticateUser());
       localStorage.setItem("isDelta", true);
     } catch (err) {
-      console.log(err.response.data.errors[0].msg);
       setError(err.response.data.errors[0].msg);
     }
     dispatch(setLoading(false));

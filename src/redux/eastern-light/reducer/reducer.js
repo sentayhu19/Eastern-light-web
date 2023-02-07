@@ -34,7 +34,6 @@ export const authSlice = createSlice({
       state.Error = action.payload;
     },
     setLoading: (state, action) => {
-      console.log("SET LOADING AT REDUCER TO", state.isloading);
       state.isloading = action.payload;
     },
     setProtectedData: (state, action) => {
@@ -52,7 +51,6 @@ export const CatSlice = createSlice({
   },
   reducers: {
     fetchcatagory: (state, action) => {
-      console.log("fetch catagory ACTION PAYLOAD at reducer", action.payload);
       return { ...state, categories: action.payload };
     },
   },
