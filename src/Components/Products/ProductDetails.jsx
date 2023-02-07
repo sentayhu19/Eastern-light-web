@@ -55,11 +55,6 @@ const ProductDetails = () => {
                 {product[0].brand}
               </p>
               <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
-                <FontAwesomeIcon className="text-xl text-black" icon={faDollarSign}/>&nbsp;
-                <label className="border-none text-black">Price: </label>
-                {product[0].price} Birr
-              </p>
-              <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
                 <FontAwesomeIcon className="text-xl text-black" icon={faRuler} />&nbsp;
                 <label className="border-none text-black">Unit: </label>
                 {product[0].unit} 
@@ -68,6 +63,11 @@ const ProductDetails = () => {
                 <FontAwesomeIcon className="text-xl text-black" icon={faBox} />&nbsp;
                 <label className="border-none text-black">Box: </label>
                 {product[0].box} 
+              </p>
+              <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+                <FontAwesomeIcon className="text-xl text-black" icon={faDollarSign}/>&nbsp;
+                <label className="border-none text-black">Price: </label>
+                {product[0].price} Birr
               </p>
               <div className="flex flex-col gap-3 border-t-2 pt-3 w-full sm:pb-4">
                 <p className="md:w-[600px] sm:w-[90%] text-[#76A900] md:text-xl">
