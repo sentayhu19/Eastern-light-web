@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { unauthenticateUser } from "../../redux/eastern-light/reducer/reducer";
 import { onLogout } from "../api/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +13,7 @@ import { NavLink } from "react-router-dom";
 import ErrorAlert from "../Alert/ErrorAlert";
 
 const Nav = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   const [isOpen, setIsOpen] = React.useState(false);
@@ -98,6 +100,9 @@ const Nav = () => {
                     Products
                   </NavLink>
                 </li>
+                {/* start */}
+                {location.pathname === "/" ? 
+                <>
                 <li>
                   <Link
                     to="services"
@@ -125,6 +130,11 @@ const Nav = () => {
                     Contact us
                   </Link>
                 </li>
+                </>
+                :''
+                }
+                
+                {/* end */}
                 <li>
                   {auth.isAuth ? (
                     <button
@@ -173,9 +183,9 @@ const Nav = () => {
               data-aos="fade-up"
             >
               <li className="">
-                <Link to="/" onClick={toggle}>
+                <NavLink to="/" onClick={toggle}>
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="">
                 <Link smooth={true} onClick={toggle} to="about">
