@@ -54,16 +54,18 @@ const ProductDetails = () => {
                 <label className="border-none text-black">Brand</label>:{" "}
                 {product[0].brand}
               </p>
-              <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+              {product[0].unit ? (<p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
                 <FontAwesomeIcon className="text-xl text-black" icon={faRuler} />&nbsp;
                 <label className="border-none text-black">Unit: </label>
                 {product[0].unit} 
-              </p>
-              <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+              </p>): '' }
+              
+              {product[0].box ? (<p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
                 <FontAwesomeIcon className="text-xl text-black" icon={faBox} />&nbsp;
                 <label className="border-none text-black">Box: </label>
                 {product[0].box} 
-              </p>
+              </p>): ''}
+              
               <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
                 <FontAwesomeIcon className="text-xl text-black" icon={faDollarSign}/>&nbsp;
                 <label className="border-none text-black">Price: </label>
