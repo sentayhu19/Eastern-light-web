@@ -28,6 +28,7 @@ const AdminProduct = ({ product }) => {
     priority: "",
     unit: "",
     box: "",
+    brand: "",
   });
 
   const { protectedData } = useSelector((state) => state.auth);
@@ -49,6 +50,7 @@ const AdminProduct = ({ product }) => {
       ["priority"]: product.priority,
       ["unit"]: product.unit,
       ["box"]: product.box,
+      ["brand"]: product.brand,
     });
     seteditToggle(!editToggle);
   };
@@ -101,35 +103,42 @@ const AdminProduct = ({ product }) => {
             <p className="sm:text-[13px] md:hidden">
               {product.description.slice(0, 20) + "..."}
             </p>
-            <p className="sm:text-[13px] sm:hidden md:flex" title={product.description}>
+            <p
+              className="sm:text-[13px] sm:hidden md:flex"
+              title={product.description}
+            >
               {" "}
               {product.description.slice(0, 80) + "..."}{" "}
             </p>
             <div className="flex items-center md:gap-2 sm:text-[12px] mx-3">
-              
-            <p title="Box">
-            <FontAwesomeIcon icon={faBox} />&nbsp;
-              {product.box}</p>   | 
-              
-            <p title="Unit">
-            <FontAwesomeIcon icon={faRuler} />&nbsp; 
-              {product.unit}</p>
+              <p title="Box">
+                <FontAwesomeIcon icon={faBox} />
+                &nbsp;
+                {product.box}
+              </p>{" "}
+              |
+              <p title="Unit">
+                <FontAwesomeIcon icon={faRuler} />
+                &nbsp;
+                {product.unit}
+              </p>
             </div>
             <div className="flex flex-col gap-2">
               <button
                 className="bg-[#76A900] text-white rounded-lg p-1"
-                onClick={handleeditToggle} title="Edit"
+                onClick={handleeditToggle}
+                title="Edit"
               >
                 Edit
               </button>
               <button
                 onClick={handledeletetoggle}
-                className="bg-red-500 text-white rounded-lg px-6" title="Delete"
+                className="bg-red-500 text-white rounded-lg px-6"
+                title="Delete"
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
             </div>
-           
           </div>
         )}
 
@@ -142,13 +151,15 @@ const AdminProduct = ({ product }) => {
               <button
                 className="bg-red-500 text-white rounded-lg p-1 hover:bg-white hover:text-red-500"
                 onClick={handledelete}
-                id={product.id} title="Delete"
+                id={product.id}
+                title="Delete"
               >
                 Delete
               </button>
               <button
                 className="bg-[#76A900] text-white rounded-lg p-1 hover:bg-white hover:text-[#76A900]"
-                onClick={handledeletetoggle} title="Cancel"
+                onClick={handledeletetoggle}
+                title="Cancel"
               >
                 Cancel
               </button>
@@ -162,9 +173,9 @@ const AdminProduct = ({ product }) => {
         <>
           <div className="fixed top-0 left-0 z-40 w-full h-full bg-[#01090f] opacity-90"></div>
           <div className="fixed pb-10  z-50 flex flex-col overflow-y-auto rounded-lg gap-7 top-10 items-center justify-center bg-white h-screen sm:w-[90%] ml-[4%] md:w-[40%] ">
-            <h2 className="border-b px-5 text-xl">Edit {product.name} ?</h2>
-            <form className="flex flex-col w-full gap-3 m-auto">
-              <label className="border-none text-left">Name</label>
+            <form className="flex flex-col w-full gap-3 m-auto mt-36">
+              <h2 className="border-b px-5 text-xl">Edit {product.name} ?</h2>
+              <label className="border-none text-left mb-[-15px]">Name</label>
               <input
                 type="text"
                 className="border border-green-600 text-green-500 rounded-lg p-2"
@@ -174,7 +185,8 @@ const AdminProduct = ({ product }) => {
                   seteditproduct({ ...editproduct, name: e.target.value })
                 }
               />
-              <label className="border-none text-left">Description</label>
+              
+              <label className="border-none text-left mb-[-15px]">Description</label>
               <input
                 type="text"
                 className="border-2 border-green-600 rounded-lg p-2 text-green-500"
@@ -187,7 +199,7 @@ const AdminProduct = ({ product }) => {
                   })
                 }
               />
-              <label className="border-none text-left ">Price</label>
+              <label className="border-none text-left mb-[-15px]">Price</label>
               <input
                 type="text"
                 className="border-2 border-green-600 rounded-lg p-2 text-green-500"
@@ -197,7 +209,17 @@ const AdminProduct = ({ product }) => {
                   seteditproduct({ ...editproduct, price: e.target.value })
                 }
               />
-              <label className="border-none text-left">Category</label>
+              <label className="border-none text-left mb-[-15px]">Brand</label>
+              <input
+                type="text"
+                className="border hover:border rounded-lg p-2 text-green-500"
+                placeholder="Price"
+                value={editproduct.brand}
+                onChange={(e) =>
+                  seteditproduct({ ...editproduct, brand: e.target.value })
+                }
+              />
+              <label className="border-none text-left mb-[-10px]">Category</label>
               <Select
                 options={categories}
                 getOptionLabel={(option) => option.name}
@@ -218,7 +240,7 @@ const AdminProduct = ({ product }) => {
                   seteditproduct({ ...editproduct, image: e.target.value })
                 }
               />
-              <label className="border-none text-left">Priority</label>
+              <label className="border-none text-left mb-[-15px]">Priority</label>
               <input
                 type="text"
                 className="border-2 border-green-600 rounded-lg p-2 text-green-500"
@@ -229,7 +251,7 @@ const AdminProduct = ({ product }) => {
                 }
               />
               {/* edit unit  */}
-              <label className="border-none text-left">Unit</label>
+              <label className="border-none text-left mb-[-15px]">Unit</label>
               <input
                 type="text"
                 className="border-2 border-green-600 text-green-500 rounded-lg p-2"
@@ -239,7 +261,7 @@ const AdminProduct = ({ product }) => {
                   seteditproduct({ ...editproduct, unit: e.target.value })
                 }
               />
-              <label className="border-none text-left">Box</label>
+              <label className="border-none text-left mb-[-15px]">Box</label>
               <input
                 type="text"
                 className="border-2 border-green-600 rounded-lg p-2 text-green-500"

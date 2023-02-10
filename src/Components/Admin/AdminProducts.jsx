@@ -45,15 +45,9 @@ const AdminProducts = () => {
       );
       setsearchResult(productFiltered);
       if (searchResult.length == 0) {
-        setsearchmessage("No Product Found under " + value.name);
+        setsearchmessage("Search results for " + value.name);
       } else {
-        let message =
-          "Found " +
-          searchResult.length +
-          " results for " +
-          value.name +
-          " category";
-        setsearchmessage(message);
+          setsearchmessage("Search results for " + value.name);
       }
     }
   };
@@ -65,13 +59,7 @@ const AdminProducts = () => {
       setsearchResult(
         products.filter((product) => product.name.includes(value.name))
       );
-      if (searchResult.length == 0) {
-        setsearchmessage("No Product Found for the search " + value.name);
-      } else {
-        let message =
-          "  Found " + searchResult.length + " results for " + value.name;
-        setsearchmessage(message);
-      }
+      setsearchmessage("Search results for " + value.name);
     }
   };
 
