@@ -6,7 +6,7 @@ A web app built with PERN stack for Eastern light Pharmaceutical and bio medical
 
  [Back-end link](https://github.com/sentayhu19/Eastern-light-back-end)
 
-## Live demo comming soon
+## Live Link
 [easternlight.com](https://easternlightpharma.com/)
 
 ## Products page
