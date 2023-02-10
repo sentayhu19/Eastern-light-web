@@ -1,6 +1,46 @@
-# Getting Started with Create React App
+# Eastern light Pharmaceutical and Biomedical wholesaler web app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This is a web app built with PERN stack
+## Products page
+![SS1](https://user-images.githubusercontent.com/77745775/218203761-3fa8585f-13b5-472a-b20a-1abfb291c434.png)
+
+## Product detail page
+
+![ss2](https://user-images.githubusercontent.com/77745775/218203778-6ae6a5af-29d9-4139-86e1-07f40b5943d8.png)
+
+
+## Live demo comming soon
+
+[easternlight.com](https://easternlightpharma.com/)
+
+## Built With
+- PostgreSQL
+- Express
+- React
+- Redux
+- NodJs
+- TailwindCSS
+
+
+### Prerequisites
+
+- VScode or other editor
+- NodJS
+
+### Install
+
+#### Cloning the project
+
+ git clone https://github.com/sentayhu19/Arada-chat <Your-Build-Directory>
+``` 
+- cd Eastern-light-web
+- npm install # Local dependencies if you want to hack
+- npm install -g # Install globally 
+- npm start
+```
+
 
 ## Available Scripts
 
@@ -39,32 +79,24 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Author
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👤 **Sentayhu Berhanu**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- GitHub: [@sentayhu19](https://github.com/sentayhu19)
+- LinkedIn: [sentayhu-berhanu](https://www.linkedin.com/in/sentayhu-berhanu-6376579a/)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🤝 Contributing
 
-### Analyzing the Bundle Size
+Contributions, issues, and feature requests are welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Feel free to check the [issues page](https://github.com/sentayhu19/Arada-chat/issues).
 
-### Making a Progressive Web App
+## Show your support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Give a ⭐️ if you like this project!
 
-### Advanced Configuration
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is [MIT](./LICENSE)
