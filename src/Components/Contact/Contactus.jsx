@@ -24,10 +24,8 @@ const Contactus = () => {
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
-    console.log(message);
     try {
       addmessage(message).then((res) => {
-        console.log(res);
         setMessage({
           name: "",
           email: "",
@@ -51,7 +49,7 @@ const Contactus = () => {
           <h2 className="text-center font-bold text-2xl p-7 text-white">
             CONTACT US
           </h2>
-          <form
+          <form method="post"
             onSubmit={handleSubmit}
             className="w-60% m-auto bg-white"
             data-aos="fade-up"

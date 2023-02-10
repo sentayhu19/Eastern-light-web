@@ -11,6 +11,7 @@ import {
   Route,
   Navigate,
   Outlet,
+  HashRouter,
 } from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import Dashboard from "./Components/Admin/Dashboard";
@@ -53,7 +54,7 @@ const App = () => {
           <HashLoader color="#76A900" size={70} />
         </div>
       ) : (
-        <Router>
+        <HashRouter>
           <Nav />
           <Routes>
             <Route element={<PrivateRoutes />}>
@@ -75,7 +76,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
-        </Router>
+        </HashRouter>
       )}
     </div>
   );

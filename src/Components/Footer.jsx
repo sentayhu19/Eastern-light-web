@@ -46,7 +46,7 @@ const Footer = () => {
                 className="sm:text-[13px] md:text-[15px] cursor-pointer"
               >
                 {" "}
-                esternlightphrma@gmail.com{" "}
+                info@esternlightphrma.com{" "}
               </a>
             </div>
             <div className="flex flex-col  gap-4 mt-4">
@@ -81,7 +81,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-full max-w-[600px]">
-          <h2 className="font-bold border-b w-full text-[17px]">Location on Google map</h2>
+          <h2 className="font-bold border-b w-full text-[17px]">
+            Location on Google map
+          </h2>
           <Map location={location} zoomLevel={17} /> {/* include it here */}
         </div>
       </div>

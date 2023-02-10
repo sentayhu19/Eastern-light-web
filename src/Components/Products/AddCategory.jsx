@@ -38,7 +38,7 @@ const AddCategory = () => {
         <h1 className="text-center font-bold md:text-2xl pb-5">
           Add New Catagory
         </h1>
-        <form onSubmit={handleSubmit}
+        <form onSubmit={handleSubmit} method='POST'
           className="sm:flex flex-col sm:w-60% md:w-[90%] md:items-center md:gap-7 m-auto bg-white"
           data-aos="fade-up"
         >

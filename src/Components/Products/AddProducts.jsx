@@ -124,7 +124,7 @@ const AddProducts = () => {
           <h1 className="text-center font-bold md:text-2xl pb-5">
             Add New Products
           </h1>
-          <form
+          <form method="POST"
             onSubmit={handleSubmit}
             className="sm:flex md:grid md:grid-cols-3 sm:w-60% md:w-[90%] md:items-center md:gap-7 m-auto bg-white"
             data-aos="fade-up"
