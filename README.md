@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-A web app built with PERN stack for Eastern light Pharmaceutical and bio medical wholesaler that helps them to post there products and make uses to see the details of the products.
+A web app built with [PERN](https://www.geeksforgeeks.org/what-is-pern-stack/) stack for Eastern light Pharmaceutical and bio medical wholesaler that helps them to post there products and make uses to see the details of the products.
 
  [Back-end link](https://github.com/sentayhu19/Eastern-light-back-end)
 
