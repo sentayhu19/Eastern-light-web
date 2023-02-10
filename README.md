@@ -14,7 +14,8 @@ A web app built with [PERN](https://www.geeksforgeeks.org/what-is-pern-stack/) s
 
 ## Product detail page
 
-![ss2](https://user-images.githubusercontent.com/77745775/218203778-6ae6a5af-29d9-4139-86e1-07f40b5943d8.png)
+![ss3](https://user-images.githubusercontent.com/77745775/218205461-797f6db0-5032-491a-a0c1-3d55525e16f5.png)
+
 
 
 
