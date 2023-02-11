@@ -34,10 +34,10 @@ const ProductDetails = () => {
   return (
     <>
       <Helmet>
-        <title>Products</title>
+        <title>{product[0]?.name}</title>
         <meta
           name="description"
-          content={`Buy ${product[0]?.description} from Easter light phrma `}
+          content={`Buy ${product[0]?.description.slice(0, 100)+'...'} more from Easter light phrma `}
         />
         <link rel="canonical" href={siteURL} />
         <meta property="og:image" content={product[0]?.image} />
@@ -47,7 +47,7 @@ const ProductDetails = () => {
         />
         <meta
           property="og:description"
-          content={`${product[0]?.description} Find it now at Eastern light pharma`}
+          content={`${product[0]?.description.slice(0, 100)+'... '} Find it now at Eastern light pharma`}
         />
         <meta property="og:url" content={metasiteURL} />
         <meta property="og:type" content="website" />
@@ -118,7 +118,7 @@ const ProductDetails = () => {
                   className="w-6 h-6"
                 />
                 &nbsp;
-                <label className="border-none text-black">Price: </label>
+                <label className="border-none text-black">Price:</label>&nbsp;
                 {product[0].price} ETB
               </p>
               <div className="flex flex-col gap-3 border-t-2 pt-3 w-full sm:pb-4">

@@ -10,6 +10,7 @@ import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faRuler } from "@fortawesome/free-solid-svg-icons";
 import { setLoading } from "../../redux/eastern-light/reducer/reducer";
 import ErrorAlert from "../Alert/ErrorAlert";
+import SaveAlert from "../Alert/SaveAlert";
 
 const AdminProduct = ({ product }) => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const AdminProduct = ({ product }) => {
 
   const { protectedData } = useSelector((state) => state.auth);
   const { categories } = useSelector((state) => state.catagory);
+  const [enditMessage, seteditMessage] = useState("");
 
   const handledeletetoggle = () => {
     setdeletedproduct({ ["id"]: product.id });
@@ -45,7 +47,7 @@ const AdminProduct = ({ product }) => {
       ["name"]: product.name,
       ["description"]: product.description,
       ["price"]: product.price,
-      ["category"]: product.category,
+      ["category_id"]: product.category,
       ["image"]: product.image,
       ["priority"]: product.priority,
       ["unit"]: product.unit,
@@ -65,14 +67,24 @@ const AdminProduct = ({ product }) => {
   };
   const handleedit = async (e) => {
     e.preventDefault();
-
     try {
       editproductput(editproduct);
+      seteditMessage("Product Updated");
+      seteditToggle(!editToggle)
     } catch (error) {
       ErrorAlert(error.response.data.message);
+      seteditMessage("Unable to update Product ");
     }
-    window.location.reload();
+    
   };
+  const handleSelectChange = (selectedOption) => {
+      const value = selectedOption;
+      const category = "category_id";
+      seteditproduct((currentProducts) => ({
+        ...editproduct,
+        [category]: value.id,
+      }));
+    };
 
   return (
     <>
@@ -87,6 +99,7 @@ const AdminProduct = ({ product }) => {
           <SkeletonCard />
         ) : (
           <div className="flex items-center flex-col md:gap-4 sm:gap-1">
+            <p className="text-green-500">{enditMessage}</p>
             <img
               src={product.image}
               alt={product.name}
@@ -226,9 +239,7 @@ const AdminProduct = ({ product }) => {
                 getOptionValue={(option) => option.id}
                 name="category"
                 value={editproduct.category}
-                onChange={(e) =>
-                  seteditproduct({ ...editproduct, category: e.target.value })
-                }
+                onChange={handleSelectChange}
                 placeholder="Category"
               />
               <input

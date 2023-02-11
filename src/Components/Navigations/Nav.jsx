@@ -188,6 +188,12 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="">
+                <NavLink to="/products" onClick={toggle}>
+                  Products
+                </NavLink>
+                </li>
+              {location.pathname === "/" ? <>
+              <li className="">
                 <Link smooth={true} onClick={toggle} to="about">
                   About
                 </Link>
@@ -202,6 +208,8 @@ const Nav = () => {
                   Contact
                 </Link>
               </li>
+              </>:''}
+              
               <li>
                 {auth.isAuth ? (
                   <button
