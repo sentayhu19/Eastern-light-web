@@ -90,7 +90,7 @@ const Dashboard = () => {
         },
       },
     });
-  }, 3000);
+  }, 3300);
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -107,22 +107,22 @@ const Dashboard = () => {
         <NavLink to="/addproducts"></NavLink>
       </div>
       <div>
-        <div className=" flex sm:flex-col md:flex-row   w-full md:px-9">
-          <div className="md:w-[40%] md:mt-14 sm:w-[90%]">
+        <div className=" flex sm:flex-col md:flex-row   w-full ">
+          <div className="md:w-[50%] md:mt-14 sm:w-[90%] md:ml-6">
             <canvas id="myChart"></canvas>
           </div>
-          <div className="md:w-[60%] sm:relative z-50 ">
+          <div className="md:w-[60%] sm:relative z-50 md:min-w-[400px]  md:ml-5  ">
             <h2 className="text-center md:text-2xl font-bold mt-10">
               Messages
             </h2>
             <div className="h-[60vh] w-full overflow-y-auto overflow-x-hidden">
-            <div className="flex relative z-10 flex-col  md:w-[65%] bg-white sm:w-[90%] m-auto  w-full md:px-20">
+            <div className="flex relative z-10 flex-col   bg-white sm:w-[90%] m-auto  w-full md:px-20">
               {messages.reverse().map((message) => (
                 <div className="flex flex-col w-full border-2  border-gray-300 p-2 mt-2 rounded-lg shadow-lg">
-                  <p className="font-bold bg-[#F7F7F7] border-b ">
+                  <p className="font-bold bg-[#F7F7F7] border-b hover:bg-green-500 hover:text-white ">
                     From: {message.name}
                   </p>
-                  <p className="font-bold text-slate-500">{message.email}</p>
+                  <p className="font-bold text-slate-500 width-[50%]">{message.email}</p>
                   <p className="font-bold text-slate-500">{message.phone}</p>
                   <p className="font-bold">{message.message}</p>
                   <p className="font-bold text-slate-500 border-t pt-4">

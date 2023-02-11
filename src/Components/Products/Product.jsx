@@ -13,7 +13,7 @@ const Product = ({ product }) => {
     dispatch(setLoading(true));
     setTimeout(() => {
       dispatch(setLoading(false));
-    }, 3000);
+    }, 3300);
   }, []);
 
   const handleproduct = () => {

@@ -53,11 +53,10 @@ const AddProducts = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (Products.priority > 8 || Products.priority <= 0) {
-      dispatch(setError("Products Priority can only be between 1 and 8 "));
+      dispatch(setError("Priority SET to none"));
       setTimeout(() => {
         dispatch(setError(""));
       }, 4300);
-      return 0;
     }
     if (Products.category == "") {
       dispatch(setError("Please select the product category"));
@@ -195,6 +194,7 @@ const AddProducts = () => {
                 id="box"
                 name="box"
                 onChange={handleChange}
+                required
                 value={box}
                 placeholder="Box"
               />

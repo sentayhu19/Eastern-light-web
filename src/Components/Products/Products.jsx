@@ -7,8 +7,10 @@ import { getproducts } from "../api/auth";
 import { fetchproduct } from "../../redux/eastern-light/reducer/reducer";
 import { getcategories } from "../api/auth";
 import { fetchcatagory } from "../../redux/eastern-light/reducer/reducer";
+import { Helmet } from "react-helmet-async";
 import Product from "./Product";
-import { getsearchbycat } from "../api/auth";
+
+
 
 const Products = () => {
   const [productSearch, setproductSearch] = useState({ key: "" });
@@ -44,17 +46,7 @@ const Products = () => {
       setsearchResult(
         products.filter((product) => product.category_id == value.id)
       );
-      if (searchResult.length == 0) {
-        setsearchmessage("No Product Found under " + value.name);
-      } else {
-        let message =
-          "Found " +
-          searchResult.length +
-          " results for " +
-          value.name +
-          " category";
-        setsearchmessage(message);
-      }
+      setsearchmessage("Search results for  " + value.name);
     }
   };
   const handleSelectChange2 =  (selectedOption) => {
@@ -70,16 +62,7 @@ const Products = () => {
       setsearchResult(
          products.filter((product) => product.name.includes(value.name))
       );
-      if (searchResult.length == 0) {
-        setsearchmessage("No Product Found for the search " + value.name);
-      } else {
-        let message =
-          "  Found " +
-          searchResult.length +
-          " results for " +
-          value.name;
-        setsearchmessage(message);
-      }
+      setsearchmessage("Search results for  " + value.name);
     }
   };
   const categoryOpt = [
@@ -99,11 +82,18 @@ const Products = () => {
 
   const reversedProducts = [...products].reverse();
   return (
+    
     <section
       className="flex md:flex-row sm:flex-col text-center mt-20 bg-[#F0F1F3]"
       name="products"
       id="products"
     >
+      <Helmet>
+        <title>Products</title>
+        <meta name="description" content="Get high quality products now from Eastern light phrma " />
+        <link rel="canonical" href="https://easternlightpharma.com/#/products" />
+
+      </Helmet>
       <div className="md:fixed flex flex-col gap-5 md:w-[20%] sm:w-[95%] bg-white md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg">
         <label>Search by category</label>
         <Select
@@ -129,9 +119,9 @@ const Products = () => {
         />
       </div>
       <div className="flex md:ml-[23%] flex-col mb-7 md:w-[76.6%] md:mb-20  md:mt-6   pb-7 ">
-        <h2 className="text-2xl font-bold pt-7 " data-aos="fade-up">
-          PRODUCTS
-        </h2>
+        <h1 className="text-2xl font-bold pt-7 mb-4 " data-aos="fade-up">
+          PRODUCTS {searchResult.length > 0 ?  ("("+searchResult.length+")") : "" }
+        </h1>
         <h2 className="text-white bg-[#006394] text-center">{searchmessage}</h2>
 
         <div className="grid md:grid-cols-4 sm:grid-cols-3  items-center w-full px-[1%] md:px-[6%] ">
@@ -141,6 +131,7 @@ const Products = () => {
         </div>
       </div>
     </section>
+    
   );
 };
 

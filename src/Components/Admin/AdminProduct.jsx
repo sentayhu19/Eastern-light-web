@@ -78,8 +78,8 @@ const AdminProduct = ({ product }) => {
     <>
       <div
         className="relative flex items-center md:justify-center flex-col 
-        md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[500px]
-         sm:h-[380px] shadow-lg mt-10 md:p-7 sm:p-3 hover:border-2 border-[#76A900] rounded-2xl"
+        md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[520px]
+         sm:h-[390px] shadow-lg mt-10 md:p-7 sm:p-3 hover:border-2 border-[#76A900] rounded-2xl"
         key={product._id}
         data-aos="fade-up"
       >
@@ -110,7 +110,7 @@ const AdminProduct = ({ product }) => {
               {" "}
               {product.description.slice(0, 80) + "..."}{" "}
             </p>
-            <div className="flex items-center md:gap-2 sm:text-[12px] mx-3">
+            <div className="flex items-center md:gap-2 sm:text-[12px]  mx-3">
               <p title="Box">
                 <FontAwesomeIcon icon={faBox} />
                 &nbsp;

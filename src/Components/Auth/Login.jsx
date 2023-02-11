@@ -8,6 +8,7 @@ import { HashLoader } from "react-spinners";
 import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
 import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { onLogin } from "../api/auth";
 import { faGauge } from "@fortawesome/free-solid-svg-icons";
@@ -78,7 +79,9 @@ const Login = (props) => {
               onSubmit={handleOnsubmit}
               class="flex flex-col gap-6 pb-4 mb-4 w-[100%]"
             >
+              <div>
               <label for="email" data-aos="fade-up">
+                
                 <input
                   type="email"
                   id="email"
@@ -88,7 +91,9 @@ const Login = (props) => {
                   required
                 />
                 <span className="span-slider">Email</span>
+                
               </label>
+              </div>
               <label for="password" data-aos="fade-up">
                 <input
                   type="password"
