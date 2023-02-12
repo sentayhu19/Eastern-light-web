@@ -7,7 +7,7 @@ import world from "../assets/world.png";
 const Who = () => {
   return (
     <section className="relative text-center mt-8 bgfix " name="who" style={{ backgroundImage: `url(${world})` }} >
-        <div className=" bg-black absolute w-full h-[100%] opacity-30 "></div>
+      <div className=" bg-black absolute w-full h-[100%] opacity-30 "></div>
       <div className="flex flex-col mb-7 md:mb-20 text-white ">
         <h2 className="text-2xl font-bold pt-7  " data-aos="fade-up">
           WHO WE ARE
@@ -47,8 +47,8 @@ const Who = () => {
           </div>
         </div>
       </div>
-      <button className="bg-[#76A900] relative text-white w-[50%] rounded-md md:w-[10%] mb-1 h-10">
-      <Link to="contact">Contact Us</Link>
+      <button className="bg-[#76A900] relative text-white w-[50%] rounded-md md:w-[10%] mb-7 h-10">
+        <Link to="contact">Contact Us</Link>
       </button>
     </section>
   );
