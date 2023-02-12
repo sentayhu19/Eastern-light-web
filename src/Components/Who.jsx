@@ -47,7 +47,7 @@ const Who = () => {
           </div>
         </div>
       </div>
-      <button className="bg-[#76A900] mb-7 relative text-white w-[50%] rounded-md md:w-[10%] mb-1 h-10">
+      <button className="bg-[#76A900] relative text-white w-[50%] rounded-md md:w-[10%] mb-7 h-10">
         <Link to="contact">Contact Us</Link>
       </button>
     </section>

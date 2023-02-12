@@ -108,7 +108,7 @@ const Contactus = () => {
                 name === "" || phone === "" || sendmessage === "" ? " " : ""
               }
               type="submit"
-              className="bg-[#76A900] text-white rounded-lg"
+              className="bg-[#76A900] text-white rounded-lg py-2"
               data-aos="fade-up"
             >
               {isloading ? (
