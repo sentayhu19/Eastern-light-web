@@ -53,7 +53,7 @@ const Nav = () => {
               scroll ? " w-full border-b-2 border-gray-200 shadow-md " : ""
             }
           >
-            <nav className="flex w-full items-center md:mx-10 justify-between md:px-14 sm:px-8 sm:mt-6  z-10  h-auto  ">
+            <nav className="flex w-full items-center md:mx-10 justify-between md:px-14 sm:px-8 sm:my-4  z-10  h-auto  ">
               <NavLink to="/">
                 <div className="flex items-center relative font-bold  sm:text-[11px] md:text-[20px] text-[#006394]">
                   <p className="font-logo estyle relative ">Eastern</p>
@@ -101,39 +101,39 @@ const Nav = () => {
                   </NavLink>
                 </li>
                 {/* start */}
-                {location.pathname === "/" ? 
-                <>
-                <li>
-                  <Link
-                    to="services"
-                    smooth={true}
-                    className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
-                  >
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="about"
-                    smooth={true}
-                    className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="contact"
-                    smooth={true}
-                    className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
-                  >
-                    Contact us
-                  </Link>
-                </li>
-                </>
-                :''
+                {location.pathname === "/" ?
+                  <>
+                    <li>
+                      <Link
+                        to="services"
+                        smooth={true}
+                        className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
+                      >
+                        Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="about"
+                        smooth={true}
+                        className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
+                      >
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="contact"
+                        smooth={true}
+                        className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
+                      >
+                        Contact us
+                      </Link>
+                    </li>
+                  </>
+                  : ''
                 }
-                
+
                 {/* end */}
                 <li>
                   {auth.isAuth ? (
@@ -191,25 +191,25 @@ const Nav = () => {
                 <NavLink to="/products" onClick={toggle}>
                   Products
                 </NavLink>
-                </li>
+              </li>
               {location.pathname === "/" ? <>
-              <li className="">
-                <Link smooth={true} onClick={toggle} to="about">
-                  About
-                </Link>
-              </li>
-              <li className="">
-                <Link smooth={true} onClick={toggle} to="services">
-                  Services
-                </Link>
-              </li>
-              <li className="">
-                <Link smooth={true} onClick={toggle} to="contact">
-                  Contact
-                </Link>
-              </li>
-              </>:''}
-              
+                <li className="">
+                  <Link smooth={true} onClick={toggle} to="about">
+                    About
+                  </Link>
+                </li>
+                <li className="">
+                  <Link smooth={true} onClick={toggle} to="services">
+                    Services
+                  </Link>
+                </li>
+                <li className="">
+                  <Link smooth={true} onClick={toggle} to="contact">
+                    Contact
+                  </Link>
+                </li>
+              </> : ''}
+
               <li>
                 {auth.isAuth ? (
                   <button
