@@ -31,7 +31,7 @@ const Productshow = () => {
             <Product product={product} />
           ))}
         </div>
-        <button className='bg-[#76A900] text-white w-[50%] m-auto rounded-md md:w-[10%] h-12 my-5 cursor-pointer' onClick={() => {navigate("/products")}} >Show more products</button>
+        <button className='bg-[#76A900] text-white w-[50%] m-auto rounded-md md:w-[10%] py-3 my-5 cursor-pointer' onClick={() => { navigate("/products") }} >Show more products</button>
       </div>
       {products.length > 0 ? (
         " "
