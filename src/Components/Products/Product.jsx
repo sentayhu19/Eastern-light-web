@@ -38,11 +38,14 @@ const Product = ({ product }) => {
               alt={product.name}
               className="md:w-[300px] md:h-[200px] sm:w-[250px] sm:h-[100px] hover:scale-110"
             />
-            <div className="border-b">
-              <h3 className="font-bold w-full sm:text-[15px]">
+            <div className="border-b ">
+              <h3 className="font-bold w-full sm:text-[15px] md:hidden">
+                {product.name.slice(0, 18) + "..."}
+              </h3>
+              <h3 className="font-bold w-full sm:text-[15px] sm:hidden md:block ">
                 {product.name}
               </h3>
-              <p className="font-bold w-full p-2 sm:text-[13px] bg-[#76A900] text-white rounded-lg mt-3">
+              <p className="font-bold w-24 m-auto p-2 sm:text-[13px] bg-[#76A900] text-white rounded-lg mt-3 ">
                 {product.price} ETB
               </p>
             </div>
