@@ -44,9 +44,9 @@ const Contactus = () => {
   const { name, email, phone, sendmessage } = message;
   return (
     <section className="pt-7 bg-no-repeat" name="contact">
-      <div className="contact-bg  h-auto ">
+      <div className="contact-bg  h-auto py-7 ">
         <div className="opacity-90">
-          <h2 className="text-center font-bold text-2xl p-7 text-white">
+          <h2 className="text-center font-bold text-2xl mb-7 text-white">
             CONTACT US
           </h2>
           <form method="post"
