@@ -37,7 +37,7 @@ const ProductDetails = () => {
         <title>{product[0]?.name}</title>
         <meta
           name="description"
-          content={`Buy ${product[0]?.description.slice(0, 100)+'...'} more from Easter light phrma `}
+          content={`Buy ${product[0]?.description.slice(0, 100) + '...'} more from Easter light phrma `}
         />
         <link rel="canonical" href={siteURL} />
         <meta property="og:image" content={product[0]?.image} />
@@ -47,24 +47,22 @@ const ProductDetails = () => {
         />
         <meta
           property="og:description"
-          content={`${product[0]?.description.slice(0, 100)+'... '} Find it now at Eastern light pharma`}
+          content={`${product[0]?.description.slice(0, 100) + '... '} Find it now at Eastern light pharma`}
         />
         <meta property="og:url" content={metasiteURL} />
         <meta property="og:type" content="website" />
       </Helmet>
       <div className="md:mt-20 sm:mt-24 w-full border-b-2 bg-[#F0F1F3] ">
         {product.length > 0 ? (
-          <div className="flex md:items-center md:justify-center md:flex-row  flex-col px-10 md:px-36 md:py-14 md:gap-20 border">
-            <div>
-              <img
-                className="md:max-w-[700px] md:min-w-[350px] sm:w-[99%] sm:max-w-[550px] m-auto   md:h-[500px] sm:h-[300px] rounded-lg sm:mt-5 shadow-2xl hover:scale-105 "
-                src={product[0].image}
-                alt={product.name}
-                title={product.name}
-              />
-            </div>
-            <div className="flex flex-col gap-14 border rounded-lg md:p-6 sm:pt-5 sm:mt-7 sm:px-6 bg-white shadow-lg ">
-              <h1 className="md:text-3xl sm:text-2xl font-bold border-b pb-4">
+          <div className="flex md:items-start md:justify-center md:flex-row  flex-col px-10 md:px-36 md:py-14 md:gap-20 border">
+            <img
+              className="md:max-w-[700px] mb-5 sm:w-[99%] sm:max-w-[550px] m-auto    sm:h-[300px] rounded-lg sm:mt-5 shadow-2xl hover:scale-105 "
+              src={product[0].image}
+              alt={product.name}
+              title={product.name}
+            />
+            <div className="flex flex-col gap-14 border rounded-lg  sm:px-6 bg-white shadow-lg ">
+              <h1 className="md:text-3xl sm:text-2xl font-bold border-b py-4">
                 {product[0].name}
               </h1>
               <div className="md:w-[600px] sm:w-[90%] md:text-xl text-[#76A900] flex flex-col gap-3">
@@ -126,7 +124,7 @@ const ProductDetails = () => {
                   <label className="border-none text-black">
                     For more info Call:{" "}
                   </label>
-                  <label className="border-none text-white bg-[#76A900] rounded-lg">
+                  <label className="border-none text-white p-2 bg-[#76A900] rounded-lg">
                     +251942157611
                   </label>
                 </p>
@@ -134,7 +132,7 @@ const ProductDetails = () => {
                   <p className="text-black">
                     Share on
                     <FontAwesomeIcon
-                      className="ml-2 text-xl"
+                      className="ml-2 mt-1 text-xl"
                       icon={faShareNodes}
                     />
                   </p>
