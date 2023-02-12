@@ -42,7 +42,7 @@ const Product = ({ product }) => {
               <h3 className="font-bold w-full sm:text-[15px]">
                 {product.name}
               </h3>
-              <p className="font-bold w-full sm:text-[13px] bg-[#76A900] text-white rounded-lg mt-3">
+              <p className="font-bold w-full p-2 sm:text-[13px] bg-[#76A900] text-white rounded-lg mt-3">
                 {product.price} ETB
               </p>
             </div>
