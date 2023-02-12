@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Chart from "chart.js/auto";
+import FinancialAnalysis from "./FinancialAnalysis";
 import AddProducts from "../Products/AddProducts";
 import {
   fetchProtectedInfo,
@@ -96,7 +97,13 @@ const Dashboard = () => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-
+  let grand=0
+  products.map((product) => {
+    grand=grand+product.price * product.unit
+  })
+  function Convert(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
   return (
     <div className="mt-36 w-full h-screen">
       <Adminnav />
@@ -134,6 +141,40 @@ const Dashboard = () => {
           </div>
           </div>
         </div>
+        <div className="bg-white p-6 rounded-lg shadow-md border-t relative z-30 b">
+        <h2 className="text-lg font-medium mb-4 text-center">Financial Analysis</h2>
+        <table className="w-full md:w-[80%] m-auto text-left table-collapse">
+        <thead>
+          <tr className="text-gray-700 font-medium">
+            <th className="p-3 bg-gray-100">Brand</th>
+            <th className="p-3 bg-gray-100">Name</th>
+            <th className="p-3 bg-gray-100">Price</th>
+            <th className="p-3 bg-gray-100">Unit</th>
+            <th className="p-3 bg-gray-100">Box</th>
+            <th className="p-3 bg-gray-100">Unit * Price</th>
+            <th className="p-3 bg-gray-100">Box * Price</th>
+          </tr>
+        </thead>
+        <tbody>
+        {products.map((product) =>(
+          <FinancialAnalysis data={product} />
+        ))}
+        <td className="bg-gray-300 ">Grand Total</td>
+          <tr className="flex ">
+            
+            <td className=" font-medium p-3 bg-gray-300 w-auto text-white">
+              
+                <p className="bg-green-700" title="(Grand) Price x Unit">
+                  {Convert(grand)} ETB
+                </p>
+                
+               
+            </td>
+          </tr>
+        </tbody>
+        </table>
+        </div>
+        
       </div>
       {/* Messages */}
     </div>
