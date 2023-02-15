@@ -32,10 +32,8 @@ const Nav = () => {
         
       } else {
        if(location.pathname === "/") {
-        console.log("INSIDE")
         setNavActive("home")
        }
-       console.log("OUTINSIDE")
         setScroll(false);
       }
     };
