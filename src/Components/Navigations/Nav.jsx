@@ -8,6 +8,11 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
 import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faBox } from "@fortawesome/free-solid-svg-icons";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { faMessage } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 import ErrorAlert from "../Alert/ErrorAlert";
@@ -19,6 +24,7 @@ const Nav = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const [scroll, setScroll] = React.useState(false);
+  const [navActive, setNavActive] = React.useState("");
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 0) {
@@ -41,7 +47,7 @@ const Nav = () => {
       localStorage.removeItem("isDelta");
       window.location.reload(true);
     } catch (err) {
-      ErrorAlert("Error occured while trying to logout")
+      ErrorAlert("Error occured while trying to logout");
     }
   };
   return (
@@ -53,7 +59,7 @@ const Nav = () => {
               scroll ? " w-full border-b-2 border-gray-200 shadow-md " : ""
             }
           >
-            <nav className="flex w-full items-center md:mx-10 justify-between md:px-14 sm:px-8 sm:mt-6  z-10  h-auto  ">
+            <nav className="flex w-full items-center md:mx-10 justify-between md:px-14 sm:px-8 sm:my-4  z-10  h-auto  ">
               <NavLink to="/">
                 <div className="flex items-center relative font-bold  sm:text-[11px] md:text-[20px] text-[#006394]">
                   <p className="font-logo estyle relative ">Eastern</p>
@@ -87,53 +93,89 @@ const Nav = () => {
                 <li>
                   <NavLink
                     to="/"
-                    className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
+                    className={
+                      scroll
+                        ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
+                        : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
+                    }
+                    id={navActive === "home" ? "active" : ""}
+                    onClick={() => setNavActive("home")}
                   >
+                    <FontAwesomeIcon icon={faHome} className="mr-2" />
                     Home
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/products"
-                    className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
+                    className={
+                      scroll
+                        ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
+                        : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
+                    }
+                    id={navActive === "products" ? "active" : ""}
+                    onClick={() => setNavActive("products")}
                   >
+                    <FontAwesomeIcon icon={faBox} className="mr-2" />
                     Products
                   </NavLink>
                 </li>
                 {/* start */}
-                {location.pathname === "/" ? 
-                <>
-                <li>
-                  <Link
-                    to="services"
-                    smooth={true}
-                    className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
-                  >
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="about"
-                    smooth={true}
-                    className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="contact"
-                    smooth={true}
-                    className={scroll ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]" : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"}
-                  >
-                    Contact us
-                  </Link>
-                </li>
-                </>
-                :''
-                }
-                
+                {location.pathname === "/" ? (
+                  <>
+                    <li>
+                      <Link
+                        to="services"
+                        smooth={true}
+                        className={
+                          scroll
+                            ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
+                            : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
+                        }
+                        id={navActive === "Services" ? "active" : ""}
+                        onClick={() => setNavActive("Services")}
+                      >
+                        <FontAwesomeIcon icon={faGear} className="mr-2" />
+                        Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="about"
+                        smooth={true}
+                        className={
+                          scroll
+                            ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
+                            : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
+                        }
+                        id={navActive === "about" ? "active" : ""}
+                        onClick={() => setNavActive("about")}
+                      >
+                        <FontAwesomeIcon icon={faCircleInfo} className="mr-2" />
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="contact"
+                        smooth={true}
+                        className={
+                          scroll
+                            ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
+                            : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
+                        }
+                        id={navActive === "contact" ? "active" : ""}
+                        onClick={() => setNavActive("contact")}
+                      >
+                        <FontAwesomeIcon icon={faMessage} className="mr-2" />
+                        Contact us
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  ""
+                )}
+
                 {/* end */}
                 <li>
                   {auth.isAuth ? (
@@ -191,25 +233,29 @@ const Nav = () => {
                 <NavLink to="/products" onClick={toggle}>
                   Products
                 </NavLink>
-                </li>
-              {location.pathname === "/" ? <>
-              <li className="">
-                <Link smooth={true} onClick={toggle} to="about">
-                  About
-                </Link>
               </li>
-              <li className="">
-                <Link smooth={true} onClick={toggle} to="services">
-                  Services
-                </Link>
-              </li>
-              <li className="">
-                <Link smooth={true} onClick={toggle} to="contact">
-                  Contact
-                </Link>
-              </li>
-              </>:''}
-              
+              {location.pathname === "/" ? (
+                <>
+                  <li className="">
+                    <Link smooth={true} onClick={toggle} to="about">
+                      About
+                    </Link>
+                  </li>
+                  <li className="">
+                    <Link smooth={true} onClick={toggle} to="services">
+                      Services
+                    </Link>
+                  </li>
+                  <li className="">
+                    <Link smooth={true} onClick={toggle} to="contact">
+                      Contact
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                ""
+              )}
+
               <li>
                 {auth.isAuth ? (
                   <button
