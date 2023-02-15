@@ -32,7 +32,7 @@ const Who = () => {
               4
             </p>{" "}
             &nbsp;
-            <p className="absolute top-10 md:top-16 md:left-4 sm:left-2 text-[#76A900]  z-10">
+            <p className="absolute top-10 md:top-[69px] md:left-5 sm:left-2 text-[#76A900]  z-10">
               Years+
             </p>
           </div>
