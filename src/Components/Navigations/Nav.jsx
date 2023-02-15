@@ -17,7 +17,7 @@ import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 import ErrorAlert from "../Alert/ErrorAlert";
 
-const Nav = () => {
+const Nav = ({ activeSection }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
@@ -29,11 +29,7 @@ const Nav = () => {
     const handleScroll = () => {
       if (window.pageYOffset > 0) {
         setScroll(true);
-        
       } else {
-       if(location.pathname === "/") {
-        setNavActive("home")
-       }
         setScroll(false);
       }
     };
@@ -41,7 +37,10 @@ const Nav = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [window.pageYOffset]);
+  if (activeSection != navActive) {
+    setNavActive(activeSection);
+  }
   const handleClick = async () => {
     //handle logout
     try {
@@ -101,7 +100,11 @@ const Nav = () => {
                         ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
                         : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                     }
-                    id={navActive === "home" ? "active" : ""}
+                    id={
+                      navActive === "home" || activeSection === "home"
+                        ? "active"
+                        : ""
+                    }
                     onClick={() => setNavActive("home")}
                   >
                     <FontAwesomeIcon icon={faHome} className="mr-2" />
@@ -116,7 +119,7 @@ const Nav = () => {
                         ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
                         : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                     }
-                    id={navActive === "products" ? "active" : ""}
+                    id={navActive === "products" || (location.pathname === "/" && activeSection ==="products") ? "active" : ""}
                     onClick={() => setNavActive("products")}
                   >
                     <FontAwesomeIcon icon={faBox} className="mr-2" />
@@ -130,13 +133,19 @@ const Nav = () => {
                       <Link
                         to="services"
                         smooth={true}
-                        offset={-70} duration={500}
+                        offset={-70}
+                        duration={500}
                         className={
                           scroll
                             ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
                             : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                         }
-                        id={navActive === "Services" ? "active" : ""}
+                        id={
+                          navActive === "Services" ||
+                          activeSection === "services"
+                            ? "active"
+                            : ""
+                        }
                         onClick={() => setNavActive("Services")}
                       >
                         <FontAwesomeIcon icon={faGear} className="mr-2" />
@@ -147,13 +156,18 @@ const Nav = () => {
                       <Link
                         to="about"
                         smooth={true}
-                        offset={-80} duration={500}
+                        offset={-80}
+                        duration={500}
                         className={
                           scroll
                             ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
                             : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                         }
-                        id={navActive === "about" ? "active" : ""}
+                        id={
+                          navActive === "about" || activeSection === "about"
+                            ? "active"
+                            : ""
+                        }
                         onClick={() => setNavActive("about")}
                       >
                         <FontAwesomeIcon icon={faCircleInfo} className="mr-2" />
@@ -164,13 +178,18 @@ const Nav = () => {
                       <Link
                         to="contact"
                         smooth={true}
-                        offset={-80} duration={500}
+                        offset={-80}
+                        duration={500}
                         className={
                           scroll
                             ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
                             : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                         }
-                        id={navActive === "contact" ? "active" : ""}
+                        id={
+                          navActive === "contact" || activeSection === "contact"
+                            ? "active"
+                            : ""
+                        }
                         onClick={() => setNavActive("contact")}
                       >
                         <FontAwesomeIcon icon={faMessage} className="mr-2" />

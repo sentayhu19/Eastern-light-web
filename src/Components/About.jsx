@@ -3,7 +3,7 @@ import logo from "../assets/eastern-logo.png"
 
 const About = props => {
   return (
-    <section className=' pt-7 sm:w-full' name='about'>
+    <section className=' pt-7 sm:w-full' id="about" name='about'>
         <h2 className='font-bold text-xl text-center pb-4'>Eastern light</h2>
         <div className='flex sm:flex-col md:flex-row gap-10 items-center w-[80%] m-auto'>
         <div className='py-8 md:w-[50%]' >

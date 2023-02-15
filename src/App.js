@@ -26,6 +26,7 @@ import NotFound from "./Components/NotFound";
 
 const App = () => {
   const [loading, setloading] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const { isAuth } = useSelector((state) => state.auth);
   useEffect(() => {
     setloading(true);
@@ -33,6 +34,39 @@ const App = () => {
       setloading(false);
     }, 4000);
     Aos.init({ duration: 1400, delay: 150 });
+    function handleScroll() {
+      const home = document.getElementById("home").getBoundingClientRect();
+      const about = document.getElementById("about").getBoundingClientRect();
+      const services = document.getElementById("services").getBoundingClientRect();
+      const contact = document.getElementById("contact").getBoundingClientRect();
+      const products = document.getElementById("products").getBoundingClientRect();
+
+      if (contact.top < window.innerHeight / 2) {
+        setActiveSection("contact");
+      } else if (about.top < window.innerHeight / 2) {
+        setActiveSection("about");
+        
+      }
+      else if (services.top < window.innerHeight / 2) {
+        setActiveSection("services");
+      }
+      else if (products.top < window.innerHeight / 2) {
+        setActiveSection("products");
+      }
+      else if (home.top < window.innerHeight / 2) {
+        setActiveSection("home");
+      }
+      else if (services.top < window.innerHeight / 2) {
+        setActiveSection("services");
+      }
+      
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const PrivateRoutes = () => {
@@ -55,7 +89,7 @@ const App = () => {
         </div>
       ) : (
         <HashRouter>
-          <Nav />
+          <Nav activeSection={activeSection} />
           <Routes>
             <Route element={<PrivateRoutes />}>
               <Route path="/dashboard" element={<Dashboard />} />
@@ -66,7 +100,7 @@ const App = () => {
             <Route element={<RestrictedRoutes />}>
               <Route path="/login" element={<Login />} />
             </Route>
-            <Route path="/" element={<Home />} />
+            <Route  path="/" element={<Home activeSection={activeSection} />} />
             <Route path="/products" element={<Products />} />
             <Route
               exact

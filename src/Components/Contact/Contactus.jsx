@@ -4,6 +4,8 @@ import { HashLoader } from "react-spinners";
 import { addmessage } from "../api/auth";
 import ErrorAlert from "../Alert/ErrorAlert";
 import { setLoading } from "../../redux/eastern-light/reducer/reducer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const Contactus = () => {
   const { isloading } = useSelector((state) => state.auth);
@@ -43,7 +45,7 @@ const Contactus = () => {
 
   const { name, email, phone, sendmessage } = message;
   return (
-    <section className="pt-7 bg-no-repeat" name="contact">
+    <section className="pt-7 bg-no-repeat" name="contact" id="contact">
       <div className="contact-bg  h-auto py-7 ">
         <div className="opacity-90">
           <h2 className="text-center font-bold text-2xl mb-7 text-white">
@@ -54,6 +56,13 @@ const Contactus = () => {
             className="w-60% m-auto bg-white"
             data-aos="fade-up"
           >
+            <div className="flex items-center justify-center gap-3">
+            <FontAwesomeIcon icon={faPhone} />
+              <a href="tel:+251 942157611" className="cursor-pointer">
+                {" "}
+                +251 942157611
+              </a>
+              </div>
             <label for="name" data-aos="fade-up">
               <input
                 type="text"

@@ -11,10 +11,9 @@ import { useNavigate } from "react-router-dom";
 import Partners from "./OurPartnsers";
 import { Helmet } from "react-helmet-async";
 
-const Home = () => {
+const Home = ({ activeSection }) => {
   const navigate = useNavigate();
   const { isAuth } = useSelector((state) => state.auth);
-
   return (
     <>
       <Helmet>
@@ -31,14 +30,14 @@ const Home = () => {
         />
       </Helmet>
       <Hero />
-      <Productshow />
+      <Productshow activeSection={activeSection} />
       <Element name="services">
-        <Services />
+        <Services activeSection={activeSection} />
       </Element>
       <Who />
-      <About />
-      <Partners />
-      <Contactus />
+      <About activeSection={activeSection} />
+      <Partners  />
+      <Contactus activeSection={activeSection} />
       {isAuth ? (
         <div className="fixed z-50 top-72 l-0">
           <button

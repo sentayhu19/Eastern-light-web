@@ -44,7 +44,7 @@ const Scroll = () => {
     },
   ];
   return (
-    <section className="slide-container mt-20" name="home">
+    <section className="slide-container mt-20" id="home" name="home">
       <Slide>
         {slideImages.map((slideImage, index) => (
           <div className="h-screen  each-slide " data-aos="fade-up" key={index}>
