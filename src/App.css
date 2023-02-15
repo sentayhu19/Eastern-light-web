@@ -221,3 +221,8 @@ button:hover{
 #adminnavbtn {
   background-color: #76A900;
 }
+
+/* Nav Active */
+#active {
+  color: #76A900;
+}
