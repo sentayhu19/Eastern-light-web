@@ -109,10 +109,14 @@ const Products = () => {
       </Helmet>
       <div className="md:fixed flex flex-col gap-5 md:w-[20%] sm:w-[95%] bg-white md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg">
         <label>Search by category</label>
+        <div className="flex w-fll justify-center items-center">
+          <div className="flex border-b border-t border-l rounded-sm h-[38px] items-center">
+        <FontAwesomeIcon icon={faMagnifyingGlass} className=" text-xl px-1 " />
+        </div>
         <Select
           options={categoryOpt}
           //add one more static option for all
-
+          className="w-full"
           getOptionLabel={(option) => option.name}
           getOptionValue={(option) => option.id}
           name="category"
@@ -120,16 +124,23 @@ const Products = () => {
           onChange={handleSelectChange}
           placeholder="Search by category"
         />
+        </div>
         <label>Search by product name</label>
+        <div className="flex w-fll justify-center items-center">
+          <div className="flex border-b border-t border-l rounded-sm h-[38px] items-center">
+        <FontAwesomeIcon icon={faMagnifyingGlass} className=" text-xl px-1  " />
+        </div>
         <Select
           options={productOpt}
           getOptionLabel={(option) => option.name}
           getOptionValue={(option) => option.id}
+          className="w-full"
           name="key"
           value={productSearch}
           onChange={handleSelectChange2}
           placeholder="Search by product name"
         />
+        </div>
       </div>
       <div className="flex md:ml-[23%] flex-col mb-7 md:w-[76.6%] md:mb-20  md:mt-6   pb-7 ">
         <h1 className="text-2xl font-bold pt-7 mb-4 " data-aos="fade-up">

@@ -29,7 +29,11 @@ const Nav = () => {
     const handleScroll = () => {
       if (window.pageYOffset > 0) {
         setScroll(true);
+        
       } else {
+       if(location.pathname === "/") {
+        setNavActive("home")
+       }
         setScroll(false);
       }
     };
@@ -38,7 +42,6 @@ const Nav = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   const handleClick = async () => {
     //handle logout
     try {
@@ -127,6 +130,7 @@ const Nav = () => {
                       <Link
                         to="services"
                         smooth={true}
+                        offset={-70} duration={500}
                         className={
                           scroll
                             ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
@@ -143,6 +147,7 @@ const Nav = () => {
                       <Link
                         to="about"
                         smooth={true}
+                        offset={-80} duration={500}
                         className={
                           scroll
                             ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
@@ -159,6 +164,7 @@ const Nav = () => {
                       <Link
                         to="contact"
                         smooth={true}
+                        offset={-80} duration={500}
                         className={
                           scroll
                             ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
