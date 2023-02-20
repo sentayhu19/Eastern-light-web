@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { getproduct } from "../api/auth";
+import { useSelector, useDispatch } from "react-redux";
+import { getcategories, getproduct, getunit } from "../api/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import stack from "../../assets/stackdollar.png";
 import Productshow from "./Show/ProductsShow";
@@ -11,23 +12,39 @@ import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faRuler } from "@fortawesome/free-solid-svg-icons";
 import { faShield } from "@fortawesome/free-solid-svg-icons";
+import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet-async";
+import { fetchcatagory, fetchunit } from "../../redux/eastern-light/reducer/reducer";
 
 const ProductDetails = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const { id } = useParams();
   const siteURL = `https://easternlightpharma.com/${location.pathname}`;
   const [product, setproduct] = useState([]);
-  let headData = "product ";
+
   useEffect(() => {
     const pulldata = async () => {
       await getproduct(id).then((response) => {
         setproduct(response.data.product);
       });
+      await getcategories().then((response) => {
+        dispatch(fetchcatagory(response.data.category));
+      });
+      await getunit().then((res) => {
+        dispatch(fetchunit(res.data.units))
+      }
+      );
     };
     pulldata();
   }, []);
-
+ //use Filter to filter the category based on the product category_id
+ const { categories } = useSelector((state) => state.catagory);
+ const { units } = useSelector((state) => state.unit);
+  console.log("PROD: ",product)
+  const category = categories.filter((category) => category.id === product[0]?.category_id);
+  const unit = units.filter((unit) => unit.id === product[0]?.unit_id);
+  console.log("Unit", unit, "Category", category)
   return (
     <>
       <Helmet>
@@ -77,7 +94,7 @@ const ProductDetails = () => {
                 <label className="border-none text-black">Brand</label>:{" "}
                 {product[0].brand}
               </p>
-              {product[0].unit ? (
+              {unit[0].name ? (
                 <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
                   <FontAwesomeIcon
                     className="text-xl text-black"
@@ -85,7 +102,20 @@ const ProductDetails = () => {
                   />
                   &nbsp;
                   <label className="border-none text-black">Unit: </label>
-                  {product[0].unit}
+                  {unit[0].name}
+                </p>
+              ) : (
+                ""
+              )}
+              {category[0].name ? (
+                <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
+                  <FontAwesomeIcon
+                    className="text-xl text-black"
+                    icon={faFolderOpen}
+                  />
+                  &nbsp;
+                  <label className="border-none text-black">Category: </label>
+                  {category[0].name}
                 </p>
               ) : (
                 ""

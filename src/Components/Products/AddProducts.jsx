@@ -32,7 +32,7 @@ const AddProducts = () => {
     category_id: category,
     priority: "",
     box: "",
-    unit: "",
+    unit_id: "",
   });
 
   const dispatch = useDispatch();
@@ -73,6 +73,7 @@ const AddProducts = () => {
       }, 4300);
       return 0;
     }
+    console.log("Products: ", Products);
     try {
       await addnewproduct(Products);
       //show suchess message
@@ -101,7 +102,6 @@ const AddProducts = () => {
   };
   const handleSelectChange = (selectedOption) => {
     if (selectedOption) {
-      const category = "category_id";
       setcategory(selectedOption);
       setProducts({
         ...Products,
@@ -112,12 +112,7 @@ const AddProducts = () => {
 
   const handleUnitSelectChange = (selectedOption) => {
     if (selectedOption) {
-      const unit = "unit_id";
       setunitSelector(selectedOption);
-      setProducts({
-        ...unitSelector,
-        unit: selectedOption.id,
-      });
       setProducts({
         ...Products,
         unit_id: selectedOption.id,
@@ -132,7 +127,7 @@ const AddProducts = () => {
     image,
     price,
     priority,
-    unit,
+    unit_id,
     box,
   } = Products;
   
