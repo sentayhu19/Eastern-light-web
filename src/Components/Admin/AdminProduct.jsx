@@ -33,7 +33,7 @@ const AdminProduct = ({ product }) => {
     box: "",
     brand: "",
   });
- useEffect(() => {
+  useEffect(() => {
     const pulldata = async () => {
       getunit().then((res) => {
         dispatch(fetchunit(res.data.units));
@@ -79,31 +79,30 @@ const AdminProduct = ({ product }) => {
   };
   const handleedit = async (e) => {
     e.preventDefault();
-    console.log("EDIT START WITH", editproduct)
+    console.log("EDIT START WITH", editproduct);
     try {
       editproductput(editproduct);
       seteditMessage("Product Updated");
-      seteditToggle(!editToggle)
+      seteditToggle(!editToggle);
     } catch (error) {
       ErrorAlert(error.response.data.message);
       seteditMessage("Unable to update Product ");
     }
-    
   };
   const handleSelectChange = (selectedOption) => {
-    console.log("SELECTED OPTION", selectedOption.id)
-      seteditproduct((currentProducts) => ({
-        ...editproduct,
-        category_id: selectedOption.id,
-      }));
-    };
-    const handleUnitSelectChange = (selectedOption) => {
-      seteditproduct((currentProducts) => ({
-        ...editproduct,
-        unit_id: selectedOption.id,
-      }));
-    };
-  
+    console.log("SELECTED OPTION", selectedOption.id);
+    seteditproduct((currentProducts) => ({
+      ...editproduct,
+      category_id: selectedOption.id,
+    }));
+  };
+  const handleUnitSelectChange = (selectedOption) => {
+    seteditproduct((currentProducts) => ({
+      ...editproduct,
+      unit_id: selectedOption.id,
+    }));
+  };
+
   return (
     <>
       <div
@@ -216,8 +215,10 @@ const AdminProduct = ({ product }) => {
                   seteditproduct({ ...editproduct, name: e.target.value })
                 }
               />
-              
-              <label className="border-none text-left mb-[-15px]">Description</label>
+
+              <label className="border-none text-left mb-[-15px]">
+                Description
+              </label>
               <input
                 type="text"
                 className="border-2 border-green-600 rounded-lg p-2 text-green-500"
@@ -250,7 +251,9 @@ const AdminProduct = ({ product }) => {
                   seteditproduct({ ...editproduct, brand: e.target.value })
                 }
               />
-              <label className="border-none text-left mb-[-10px]">Category</label>
+              <label className="border-none text-left mb-[-10px]">
+                Category
+              </label>
               <Select
                 options={categories}
                 getOptionLabel={(option) => option.name}
@@ -266,11 +269,13 @@ const AdminProduct = ({ product }) => {
                 className="border-2 border-green-600 rounded-lg p-2 text-green-500"
                 placeholder="Image"
                 value={editproduct.image}
-                onChange = {(e) =>
+                onChange={(e) =>
                   seteditproduct({ ...editproduct, image: e.target.value })
                 }
               />
-              <label className="border-none text-left mb-[-15px]">Priority</label>
+              <label className="border-none text-left mb-[-15px]">
+                Priority
+              </label>
               <input
                 type="text"
                 className="border-2 border-green-600 rounded-lg p-2 text-green-500"

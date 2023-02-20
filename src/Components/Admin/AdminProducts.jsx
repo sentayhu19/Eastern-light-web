@@ -37,7 +37,7 @@ const AdminProducts = () => {
     setsearchmessage("");
     if (selectedOption) {
       if (selectedOption.id === "0") {
-        setcategorySearch(selectedOption)
+        setcategorySearch(selectedOption);
       }
       const value = selectedOption;
       const key = "key";
@@ -114,7 +114,8 @@ const AdminProducts = () => {
         </div>
         <div className="flex flex-col mb-7 md:mb-20 shadow-lg md:mt-6 border-3 pb-7 rounded-lg bg-white">
           <h2 className="text-2xl font-bold pt-7 " data-aos="fade-up">
-            PRODUCTS  ( {searchResult.length > 0 ?  searchResult.length:products.length})
+            PRODUCTS ({" "}
+            {searchResult.length > 0 ? searchResult.length : products.length})
           </h2>
           <h2 className="text-white bg-[#006394] text-center sm:mx-5 md:mx-0">
             {searchmessage}
@@ -125,7 +126,9 @@ const AdminProducts = () => {
                   <AdminProduct product={product} />
                 ))
               : products.length > 0
-              ? reversedProducts.map((product) => <AdminProduct product={product} />)
+              ? reversedProducts.map((product) => (
+                  <AdminProduct product={product} />
+                ))
               : ""}
           </div>
           {products.length === 0 ? (
