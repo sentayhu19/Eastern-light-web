@@ -8,6 +8,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faMortarPestle } from "@fortawesome/free-solid-svg-icons";
 import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
@@ -41,6 +42,7 @@ const Nav = ({ activeSection }) => {
   if (activeSection != navActive) {
     setNavActive(activeSection);
   }
+  
   const handleClick = async () => {
     //handle logout
     try {
@@ -61,7 +63,7 @@ const Nav = ({ activeSection }) => {
               scroll ? " w-full border-b-2 border-gray-200 shadow-md " : ""
             }
           >
-            <nav className="flex w-full items-center md:mx-10 justify-between md:px-14 sm:px-8 sm:my-4  z-10  h-auto  ">
+            <nav className="flex w-full items-center md:mx-10 justify-between md:px-14 sm:px-8 sm:my-4 z-30  h-auto  ">
               <NavLink to="/">
                 <div className="flex items-center relative font-bold  sm:text-[11px] md:text-[20px] text-[#006394]">
                   <p className="font-logo estyle relative ">Eastern</p>
@@ -101,7 +103,7 @@ const Nav = ({ activeSection }) => {
                         : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                     }
                     id={
-                      navActive === "home" || activeSection === "home"
+                      (navActive === "home" || activeSection === "home") && location.pathname === "/"
                         ? "active"
                         : ""
                     }
@@ -119,7 +121,7 @@ const Nav = ({ activeSection }) => {
                         ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
                         : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
                     }
-                    id={navActive === "products" || (location.pathname === "/" && activeSection ==="products") ? "active" : ""}
+                    id={navActive === "products" || (location.pathname === "/" && activeSection ==="products") || location.pathname === "/products" ? "active" : ""}
                     onClick={() => setNavActive("products")}
                   >
                     <FontAwesomeIcon icon={faBox} className="mr-2" />
@@ -198,7 +200,62 @@ const Nav = ({ activeSection }) => {
                     </li>
                   </>
                 ) : (
-                  ""
+                  <>
+                    <li>
+                      <NavLink
+                        to="/#services"
+                        smooth={true}
+                        offset={-70}
+                        duration={500}
+                        className={
+                          scroll
+                            ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
+                            : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
+                        }
+                       
+                        onClick={() => setNavActive("Services")}
+                      >
+                        <FontAwesomeIcon icon={faGear} className="mr-2" />
+                        Services
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/#about"
+                        smooth={true}
+                        offset={-80}
+                        duration={500}
+                        className={
+                          scroll
+                            ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
+                            : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
+                        }
+    
+                        onClick={() => setNavActive("about")}
+                      >
+                        <FontAwesomeIcon icon={faCircleInfo} className="mr-2" />
+                        About
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/#contact"
+                        smooth={true}
+                        offset={-80}
+                        duration={500}
+                        className={
+                          scroll
+                            ? "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[8px]"
+                            : "hover:hover:text-[#76A900] cursor-pointer hover:border-b-4 hover:pb-[19px]"
+                        }
+                       
+                        onClick={() => setNavActive("contact")}
+                      >
+                        <FontAwesomeIcon icon={faMessage} className="mr-2" />
+                        Contact us
+                      </NavLink>
+                    </li>
+                  </>
                 )}
 
                 {/* end */}
@@ -246,34 +303,50 @@ const Nav = ({ activeSection }) => {
               </div>
             </div>
             <ul
-              className="flex flex-col m-20 gap-4 text-white items-center "
+              className="flex flex-col mt-20 ml-10 gap-4 text-white items-start  "
               data-aos="fade-up"
             >
               <li className="">
                 <NavLink to="/" onClick={toggle}>
+                  <div className="flex gap-1 items-center">
+                  <FontAwesomeIcon icon={faHome} className="mr-2" />
                   Home
+                  </div>
                 </NavLink>
               </li>
               <li className="">
                 <NavLink to="/products" onClick={toggle}>
+                <div className="flex gap-1 items-center">
+                  <FontAwesomeIcon icon={faBox} className="mr-2" />
                   Products
+                  </div>
                 </NavLink>
+                
               </li>
               {location.pathname === "/" ? (
                 <>
                   <li className="">
                     <Link smooth={true} onClick={toggle} to="about">
+                    <div className="flex gap-1 items-center">
+                      <FontAwesomeIcon icon={faCircleInfo} className="mr-2" />
                       About
+                      </div>
                     </Link>
                   </li>
                   <li className="">
                     <Link smooth={true} onClick={toggle} to="services">
+                    <div className="flex gap-1 items-center">
+                      <FontAwesomeIcon icon={faGear} className="mr-2" />
                       Services
+                      </div>
                     </Link>
                   </li>
                   <li className="">
                     <Link smooth={true} onClick={toggle} to="contact">
+                    <div className="flex gap-1 items-center">
+                      <FontAwesomeIcon icon={faMessage} className="mr-2" />
                       Contact
+                      </div>
                     </Link>
                   </li>
                 </>
@@ -292,10 +365,16 @@ const Nav = ({ activeSection }) => {
                   </button>
                 ) : (
                   <button
-                    className="bg-[#76A900] text-white p-2 rounded-lg"
+                    className="bg-[#76A900] text-white sm:w-[92px] p-2 rounded-lg"
                     onClick={toggle}
                   >
-                    <NavLink to="/login">Log In</NavLink>
+                    <NavLink   to="/login"  >
+                      <div className="flex gap-1 items-center  text-blue-500">
+                      <FontAwesomeIcon icon={faUser} className="mr-2" />
+                      Log In 
+                      </div>
+                      </NavLink>
+                      
                   </button>
                 )}
               </li>

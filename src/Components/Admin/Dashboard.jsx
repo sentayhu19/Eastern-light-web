@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import format from "date-fns/format";
 import { useDispatch, useSelector } from "react-redux";
 import Chart from "chart.js/auto";
 import FinancialAnalysis from "./FinancialAnalysis";
@@ -104,12 +105,17 @@ const Dashboard = () => {
   function Convert(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+
+
   return (
     <div className="mt-36 w-full h-screen">
       <Adminnav />
       <h2 className="text-center md:text-2xl font-bold">
-        Welcome to Admin Dashboard
+        Welcome Admin, 
+        <span className="text-green">{format(new Date(), "'Today is 'iiii")}</span>
       </h2>
+      
       <div className="mt-14 w-[10%] m-auto">
         <NavLink to="/addproducts"></NavLink>
       </div>
@@ -118,10 +124,11 @@ const Dashboard = () => {
           <div className="md:w-[50%] md:mt-14 sm:w-[90%] md:ml-6">
             <canvas id="myChart"></canvas>
           </div>
-          <div className="md:w-[60%] sm:relative z-50 md:min-w-[400px]  md:ml-5  ">
+          <div className="md:w-[60%] sm:relative z-30 md:min-w-[400px]  md:ml-5  ">
             <h2 className="text-center md:text-2xl font-bold mt-10">
               Messages
             </h2>
+            {messages.length > 0 ? (
             <div className="h-[60vh] w-full overflow-y-auto overflow-x-hidden">
             <div className="flex relative z-10 flex-col   bg-white sm:w-[90%] m-auto  w-full md:px-20">
               {messages.reverse().map((message) => (
@@ -138,9 +145,16 @@ const Dashboard = () => {
                 </div>
               ))}
             </div>
+          </div>) : 
+          <div className="flex flex-col w-[60%] m-auto border-2  border-gray-300 p-2 mt-2 rounded-lg shadow-lg">
+          <p className="font-bold bg-[#F7F7F7] border-b hover:bg-red-500 hover:text-white text-center ">
+            No Messages yet
+          </p>
           </div>
+          }
           </div>
         </div>
+        {products.length > 0 ? (
         <div className="bg-white p-6 rounded-lg shadow-md border-t relative z-30 b">
         <h2 className="text-lg font-medium mb-4 text-center">Financial Analysis</h2>
         <table className="w-full md:w-[80%] m-auto text-left table-collapse">
@@ -151,14 +165,16 @@ const Dashboard = () => {
             <th className="p-3 bg-gray-100">Price</th>
             <th className="p-3 bg-gray-100">Unit</th>
             <th className="p-3 bg-gray-100">Box</th>
-            <th className="p-3 bg-gray-100">Unit * Price</th>
-            <th className="p-3 bg-gray-100">Box * Price</th>
+            <th className="p-3 bg-gray-100">Price per Unit</th>
+            <th className="p-3 bg-gray-100">Price per Box</th>
+            <th className="p-3 bg-gray-100">Date created</th>
           </tr>
         </thead>
         <tbody>
         {products.map((product) =>(
           <FinancialAnalysis data={product} />
-        ))}
+        )) 
+      }
         <td className="bg-gray-300 ">Grand Total</td>
           <tr className="flex ">
             
@@ -174,6 +190,7 @@ const Dashboard = () => {
         </tbody>
         </table>
         </div>
+        ) : <h2 className="text-center bg-red-600 text-white">No Products for Financial Analysis</h2>}
         
       </div>
       {/* Messages */}

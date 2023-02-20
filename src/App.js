@@ -11,7 +11,6 @@ import {
   Route,
   Navigate,
   Outlet,
-  HashRouter,
 } from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import Dashboard from "./Components/Admin/Dashboard";
@@ -40,7 +39,6 @@ const App = () => {
       const services = document.getElementById("services").getBoundingClientRect();
       const contact = document.getElementById("contact").getBoundingClientRect();
       const products = document.getElementById("products").getBoundingClientRect();
-
       if (contact.top < window.innerHeight / 2) {
         setActiveSection("contact");
       } else if (about.top < window.innerHeight / 2) {
@@ -88,7 +86,7 @@ const App = () => {
           <HashLoader color="#76A900" size={70} />
         </div>
       ) : (
-        <HashRouter>
+        <Router>
           <Nav activeSection={activeSection} />
           <Routes>
             <Route element={<PrivateRoutes />}>
@@ -101,7 +99,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
             </Route>
             <Route  path="/" element={<Home activeSection={activeSection} />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/products" element={<Products/>} />
             <Route
               exact
               path="/products/:category/:name/:id"
@@ -110,7 +108,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
-        </HashRouter>
+        </Router>
       )}
     </div>
   );

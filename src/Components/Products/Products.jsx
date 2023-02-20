@@ -10,8 +10,6 @@ import { fetchcatagory } from "../../redux/eastern-light/reducer/reducer";
 import { Helmet } from "react-helmet-async";
 import Product from "./Product";
 
-
-
 const Products = () => {
   const [searchResult, setsearchResult] = useState([]);
   const [searchmessage, setsearchmessage] = useState("");
@@ -88,12 +86,12 @@ const Products = () => {
     <section
       className="flex md:flex-row sm:flex-col text-center mt-20 bg-[#F0F1F3]"
       name="products"
-      id="products"
+      id="products-list"
     >
       <Helmet>
         <title>Products</title>
         <meta name="description" content="Get high quality products now from Eastern light phrma " />
-        <link rel="canonical" href="https://easternlightpharma.com/#/products" />
+        <link rel="canonical" href="https://easternlightpharma.com/products" />
         {/* OG */}
         <meta property="og:image" content='./og.png' />
         <meta
@@ -104,10 +102,10 @@ const Products = () => {
           property="og:description"
           content="Get high quality products now from Eastern light phrma"
         />
-        <meta property="og:url" content="https://easternlightpharma.com/#/products" />
+        <meta property="og:url" content="https://easternlightpharma.com/products" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="md:fixed flex flex-col gap-5 md:w-[20%] sm:w-[95%] bg-white md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg">
+      <div className="md:fixed flex flex-col gap-5 md:w-[20%] sm:w-[91%] bg-white md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg">
         <label>Search by category</label>
         <div className="flex w-fll justify-center items-center">
           <div className="flex border-b border-t border-l rounded-sm h-[38px] items-center">

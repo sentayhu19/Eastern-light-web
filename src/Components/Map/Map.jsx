@@ -10,14 +10,14 @@ const Map = ({ location, zoomLevel }) => {
         icon={faLocationDot}
         className="md:text-5xl text-red-500 sm:text-2xl"
       />
-      <p className="text-[1.3em] text-white">{text}</p>
+      <p className="text-[1.3em] text-black">{text}</p>
     </div>
   );
   return (
     <div className="w-full">
       <div className="md:w-full md:h-[24vh] sm:h-72">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyDXTHowzQDi-qbrj5EHVyCierjq5mnCcnc" }}
+          bootstrapURLKeys={{ key: "" }}
           defaultCenter={location}
           defaultZoom={zoomLevel}
         >

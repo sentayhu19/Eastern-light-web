@@ -98,7 +98,7 @@ const Scroll = () => {
                       >
                         {slideImage.description}
                       </p>
-                      <div className="p-12 ">
+                      <div className="p-5 ">
                         <Link to="contact">{slideImage.btn}</Link>
                       </div>
                     </div>

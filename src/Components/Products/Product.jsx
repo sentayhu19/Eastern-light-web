@@ -15,7 +15,9 @@ const Product = ({ product }) => {
       dispatch(setLoading(false));
     }, 3300);
   }, []);
-
+  function Convert(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
   const handleproduct = () => {
     navigate(`/products/${product.category_id}/${product.name}/${product.id}`);
     window.location.reload();
@@ -36,17 +38,17 @@ const Product = ({ product }) => {
             <img
               src={product.image}
               alt={product.name}
-              className="md:w-[300px] md:h-[200px] sm:w-[250px] sm:h-[100px] hover:scale-110"
+              className="md:w-[300px] md:h-[200px] sm:w-[80%] sm:h-[100px] hover:scale-110"
             />
             <div className="border-b ">
               <h3 className="font-bold w-full sm:text-[15px] md:hidden">
                 {product.name.slice(0, 18) + "..."}
               </h3>
-              <h3 className="font-bold w-full sm:text-[15px] sm:hidden md:block ">
+              <h3 className="font-bold md:w-full sm:w-[80%]  sm:text-[15px]  sm:hidden md:block ">
                 {product.name}
               </h3>
-              <p className="font-bold w-24 m-auto p-2 sm:text-[13px] bg-[#76A900] text-white rounded-lg mt-3 ">
-                {product.price} ETB
+              <p className="font-bold md:w-36 sm:w-[80%] m-auto p-2 sm:text-[13px] bg-[#76A900] text-white rounded-lg mt-3 ">
+                {Convert(product.price)} ETB
               </p>
             </div>
             <p className="sm:text-[13px] md:hidden">

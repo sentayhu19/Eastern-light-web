@@ -79,9 +79,8 @@ const Login = (props) => {
               onSubmit={handleOnsubmit}
               class="flex flex-col gap-6 pb-4 mb-4 w-[100%]"
             >
-              <div>
+              
               <label for="email" data-aos="fade-up">
-                
                 <input
                   type="email"
                   id="email"
@@ -93,7 +92,6 @@ const Login = (props) => {
                 <span className="span-slider">Email</span>
                 
               </label>
-              </div>
               <label for="password" data-aos="fade-up">
                 <input
                   type="password"
@@ -111,7 +109,7 @@ const Login = (props) => {
                   disabled={
                     email === "" || password === "" ? " " : "" || isloading
                   }
-                  class="bg-[#76A900] text-white rounded-md cursor-pointer text-center "
+                  class="bg-[#76A900] text-white rounded-md cursor-pointer text-center p-1 "
                 >
                   {isloading ? (
                     <div className="flex items-center justify-center">

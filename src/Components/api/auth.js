@@ -2,7 +2,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 
-const endPoint = "http://localhost:8000/v1";
+// const endPoint = "http://localhost:8000/v1";
 export async function onLogin(loginData) {
     return await axios.post(`${endPoint}/login`, loginData);
 }

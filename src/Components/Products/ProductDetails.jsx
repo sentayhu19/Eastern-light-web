@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { getproduct } from "../api/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import stack from "../../assets/stackdollar.png";
@@ -11,15 +10,13 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faRuler } from "@fortawesome/free-solid-svg-icons";
-import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { faShield } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet-async";
 
 const ProductDetails = () => {
   const location = useLocation();
   const { id } = useParams();
-  const siteURL = `easternlightpharma.com/%23${location.pathname}`;
-  const metasiteURL = `easternlightpharma.com/#${location.pathname}`;
+  const siteURL = `https://easternlightpharma.com/${location.pathname}`;
   const [product, setproduct] = useState([]);
   let headData = "product ";
   useEffect(() => {
@@ -49,7 +46,7 @@ const ProductDetails = () => {
           property="og:description"
           content={`${product[0]?.description.slice(0, 100) + '... '} Find it now at Eastern light pharma`}
         />
-        <meta property="og:url" content={metasiteURL} />
+        <meta property="og:url" content={siteURL} />
         <meta property="og:type" content="website" />
       </Helmet>
       <div className="md:mt-20 sm:mt-24 w-full border-b-2 bg-[#F0F1F3] ">

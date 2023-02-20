@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Hero from "./Hero";
 import Services from "./Services";
@@ -14,6 +15,19 @@ import { Helmet } from "react-helmet-async";
 const Home = ({ activeSection }) => {
   const navigate = useNavigate();
   const { isAuth } = useSelector((state) => state.auth);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const target = document.querySelector(location.hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
   return (
     <>
       <Helmet>
