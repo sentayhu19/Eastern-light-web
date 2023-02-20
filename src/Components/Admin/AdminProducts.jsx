@@ -32,35 +32,35 @@ const AdminProducts = () => {
     };
     pullcatagorydata();
   }, []);
-  const handleSelectChange = async (selectedOption) => {
+  const handleSelectChange = (selectedOption) => {
+    //search based on category
+    setsearchmessage("");
     if (selectedOption) {
       if (selectedOption.id === "0") {
-        setproductSearch({ key: "" });
+        setcategorySearch(selectedOption)
       }
       const value = selectedOption;
       const key = "key";
-      setproductSearch({ [key]: value.id });
-
-      const productFiltered = await products.filter(
-        (product) => product.category_id == value.id
+      setcategorySearch(selectedOption);
+      setsearchResult(
+        products.filter((product) => product.category_id == value.id)
       );
-      setsearchResult(productFiltered);
-      if (searchResult.length == 0) {
-        setsearchmessage("Search results for " + value.name);
-      } else {
-          setsearchmessage("Search results for " + value.name);
-      }
+      setsearchmessage("Search results for  " + value.name);
     }
   };
   const handleSelectChange2 = (selectedOption) => {
+    //search based on product name
     if (selectedOption) {
+      setsearchmessage("");
+      if (!selectedOption.id) {
+        setproductSearch(selectedOption);
+      }
       const value = selectedOption;
-      const key = "key";
-      setproductSearch({ [key]: value.id });
+      setproductSearch(selectedOption);
       setsearchResult(
         products.filter((product) => product.name.includes(value.name))
       );
-      setsearchmessage("Search results for " + value.name);
+      setsearchmessage("Search results for  " + value.name);
     }
   };
 
