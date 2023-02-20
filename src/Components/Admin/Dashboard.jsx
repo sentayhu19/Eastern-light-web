@@ -3,6 +3,7 @@ import format from "date-fns/format";
 import { useDispatch, useSelector } from "react-redux";
 import Chart from "chart.js/auto";
 import FinancialAnalysis from "./FinancialAnalysis";
+import { Helmet } from "react-helmet-async";
 import AddProducts from "../Products/AddProducts";
 import {
   fetchProtectedInfo,
@@ -110,6 +111,9 @@ const Dashboard = () => {
 
   return (
     <div className="mt-36 w-full h-screen">
+      <Helmet>
+        <title>Admin Dashboard</title>
+      </Helmet>
       <Adminnav />
       <h2 className="text-center md:text-2xl font-bold">
         Welcome Admin, 
@@ -179,7 +183,7 @@ const Dashboard = () => {
             
             <td className=" font-medium p-3 bg-gray-300 w-auto text-white">
               
-                <p className="bg-green-700" title="(Grand) Price x Unit">
+                <p className="bg-green-700" title="(Grand) Price x Box">
                   {Convert(grand)} ETB
                 </p>
                 

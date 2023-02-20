@@ -3,6 +3,7 @@ import Adminnav from "../Navigations/Adminnav";
 import check from "../../assets/check.gif";
 import ErrorAlert from "../Alert/ErrorAlert";
 import { addunit } from "../api/auth";
+import { Helmet } from "react-helmet-async";
 const AddUnit = () => {
   const [error, setError] = useState("");
   const [Unit, setUnit] = useState({
@@ -34,6 +35,9 @@ const AddUnit = () => {
   //Only authorized usser i.e admin can add products
   return (
     <div className="mt-36 relative">
+        <Helmet>
+            <title>Add New Unit</title>
+        </Helmet>
       <Adminnav />
       <h1 className="text-center font-bold md:text-2xl pb-5">
         Add New Unit

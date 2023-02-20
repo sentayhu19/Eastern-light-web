@@ -3,6 +3,7 @@ import Adminnav from "../Navigations/Adminnav";
 import check from "../../assets/check.gif";
 import { addnewcategory } from "../api/auth";
 import ErrorAlert from "../Alert/ErrorAlert";
+import { Helmet } from "react-helmet-async";
 const AddCategory = () => {
   const [error, setError] = useState("");
   const [catagory, setcatagory] = useState({
@@ -34,6 +35,9 @@ const AddCategory = () => {
   //Only authorized usser i.e admin can add products
   return (
     <div className="mt-36 relative">
+      <Helmet>
+        <title>Add New Catagory</title>
+      </Helmet>
       <Adminnav />
       <h1 className="text-center font-bold md:text-2xl pb-5">
         Add New Catagory

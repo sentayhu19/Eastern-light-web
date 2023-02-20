@@ -8,6 +8,7 @@ import { fetchcatagory } from "../../redux/eastern-light/reducer/reducer";
 import AdminProduct from "./AdminProduct";
 import { getsearchbycat } from "../api/auth";
 import Adminnav from "../Navigations/Adminnav";
+import { Helmet } from "react-helmet-async";
 
 const AdminProducts = () => {
   const [categorySearch, setcategorySearch] = useState({ category_id: "" });
@@ -86,6 +87,9 @@ const AdminProducts = () => {
         name="products"
         id="products"
       >
+        <Helmet>
+          <title>Eastern Light | Admin Products</title>
+        </Helmet>
         <div className="flex flex-col gap-5 md:w-[35%] bg-white sm:w-[95%] md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg">
           <label>Search by category</label>
           <Select
