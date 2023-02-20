@@ -56,6 +56,19 @@ export const CatSlice = createSlice({
   },
 });
 
+export const UnitSlice = createSlice({
+  name: "unit",
+  initialState: {
+    units: [],
+  },
+  reducers: {
+    fetchunit: (state, action) => {
+      return { ...state, units: action.payload };
+    },
+  },
+});
+
+
 export const ProductSlice = createSlice({
   name: "products",
   initialState: {
@@ -78,9 +91,11 @@ export const {
 } = authSlice.actions;
 export const { fetchcatagory } = CatSlice.actions;
 export const { fetchproduct } = ProductSlice.actions;
+export const { fetchunit } = UnitSlice.actions;
 
 const authreducer = authSlice.reducer;
 const catagoryreducer = CatSlice.reducer;
 const productreducer = ProductSlice.reducer;
+const unitreducer = UnitSlice.reducer;
 
-export { authreducer, catagoryreducer, productreducer };
+export { authreducer, catagoryreducer, productreducer, unitreducer };

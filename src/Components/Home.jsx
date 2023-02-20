@@ -31,7 +31,7 @@ const Home = ({ activeSection }) => {
   return (
     <>
       <Helmet>
-        <title>Eastern light phrma</title>
+        <title>Eastern light pharma</title>
         <meta
           property="og:image"
           content="./og.png"

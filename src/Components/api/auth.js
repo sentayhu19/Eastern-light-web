@@ -2,7 +2,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 
-// const endPoint = "http://localhost:8000/v1";
+const endPoint = "http://localhost:8000/v1";
 export async function onLogin(loginData) {
     return await axios.post(`${endPoint}/login`, loginData);
 }
@@ -58,4 +58,11 @@ export async function addmessage(message) {
 }
 export async function getmessages() {
     return await axios.get(`${endPoint}/getmessages`);
+}
+
+export async function getunit() {
+    return await axios.get(`${endPoint}/getunit`);
+}
+export async function addunit(unit) {
+    return await axios.post(`${endPoint}/addunit`, unit);
 }

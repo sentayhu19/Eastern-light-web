@@ -6,12 +6,12 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons'
 import { faCartFlatbed } from '@fortawesome/free-solid-svg-icons'
 import { useLocation } from 'react-router-dom'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 const Adminnav = () => {
   const location = useLocation()
-  console.log(location.pathname)
   return (
     <div className='bg-[#006394] mt-36 py-4 my-6 w-full'>
-      <div className='flex items-center gap-4 md:w-[620px] md:text-center m-auto sm:w-[200px] sm:flex-col md:flex-row'>
+      <div className='flex items-center gap-4 md:w-[710px] md:text-center m-auto sm:w-[200px] sm:flex-col md:flex-row'>
       <NavLink  className='hover:bg-[#76A900] rounded-lg' to="/dashboard" id={location.pathname === "/dashboard" ? 'adminnavbtn': '' }   >
       <button className='text-white font-bold text-lg '>
        <div className='flex gap-2 items-center'>
@@ -39,6 +39,14 @@ const Adminnav = () => {
         </div>
         </button>
       </NavLink>
+      <NavLink className='hover:bg-[#76A900] rounded-lg' to="/addunit"  id={location.pathname === "/addunit" ? 'adminnavbtn': ''}>
+      <button className='text-white font-bold text-lg'>
+        <div className='flex gap-2 items-center'>
+        <FontAwesomeIcon icon={faPlus}/>
+        Add Units
+        </div>
+        </button>
+      </NavLink>
       <NavLink className='hover:bg-[#76A900] rounded-lg' to="/adminproducts" id={location.pathname === "/adminproducts" ? 'adminnavbtn': '' }
       >
       <button className='text-white font-bold text-lg'>
@@ -48,6 +56,7 @@ const Adminnav = () => {
         </div>
         </button>
       </NavLink>
+     
       </div>
     </div>
   )

@@ -100,7 +100,7 @@ const Dashboard = () => {
   };
   let grand=0
   products.map((product) => {
-    grand=grand+product.price * product.unit
+    grand=grand+product.price * product.box
   })
   function Convert(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -165,7 +165,6 @@ const Dashboard = () => {
             <th className="p-3 bg-gray-100">Price</th>
             <th className="p-3 bg-gray-100">Unit</th>
             <th className="p-3 bg-gray-100">Box</th>
-            <th className="p-3 bg-gray-100">Price per Unit</th>
             <th className="p-3 bg-gray-100">Price per Box</th>
             <th className="p-3 bg-gray-100">Date created</th>
           </tr>

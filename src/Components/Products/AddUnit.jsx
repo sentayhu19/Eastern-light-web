@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Adminnav from "../Navigations/Adminnav";
 import check from "../../assets/check.gif";
-import { addnewcategory } from "../api/auth";
 import ErrorAlert from "../Alert/ErrorAlert";
-const AddCategory = () => {
+import { addunit } from "../api/auth";
+const AddUnit = () => {
   const [error, setError] = useState("");
-  const [catagory, setcatagory] = useState({
+  const [Unit, setUnit] = useState({
     name: "",
   });
   const [isOpen, setIsOpen] = useState(false);
   const handleChange = (e) => {
-    setcatagory({
-      ...catagory,
+    setUnit({
+      ...Unit,
       [e.target.name]: e.target.value,
     });
   };
@@ -19,7 +19,7 @@ const AddCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await addnewcategory(catagory);
+      await addunit(Unit);
       //show suchess message
       setIsOpen(true);
       setTimeout(() => {
@@ -30,13 +30,13 @@ const AddCategory = () => {
     }
   };
 
-  const { name } = catagory;
+  const { name } = Unit;
   //Only authorized usser i.e admin can add products
   return (
     <div className="mt-36 relative">
       <Adminnav />
       <h1 className="text-center font-bold md:text-2xl pb-5">
-        Add New Catagory
+        Add New Unit
       </h1>
       <form
         onSubmit={handleSubmit}
@@ -77,4 +77,4 @@ const AddCategory = () => {
   );
 };
 
-export default AddCategory;
+export default AddUnit;

@@ -22,6 +22,7 @@ import Footer from "./Components/Footer";
 import AdminProducts from "./Components/Admin/AdminProducts";
 import ProductDetails from "./Components/Products/ProductDetails";
 import NotFound from "./Components/NotFound";
+import AddUnit from "./Components/Products/AddUnit";
 
 const App = () => {
   const [loading, setloading] = useState(false);
@@ -94,6 +95,7 @@ const App = () => {
               <Route path="/addproducts" element={<AddProducts />} />
               <Route path="/addcategory" element={<AddCategory />} />
               <Route path="/adminproducts" element={<AdminProducts />} />
+              <Route path="/addunit" element={<AddUnit />} />
             </Route>
             <Route element={<RestrictedRoutes />}>
               <Route path="/login" element={<Login />} />

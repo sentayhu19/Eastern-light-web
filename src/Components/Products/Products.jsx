@@ -71,7 +71,6 @@ const Products = () => {
         setproductSearch(selectedOption);
       }
       const value = selectedOption;
-      const key = "key";
       setproductSearch(selectedOption);
       setsearchResult(
         products.filter((product) => product.name.includes(value.name))

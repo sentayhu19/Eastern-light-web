@@ -19,7 +19,7 @@ const timeAgo = formatDistanceToNow(date, { addSuffix: true });
             <td className="p-3 border border-gray-400">{Convert(Number (data.price))}</td>
             <td className="p-3 border border-gray-400">{Convert(Number( data.unit))}</td>
             <td className="p-3 border border-gray-400">{Convert(Number(data.box))}</td>
-            <td className="p-3 border border-gray-400">{Convert(Number( data.unit * data.price))} ETB</td>
+  
             <td className="p-3 border border-gray-400">{Convert(Number(data.box * data.price))} ETB</td>
             <td className="p-3 border border-gray-400"><p className='text-green-600'>{timeAgo}</p> <p>{formatDate(data.created_at)}</p></td>
           </tr>  

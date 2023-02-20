@@ -3,9 +3,10 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { HashLoader } from "react-spinners";
 import Select from "react-select";
-
+import { Helmet } from "react-helmet-async";
 import Adminnav from "../Navigations/Adminnav";
 import { fetchcatagory } from "../../redux/eastern-light/reducer/reducer";
+import { fetchunit } from "../../redux/eastern-light/reducer/reducer";
 import SaveNot from "../Alert/SaveAlert";
 import ErrorAlert from "../Alert/ErrorAlert";
 import { setError } from "../../redux/eastern-light/reducer/reducer";
@@ -13,19 +14,22 @@ import { setLoading } from "../../redux/eastern-light/reducer/reducer";
 import {
   getcategories,
   getproducts,
+  getunit,
   addnewcategory,
   addnewproduct,
 } from "../api/auth";
 
 const AddProducts = () => {
   const { Error } = useSelector((state) => state.auth);
+  const [category, setcategory] = useState("");
+  const [unitSelector, setunitSelector] = useState("");
   const [Products, setProducts] = useState({
     name: "",
     description: "",
     brand: "",
     image: "",
     price: "",
-    category_id: "",
+    category_id: category,
     priority: "",
     box: "",
     unit: "",
@@ -37,11 +41,16 @@ const AddProducts = () => {
       getcategories().then((response) => {
         dispatch(fetchcatagory(response.data.category));
       });
+      getunit().then((res)=> {
+        dispatch(fetchunit(res.data.units))
+      })
+
     };
     pulldata();
   }, []);
   const { isloading } = useSelector((state) => state.auth);
   const { categories } = useSelector((state) => state.catagory);
+  const { units } = useSelector((state) => state.unit);
   const [isOpen, setIsOpen] = useState(false);
   const handleChange = (e) => {
     setProducts({
@@ -49,7 +58,6 @@ const AddProducts = () => {
       [e.target.name]: e.target.value,
     });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (Products.priority > 8 || Products.priority <= 0) {
@@ -58,7 +66,7 @@ const AddProducts = () => {
         dispatch(setError(""));
       }, 4300);
     }
-    if (Products.category == "") {
+    if (category === null || category === "") {
       dispatch(setError("Please select the product category"));
       setTimeout(() => {
         dispatch(setError(""));
@@ -82,7 +90,7 @@ const AddProducts = () => {
         category_id: "",
         priority: "",
         box: "",
-        unit: "",
+        unit_id: "",
       });
     } catch (err) {
       dispatch(setError(err.message));
@@ -93,12 +101,27 @@ const AddProducts = () => {
   };
   const handleSelectChange = (selectedOption) => {
     if (selectedOption) {
-      const value = selectedOption;
       const category = "category_id";
-      setProducts((currentProducts) => ({
-        ...currentProducts,
-        [category]: value.id,
-      }));
+      setcategory(selectedOption);
+      setProducts({
+        ...Products,
+        category_id: selectedOption.id,
+      });
+    }
+  };
+
+  const handleUnitSelectChange = (selectedOption) => {
+    if (selectedOption) {
+      const unit = "unit_id";
+      setunitSelector(selectedOption);
+      setProducts({
+        ...unitSelector,
+        unit: selectedOption.id,
+      });
+      setProducts({
+        ...Products,
+        unit_id: selectedOption.id,
+      });
     }
   };
 
@@ -108,24 +131,27 @@ const AddProducts = () => {
     brand,
     image,
     price,
-    category_id,
     priority,
     unit,
     box,
   } = Products;
+  
   return (
     <>
       {isloading ? (
         <HashLoader color="#76A900" size={70} />
       ) : (
         <div className="mt-36">
+          <Helmet>
+            <title>Add New Products</title>
+          </Helmet>
           <Adminnav />
           <h1 className="text-center font-bold md:text-2xl pb-5">
             Add New Products
           </h1>
           <form method="POST"
             onSubmit={handleSubmit}
-            className="sm:flex md:grid md:grid-cols-3 sm:w-60% md:w-[90%] md:items-center md:gap-7 m-auto bg-white"
+            className="sm:flex md:grid md:grid-cols-3 sm:w-60% md:w-[95%] md:items-center md:gap-7 m-auto bg-white"
             data-aos="fade-up"
           >
             <label for="name" data-aos="fade-up">
@@ -150,7 +176,7 @@ const AddProducts = () => {
                 required
                 placeholder="description"
               />
-              <span className="span-slider">Price (Birr) *</span>
+              <span className="span-slider">Price (ETB) *</span>
             </label>
             <label for="brand" data-aos="fade-up">
               <input
@@ -194,7 +220,6 @@ const AddProducts = () => {
                 id="box"
                 name="box"
                 onChange={handleChange}
-                required
                 value={box}
                 placeholder="Box"
               />
@@ -202,25 +227,25 @@ const AddProducts = () => {
               <span className="span-slider"> Box</span>
             </label>
             
-            <label for="Unit" data-aos="fade-up">
-              <input
-                type="number"
-                id="unit"
-                name="unit"
-                onChange={handleChange}
-                value={unit}
-                placeholder="Unit"
-              />
-              <span className="span-slider"> Unit</span>
-            </label>
+            <Select
+              options={units}
+              getOptionLabel={(option) => option.name}
+              getOptionValue={(option) => option.id}
+              name="unit"
+              value={unitSelector}
+              required
+              onChange={handleUnitSelectChange}
+              placeholder="Select Unit"
+            />
             <Select
               options={categories}
               getOptionLabel={(option) => option.name}
               getOptionValue={(option) => option.id}
               name="category"
-              value={category_id}
+              value={category}
+              required
               onChange={handleSelectChange}
-              placeholder="Category"
+              placeholder="Select category"
             />
             <div></div>
             <div class="form-float scheme-des" data-aos="fade-up">
@@ -231,6 +256,7 @@ const AddProducts = () => {
                 id="description"
                 value={description}
                 cols="30"
+                required
                 rows="10"
                 placeholder=" "
                 maxLength={700}
@@ -240,6 +266,7 @@ const AddProducts = () => {
             <button
               type="submit"
               className="bg-[#76A900] text-white rounded-lg md:w-36 md:h-12"
+              // disabled={!Products.name || !Products.price || !Products.brand || !Products.image    }
             >
               Submit
             </button>
