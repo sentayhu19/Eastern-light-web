@@ -41,10 +41,8 @@ const ProductDetails = () => {
  //use Filter to filter the category based on the product category_id
  const { categories } = useSelector((state) => state.catagory);
  const { units } = useSelector((state) => state.unit);
-  console.log("PROD: ",product)
   const category = categories.filter((category) => category.id === product[0]?.category_id);
   const unit = units.filter((unit) => unit.id === product[0]?.unit_id);
-  console.log("Unit", unit, "Category", category)
   return (
     <>
       <Helmet>
@@ -94,7 +92,7 @@ const ProductDetails = () => {
                 <label className="border-none text-black">Brand</label>:{" "}
                 {product[0].brand}
               </p>
-              {unit[0].name ? (
+              {unit[0]?.name ? (
                 <p className="md:w-[600px] sm:w-[90%] text-[#76A900] text-xl">
                   <FontAwesomeIcon
                     className="text-xl text-black"
@@ -147,7 +145,7 @@ const ProductDetails = () => {
                 {product[0].price} ETB
               </p>
               <div className="flex flex-col gap-3 border-t-2 pt-3 w-full sm:pb-4">
-                <p className="md:w-[600px] sm:w-[90%] text-[#76A900] md:text-xl">
+                <p className="md:w-[600px] sm:w-[90%] text-[#76A900] md:text-xl mb-4">
                   <label className="border-none text-black">
                     For more info Call:{" "}
                   </label>

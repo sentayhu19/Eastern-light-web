@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fetchunit } from "../../redux/eastern-light/reducer/reducer";
+import { getunit } from "../api/auth";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { deleteproduct } from "../api/auth";
 import Select from "react-select";
@@ -24,16 +26,25 @@ const AdminProduct = ({ product }) => {
     name: "",
     description: "",
     price: "",
-    category: "",
+    category_id: "",
     image: "",
     priority: "",
-    unit: "",
+    unit_id: "",
     box: "",
     brand: "",
   });
+ useEffect(() => {
+    const pulldata = async () => {
+      getunit().then((res) => {
+        dispatch(fetchunit(res.data.units));
+      });
+    };
+    pulldata();
+  }, []);
 
   const { protectedData } = useSelector((state) => state.auth);
   const { categories } = useSelector((state) => state.catagory);
+  const { units } = useSelector((state) => state.unit);
   const [enditMessage, seteditMessage] = useState("");
 
   const handledeletetoggle = () => {
@@ -42,15 +53,16 @@ const AdminProduct = ({ product }) => {
   };
 
   const handleeditToggle = () => {
+    console.log("PRODDUCT", product);
     seteditproduct({
       ["id"]: product.id,
       ["name"]: product.name,
       ["description"]: product.description,
       ["price"]: product.price,
-      ["category_id"]: product.category,
+      ["category_id"]: product.category_id,
       ["image"]: product.image,
       ["priority"]: product.priority,
-      ["unit"]: product.unit,
+      ["unit_id"]: product.unit_id,
       ["box"]: product.box,
       ["brand"]: product.brand,
     });
@@ -67,6 +79,7 @@ const AdminProduct = ({ product }) => {
   };
   const handleedit = async (e) => {
     e.preventDefault();
+    console.log("EDIT START WITH", editproduct)
     try {
       editproductput(editproduct);
       seteditMessage("Product Updated");
@@ -78,14 +91,19 @@ const AdminProduct = ({ product }) => {
     
   };
   const handleSelectChange = (selectedOption) => {
-      const value = selectedOption;
-      const category = "category_id";
+    console.log("SELECTED OPTION", selectedOption.id)
       seteditproduct((currentProducts) => ({
         ...editproduct,
-        [category]: value.id,
+        category_id: selectedOption.id,
       }));
     };
-
+    const handleUnitSelectChange = (selectedOption) => {
+      seteditproduct((currentProducts) => ({
+        ...editproduct,
+        unit_id: selectedOption.id,
+      }));
+    };
+  
   return (
     <>
       <div
@@ -240,14 +258,15 @@ const AdminProduct = ({ product }) => {
                 name="category"
                 value={editproduct.category}
                 onChange={handleSelectChange}
-                placeholder="Category"
+                placeholder="Update Category"
               />
+              <label className="border-none text-left mb-[-15px]">Image</label>
               <input
                 type="text"
                 className="border-2 border-green-600 rounded-lg p-2 text-green-500"
                 placeholder="Image"
                 value={editproduct.image}
-                onChange={(e) =>
+                onChange = {(e) =>
                   seteditproduct({ ...editproduct, image: e.target.value })
                 }
               />
@@ -263,14 +282,14 @@ const AdminProduct = ({ product }) => {
               />
               {/* edit unit  */}
               <label className="border-none text-left mb-[-15px]">Unit</label>
-              <input
-                type="text"
-                className="border-2 border-green-600 text-green-500 rounded-lg p-2"
-                placeholder="Unit"
-                value={editproduct.unit}
-                onChange={(e) =>
-                  seteditproduct({ ...editproduct, unit: e.target.value })
-                }
+              <Select
+                options={units}
+                getOptionLabel={(option) => option.name}
+                getOptionValue={(option) => option.id}
+                name="unit"
+                value={editproduct.unit_id}
+                onChange={handleUnitSelectChange}
+                placeholder="Update Unit"
               />
               <label className="border-none text-left mb-[-15px]">Box</label>
               <input
