@@ -26,6 +26,10 @@ const AddCategory = () => {
       setTimeout(() => {
         setIsOpen(false);
       }, 2000);
+      //clear the form
+      setcatagory({
+        name: "",
+      });
     } catch (err) {
       ErrorAlert(err.message);
     }

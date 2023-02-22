@@ -23,6 +23,8 @@ const AddProducts = () => {
   const { Error } = useSelector((state) => state.auth);
   const [category, setcategory] = useState("");
   const [unitSelector, setunitSelector] = useState("");
+  const [priorityset, setPriority] = useState([]);
+  const [prioritySelector, setprioritySelector] = useState([]);
   const [Products, setProducts] = useState({
     name: "",
     description: "",
@@ -46,6 +48,19 @@ const AddProducts = () => {
       })
 
     };
+    const fillPriorityData = () => {
+      let priority = [];
+      for (let i = 1; i <= 9; i++) {
+        
+        if(i==9){
+          priority.push({ id: i, name: i+ " set to none" });
+          break;
+        }
+        priority.push({ id: i, name: i });
+      }
+      setPriority(priority);
+    };
+    fillPriorityData();
     pulldata();
   }, []);
   const { isloading } = useSelector((state) => state.auth);
@@ -60,12 +75,6 @@ const AddProducts = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (Products.priority > 8 || Products.priority <= 0) {
-      dispatch(setError("Priority SET to none"));
-      setTimeout(() => {
-        dispatch(setError(""));
-      }, 4300);
-    }
     if (category === null || category === "") {
       dispatch(setError("Please select the product category"));
       setTimeout(() => {
@@ -73,7 +82,6 @@ const AddProducts = () => {
       }, 4300);
       return 0;
     }
-    console.log("Products: ", Products);
     try {
       await addnewproduct(Products);
       //show suchess message
@@ -119,6 +127,15 @@ const AddProducts = () => {
       });
     }
   };
+  const handlePriSelectChange = (selectedOption) => {
+    if (selectedOption) {
+      setprioritySelector(selectedOption);
+      setProducts({
+        ...Products,
+        priority: selectedOption.id,
+      }); 
+    }
+  };
 
   const {
     name,
@@ -130,7 +147,6 @@ const AddProducts = () => {
     unit_id,
     box,
   } = Products;
-  
   return (
     <>
       {isloading ? (
@@ -146,7 +162,7 @@ const AddProducts = () => {
           </h1>
           <form method="POST"
             onSubmit={handleSubmit}
-            className="sm:flex md:grid md:grid-cols-3 sm:w-60% md:w-[95%] md:items-center md:gap-7 m-auto bg-white"
+            className="sm:flex md:grid md:grid-cols-3 sm:w-60% md:w-[100%] md:items-center md:gap-6 m-auto bg-white"
             data-aos="fade-up"
           >
             <label for="name" data-aos="fade-up">
@@ -197,29 +213,28 @@ const AddProducts = () => {
               />
               <span className="span-slider">Image *</span>
             </label>
-            <label for="priority (1-8)" data-aos="fade-up">
-              <input
-                type="number"
-                id="priority"
-                name="priority"
-                onChange={handleChange}
-                value={priority}
-                placeholder="priority"
-              />
-
-              <span className="span-slider"> priority (1-8)</span>
-            </label>
+            <Select
+              options={priorityset}
+              getOptionLabel={(option) => option.name}
+              getOptionValue={(option) => option.id}
+              name="priority"
+              value={prioritySelector}
+              required
+              onChange={handlePriSelectChange}
+              placeholder="Priority (1-8)"
+            />
             <label for="Box" data-aos="fade-up">
               <input
                 type="number"
                 id="box"
                 name="box"
+                required
                 onChange={handleChange}
                 value={box}
                 placeholder="Box"
               />
 
-              <span className="span-slider"> Box</span>
+              <span className="span-slider"> Box *</span>
             </label>
             
             <Select
@@ -256,12 +271,12 @@ const AddProducts = () => {
                 placeholder=" "
                 maxLength={700}
               ></textarea>
-              <label class="floating-label">Product description (700)</label>
+              <label class="floating-label">Product description (700) *</label>
             </div>
             <button
               type="submit"
               className="bg-[#76A900] text-white rounded-lg md:w-36 md:h-12"
-              // disabled={!Products.name || !Products.price || !Products.brand || !Products.image    }
+              disabled={!Products.name || !Products.price || !Products.brand || !Products.image || !Products.category_id || !Products.priority || !Products.box || !Products.unit_id || !Products.description   }
             >
               Submit
             </button>

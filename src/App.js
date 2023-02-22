@@ -32,7 +32,7 @@ const App = () => {
     setloading(true);
     setTimeout(() => {
       setloading(false);
-    }, 4000);
+    }, 3000);
     Aos.init({ duration: 1400, delay: 150 });
     function handleScroll() {
       const home = document.getElementById("home").getBoundingClientRect();

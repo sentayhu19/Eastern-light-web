@@ -26,6 +26,10 @@ const AddUnit = () => {
       setTimeout(() => {
         setIsOpen(false);
       }, 2000);
+      //clear the form
+      setUnit({
+        name: "",
+      });
     } catch (err) {
       ErrorAlert(err.message);
     }
