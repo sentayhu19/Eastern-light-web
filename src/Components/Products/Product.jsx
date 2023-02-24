@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SkeletonCard from "../Skeleton/SkeletonCard";
 import { setLoading } from "../../redux/eastern-light/reducer/reducer";
 import { useDispatch } from "react-redux";
 const Product = ({ product }) => {
+  
+  const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isloading } = useSelector((state) => state.auth);
@@ -14,12 +16,15 @@ const Product = ({ product }) => {
     setTimeout(() => {
       dispatch(setLoading(false));
     }, 3300);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
   function Convert(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
   const handleproduct = () => {
     navigate(`/products/${product.category_id}/${product.name}/${product.id}`);
+    console.log(location.pathname);
+    if(location.pathname !== `/products`)
     window.location.reload();
   };
   return (

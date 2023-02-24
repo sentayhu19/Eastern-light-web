@@ -66,3 +66,8 @@ export async function getunit() {
 export async function addunit(unit) {
     return await axios.post(`${endPoint}/addunit`, unit);
 }
+
+export async function addview(id) {
+    return await axios.patch(`${endPoint}/addview`, {id});
+}
+

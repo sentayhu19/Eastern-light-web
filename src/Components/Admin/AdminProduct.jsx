@@ -11,6 +11,7 @@ import SkeletonCard from "../Skeleton/SkeletonCard";
 import { faBox } from "@fortawesome/free-solid-svg-icons";
 import { faRuler } from "@fortawesome/free-solid-svg-icons";
 import { setLoading } from "../../redux/eastern-light/reducer/reducer";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import ErrorAlert from "../Alert/ErrorAlert";
 import SaveAlert from "../Alert/SaveAlert";
 
@@ -53,7 +54,6 @@ const AdminProduct = ({ product }) => {
   };
 
   const handleeditToggle = () => {
-    console.log("PRODDUCT", product);
     seteditproduct({
       ["id"]: product.id,
       ["name"]: product.name,
@@ -79,7 +79,6 @@ const AdminProduct = ({ product }) => {
   };
   const handleedit = async (e) => {
     e.preventDefault();
-    console.log("EDIT START WITH", editproduct);
     try {
       editproductput(editproduct);
       seteditMessage("Product Updated");
@@ -90,7 +89,6 @@ const AdminProduct = ({ product }) => {
     }
   };
   const handleSelectChange = (selectedOption) => {
-    console.log("SELECTED OPTION", selectedOption.id);
     seteditproduct((currentProducts) => ({
       ...editproduct,
       category_id: selectedOption.id,
@@ -102,7 +100,6 @@ const AdminProduct = ({ product }) => {
       unit_id: selectedOption.id,
     }));
   };
-
   return (
     <>
       <div
@@ -117,6 +114,10 @@ const AdminProduct = ({ product }) => {
         ) : (
           <div className="flex items-center flex-col md:gap-4 sm:gap-1">
             <p className="text-green-500">{enditMessage}</p>
+            <div className="flex items-center gap-2">
+            <FontAwesomeIcon icon={faEye} />
+            <p>{product.view}</p>
+            </div>
             <img
               src={product.image}
               alt={product.name}

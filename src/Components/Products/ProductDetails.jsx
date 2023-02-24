@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
 import { Route, BrowserRouter as Router } from "react-router-dom"; 
 import { useSelector, useDispatch } from "react-redux";
-import { getcategories, getproduct, getunit } from "../api/auth";
+import { getcategories, getproduct, getunit, addview } from "../api/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import stack from "../../assets/stackdollar.png";
 import Productshow from "./Show/ProductsShow";
@@ -41,6 +41,12 @@ const ProductDetails = () => {
       });
     };
     pulldata();
+    const addviewcount = async () => {
+      await addview(id);
+    };
+    setTimeout(() => {
+    addviewcount();
+    }, 2000);
   }, []);
   //use Filter to filter the category based on the product category_id
   const { categories } = useSelector((state) => state.catagory);
@@ -49,6 +55,7 @@ const ProductDetails = () => {
     (category) => category.id === product[0]?.category_id
   );
   const unit = units.filter((unit) => unit.id === product[0]?.unit_id);
+
   return (
     <>
       <Helmet>
@@ -178,19 +185,19 @@ const ProductDetails = () => {
                   {product[0].price} ETB
                 </p>
                 <div className="flex flex-col gap-3 border-t-2 pt-3 w-full sm:pb-4">
-                  <p className="md:w-[600px] sm:w-[90%] text-[#76A900] md:text-xl mb-4">
-                    <label className="border-none text-black">
+                  <p className="md:w-[600px] sm:w-[90%] text-[#76A900] md:text-xl mb-4 flex sm:flex-col md:flex-row items-center">
+                    <label className="border-none text-black md:p-2">
                       For more info Call:{" "}
                     </label>
                     <label className="border-none text-white p-2 bg-[#76A900] rounded-lg">
                       +251942157611
                     </label>
                   </p>
-                  <div className="flex md:gap-5 sm:gap-10 md:items-center ">
+                  <div className="flex md:gap-5 text-[1.2rem] sm:gap-2 md:items-center flex-wrap ">
                     <p className="text-black">
                       Share on
                       <FontAwesomeIcon
-                        className="ml-2 mt-1 text-xl"
+                        className="ml-2 mt-1 text-xl pr-1"
                         icon={faShareNodes}
                       />
                     </p>
