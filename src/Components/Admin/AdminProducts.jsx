@@ -6,18 +6,44 @@ import { fetchproduct } from "../../redux/eastern-light/reducer/reducer";
 import { getcategories } from "../api/auth";
 import { fetchcatagory } from "../../redux/eastern-light/reducer/reducer";
 import AdminProduct from "./AdminProduct";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
+import { faBox } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { getsearchbycat } from "../api/auth";
 import Adminnav from "../Navigations/Adminnav";
 import { Helmet } from "react-helmet-async";
 
 const AdminProducts = () => {
-  const [categorySearch, setcategorySearch] = useState({ category_id: "" });
-  const [searchmessage, setsearchmessage] = useState("");
-  const [productSearch, setproductSearch] = useState({ key: "" });
-  const [searchResult, setsearchResult] = useState([]);
-  const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.catagory);
   const { products } = useSelector((state) => state.product);
+  const sortopt = [
+    { id: "1", name: "Unordered (None)" },
+    { id: "2", name: "Ascending order ↑" },
+    { id: "3", name: "Descending order ↓ " },
+  ];
+  const categoryOpt = [
+    { id: "", name: "All" },
+    ...categories.map((category) => ({
+      id: category.id,
+      name: category.name,
+    })),
+  ];
+  const productOpt = [
+    { id: "", name: "All" },
+    ...products.map((product) => ({
+      id: product.id,
+      name: product.name,
+    })),
+  ];
+  const [categorySearch, setcategorySearch] = useState(categoryOpt[0]);
+  const [searchmessage, setsearchmessage] = useState("");
+  const [productSearch, setproductSearch] = useState(productOpt[0]);
+  const [sort, setsort] = useState(sortopt[0]);
+  const [searchResult, setsearchResult] = useState([]);
+  const dispatch = useDispatch();
+ 
+ 
   useEffect(() => {
     const pulldata = async () => {
       getproducts().then((response) => {
@@ -64,20 +90,38 @@ const AdminProducts = () => {
     }
   };
 
-  const categoryOpt = [
-    { id: "", name: "All" },
-    ...categories.map((category) => ({
-      id: category.id,
-      name: category.name,
-    })),
-  ];
-  const productOpt = [
-    { id: "", name: "All" },
-    ...products.map((product) => ({
-      id: product.id,
-      name: product.name,
-    })),
-  ];
+//sort based on views descending
+ 
+ 
+  const handlesortChange = (selectedOption) => {
+    //ascending and descending order
+    if (selectedOption) {
+      setsearchmessage("");
+      if (!selectedOption.id) {
+        setsort(selectedOption);
+      }
+      const value = selectedOption;
+      setsort(selectedOption);
+      if (value.id == "2") {
+        const sortedProducts = [...products].sort(
+          (a, b) => a.view - b.view
+        );
+        setsearchResult(sortedProducts);
+        setsearchmessage("Sort results for  " + value.name);
+      } else if (value.id == "3") {
+        //sort based on views descending
+        const sortedProducts = [...products].sort(
+          (a, b) => b.view - a.view
+        );
+        setsearchResult(sortedProducts);
+        setsearchmessage("Sort results for  " + value.name);
+      }
+      else if (value.id == "1"){
+        //when opt is all
+        setsearchResult({});
+      }
+    }
+  };
   const reversedProducts = [...products].reverse();
   return (
     <>
@@ -88,10 +132,12 @@ const AdminProducts = () => {
         id="products"
       >
         <Helmet>
-          <title>Eastern Light | Admin Products</title>
+          <title>Admin Products | Eastern Light</title>
         </Helmet>
-        <div className="flex flex-col gap-5 md:w-[35%] bg-white sm:w-[95%] md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg">
-          <label>Search by category</label>
+        <div className="flex flex-col gap-5 md:w-[35%] bg-white sm:w-[95%] md:max-w-[400px] md:h-screen m-5 border-3 p-4  shadow-lg rounded-lg text-left">
+          <label >
+            <FontAwesomeIcon icon={faFolderOpen} /> &nbsp;&nbsp; 
+            Search by category</label>
           <Select
             options={categoryOpt}
             getOptionLabel={(option) => option.name}
@@ -101,7 +147,9 @@ const AdminProducts = () => {
             onChange={handleSelectChange}
             placeholder="Search by category"
           />
-          <label>Search by product name</label>
+          <label>
+            <FontAwesomeIcon icon={faBox} /> &nbsp;&nbsp;
+            Search by product name</label>
           <Select
             options={productOpt}
             getOptionLabel={(option) => option.name}
@@ -110,6 +158,18 @@ const AdminProducts = () => {
             value={productSearch}
             onChange={handleSelectChange2}
             placeholder="Search by product name"
+          />
+          <label>
+            <FontAwesomeIcon icon={faEye} /> &nbsp;&nbsp;
+            Sort by views</label>
+          <Select
+            options={sortopt}
+            getOptionLabel={(option) => option.name}
+            getOptionValue={(option) => option.id}
+            name="key"
+            value={sort}
+            onChange={handlesortChange}
+            placeholder="Sort by views"
           />
         </div>
         <div className="flex flex-col mb-7 md:mb-20 shadow-lg md:mt-6 border-3 pb-7 rounded-lg bg-white">

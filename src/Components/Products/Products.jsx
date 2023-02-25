@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { getproducts } from "../api/auth";
+import { faBox } from "@fortawesome/free-solid-svg-icons";
+import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
 import { fetchproduct } from "../../redux/eastern-light/reducer/reducer";
 import { getcategories } from "../api/auth";
 import { fetchcatagory } from "../../redux/eastern-light/reducer/reducer";
@@ -123,8 +125,10 @@ const Products = () => {
         />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="md:fixed flex flex-col gap-5 md:w-[20%] sm:w-[91%] bg-white md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg rounded-lg">
-        <label>Search by category</label>
+      <div className="md:fixed flex flex-col gap-5 md:w-[20%] sm:w-[91%] bg-white md:max-w-[400px] md:h-screen m-5 border-3 p-4 shadow-lg text-left rounded-lg">
+        <label>
+          <FontAwesomeIcon icon={faFolderOpen} className="text-xl" /> &nbsp; &nbsp;
+          Search by category</label>
         <div className="flex w-fll justify-center items-center">
           <div className="flex border-b border-t border-l rounded-sm h-[38px] items-center">
             <FontAwesomeIcon
@@ -144,7 +148,9 @@ const Products = () => {
             placeholder="Search by category"
           />
         </div>
-        <label>Search by product name</label>
+        <label>
+          <FontAwesomeIcon icon={faBox} className="text-xl" /> &nbsp; &nbsp;
+          Search by product name</label> 
         <div className="flex w-fll justify-center items-center">
           <div className="flex border-b border-t border-l rounded-sm h-[38px] items-center">
             <FontAwesomeIcon

@@ -27,10 +27,10 @@ const AdminProduct = ({ product }) => {
     name: "",
     description: "",
     price: "",
-    category_id: "",
+    category_id: product.category_id,
     image: "",
     priority: "",
-    unit_id: "",
+    unit_id: product.unit_id,
     box: "",
     brand: "",
   });
@@ -104,7 +104,7 @@ const AdminProduct = ({ product }) => {
     <>
       <div
         className="relative flex items-center md:justify-center flex-col 
-        md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[520px]
+        md:flex-row md:gap-4 sm:gap-1 m-auto sm:w-[90%] md:w-[96%] md:h-[590px]
          sm:h-[390px] shadow-lg mt-10 md:p-7 sm:p-3 hover:border-2 border-[#76A900] rounded-2xl"
         key={product._id}
         data-aos="fade-up"
@@ -114,7 +114,7 @@ const AdminProduct = ({ product }) => {
         ) : (
           <div className="flex items-center flex-col md:gap-4 sm:gap-1">
             <p className="text-green-500">{enditMessage}</p>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" title={`${product.view} Views`}>
             <FontAwesomeIcon icon={faEye} />
             <p>{product.view}</p>
             </div>
