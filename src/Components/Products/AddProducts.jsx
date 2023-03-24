@@ -212,6 +212,11 @@ const AddProducts = () => {
                 placeholder="image"
               />
               <span className="span-slider">Image *</span>
+              {Products.image ?
+              <img src={Products.image} className="w-[200px] h-[200px] border" alt="Please add correct image URL"/>
+              : ''
+                }
+  
             </label>
             <Select
               options={priorityset}
